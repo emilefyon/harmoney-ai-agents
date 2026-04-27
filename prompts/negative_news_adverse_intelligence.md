@@ -189,20 +189,20 @@ H. Floors (AFTER mitigants, apply highest):
    - TERRORISM_CONVICTION [1] → 9
    - FINAL_CONVICTION + ACTIVE_SANCTIONS → 9
 I. Cap: `final_score = min(10, final_score)`
-J. Risk level mapping (deterministic):
-   - 1 → None | is_at_risk No
-   - 2–3 → Low | is_at_risk No
-   - 4–5 → Moderate | is_at_risk Yes
-   - 6–7 → High | is_at_risk Yes
-   - 8–10 → Critical | is_at_risk Yes
+J. Risk level mapping (deterministic, canonical 4-tier scale; score retains granularity):
+   - 1 → OFF | is_at_risk false
+   - 2–3 → Low | is_at_risk false
+   - 4–5 → Medium | is_at_risk true
+   - 6–7 → High | is_at_risk true
+   - 8–10 → High (top band) | is_at_risk true
 
 ## RECOMMENDED ACTION MAPPING
 
-- Score 1 (None): `NO_ACTION`
+- Score 1 (OFF): `NO_ACTION`
 - Score 2–3 (Low): `MONITORING_ALERT`
-- Score 4–5 (Moderate): `ENHANCED_DOCUMENT_REQUEST`. If ongoing proceedings → also `EDD_ESCALATION`.
+- Score 4–5 (Medium): `ENHANCED_DOCUMENT_REQUEST`. If ongoing proceedings → also `EDD_ESCALATION`.
 - Score 6–7 (High): `EDD_ESCALATION` + `LEGAL_COUNSEL_REFERRAL`
-- Score 8–10 (Critical): `EDD_ESCALATION` + `LEGAL_COUNSEL_REFERRAL` + `SENIOR_COMPLIANCE_REVIEW`
+- Score 8–10 (High, top band): `EDD_ESCALATION` + `LEGAL_COUNSEL_REFERRAL` + `SENIOR_COMPLIANCE_REVIEW`
 
 Override triggers (regardless of score):
 - `SANCTIONS_ACTIVE_DESIGNATION` [1] → `NO_ONBOARDING` / `EXIT_RELATIONSHIP_REVIEW` mandatory (legal obligation)
@@ -212,8 +212,8 @@ Override triggers (regardless of score):
 
 ## DEGRADED MODES
 
-- A — `HOMONYMY_UNRESOLVED`: ≥2 plausible matches unresolvable. Output `risk_level=None`, `score=1`, `is_at_risk=No`, `signals=[]`, `main_category=Traceability Limits and Absence of Signal`, action `MONITORING_ALERT`.
-- B — `NO_SIGNAL_FOUND`: entity confirmed, P1+P2+P3 exhausted, zero signals. `risk_level=None`, `score=1`, action `NO_ACTION`.
+- A — `HOMONYMY_UNRESOLVED`: ≥2 plausible matches unresolvable. Output `level=OFF`, `score=1`, `is_at_risk=false`, `distinct_signals=[]`, `main_category=Traceability Limits and Absence of Signal`, action `MONITORING_ALERT`.
+- B — `NO_SIGNAL_FOUND`: entity confirmed, P1+P2+P3 exhausted, zero signals. `level=OFF`, `score=1`, action `NO_ACTION`.
 - C — `STATUS_UNRESOLVABLE`: signal confirmed but procedural status unresolvable. Document NOT scored, `confidence=low`, action `MONITORING_ALERT`.
 - D — `JURISDICTION_SCOPE_LIMITED`: entity primary jurisdiction outside declared scope. Score only in-scope signals. Document gap. Action `ENHANCED_DOCUMENT_REQUEST`.
 
@@ -227,7 +227,7 @@ Respond ONLY with the following JSON object.
   "risk_assessment": {
     "has_new_information": false,
     "is_at_risk": false,
-    "risk_level": "Critical|High|Moderate|Low|None",
+    "level": "Low|Medium|High|OFF",
     "score": 1,
     "confidence": "HIGH|MEDIUM|LOW|INSUFFICIENT",
     "recommended_action": "NO_ACTION|MONITORING_ALERT|ENHANCED_DOCUMENT_REQUEST|EDD_ESCALATION|LEGAL_COUNSEL_REFERRAL|SENIOR_COMPLIANCE_REVIEW|NO_ONBOARDING|EXIT_RELATIONSHIP_REVIEW",
