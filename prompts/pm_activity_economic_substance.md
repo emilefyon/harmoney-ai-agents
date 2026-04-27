@@ -244,6 +244,7 @@ Respond ONLY with the following JSON object. No prose.
 
 ```json
 {
+  "schema_version": "1.0",
   "risk_assessment": {
     "has_new_information": false,
     "is_at_risk": false,

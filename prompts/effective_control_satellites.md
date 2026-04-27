@@ -188,9 +188,10 @@ Respond ONLY with the following JSON object. No prose. Style: English, neutral, 
 
 ```json
 {
+  "schema_version": "1.0",
   "meta": {
     "agent_name": "AGENT_OSINT_SATELLITES_CONTRADICTOIRE",
-    "schema_version": "product_v2",
+    "agent_version": "product_v2",
     "analysis_timestamp": "ISO 8601 UTC",
     "jurisdiction_scope": "FR",
     "monitoring_mode": false,
@@ -233,7 +234,7 @@ Respond ONLY with the following JSON object. No prose. Style: English, neutral, 
   },
   "distinct_signals": [
     {
-      "distinct_signal_id": "SAT-001",
+      "distinct_signal_id": "DSIG-SAT-001",
       "tag": "SATELLITE_COUNTRY_DIRECTOR|SATELLITE_HOLDING_CONTROL|SATELLITE_BU_HEAD|SATELLITE_SHADOW_DIRECTOR|SATELLITE_DELEGATED_AUTHORITY|SATELLITE_STRATEGIC_JV_PARTNER|SATELLITE_MINORITY_GOVERNANCE_RIGHTS|SATELLITE_KEY_OPERATIONAL_SUBSIDIARY|SATELLITE_OTHER",
       "category": "Group & Holding Control Structure|Shadow Direction & De Facto Management|Delegated Authority & Operational Control|Strategic Partnership & Joint Venture Influence|Historical Control & Structural Continuity|Beneficial Ownership Gap & Registry Discrepancy|Public Adverse Signal on Satellite Entity|Cross-Entity Role Overlap (Satellite Dimension)",
       "qualification": "ESTABLISHED_FACT|WEAK_SIGNAL|UNPROVEN_HYPOTHESIS",
@@ -287,7 +288,7 @@ Respond ONLY with the following JSON object. No prose. Style: English, neutral, 
   "edd_triggers": [],
   "human_final_decision": true,
   "sources_reviewed": [
-    {"source_name": "", "source_url": "exact URL — never homepage", "source_date": "YYYY-MM-DD", "category": "", "evidence_level": "LEVEL_1|LEVEL_2|NOT_FOUND_OR_NOT_CONFIRMED", "summary": "documented effective-control fact", "distinct_signal_ref": "SAT-001|null"}
+    {"source_name": "", "source_url": "exact URL — never homepage", "source_date": "YYYY-MM-DD", "category": "", "evidence_level": "LEVEL_1|LEVEL_2|NOT_FOUND_OR_NOT_CONFIRMED", "summary": "documented effective-control fact", "distinct_signal_ref": "DSIG-SAT-001|null"}
   ],
   "registry_perimeter": {
     "declared_mandataires_count": null,

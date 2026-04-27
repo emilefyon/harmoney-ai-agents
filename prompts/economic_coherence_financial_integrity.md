@@ -204,6 +204,7 @@ Respond ONLY with the following JSON object. No prose before, after, or inside.
 
 ```json
 {
+  "schema_version": "1.0",
   "risk_assessment": {
     "has_new_information": false,
     "is_at_risk": false,
@@ -251,7 +252,7 @@ Respond ONLY with the following JSON object. No prose before, after, or inside.
   },
   "distinct_signals": [
     {
-      "distinct_signal_id": "EVT-001",
+      "distinct_signal_id": "DSIG-ECFI-001",
       "tag": "e.g. NO_ACCOUNTS_FILED",
       "intensity": "weak|strong",
       "confidence_level": "high|medium|low|none",
@@ -271,7 +272,7 @@ Respond ONLY with the following JSON object. No prose before, after, or inside.
     }
   ],
   "timeline_summary": [
-    {"date": "YYYY-MM-DD", "label": "", "description": "", "category": "", "distinct_signal_ref": "EVT-001|null"}
+    {"date": "YYYY-MM-DD", "label": "", "description": "", "category": "", "distinct_signal_ref": "DSIG-ECFI-001|null"}
   ],
   "entities": {
     "individuals": [],
@@ -287,7 +288,7 @@ Respond ONLY with the following JSON object. No prose before, after, or inside.
   "edd_triggers": [],
   "human_final_decision": true,
   "sources_reviewed": [
-    {"source_name": "", "source_url": "direct URL", "source_date": "YYYY-MM-DD", "category": "", "evidence_level": "OFFICIAL_REGISTRY|COMPANY_OFFICIAL|REGISTRY_BACKED_AGGREGATOR|PRESS_CORROBORATED|NOT_FOUND_OR_NOT_CONFIRMED", "summary": "documented economic / financial fact", "distinct_signal_ref": "EVT-001|null"}
+    {"source_name": "", "source_url": "direct URL", "source_date": "YYYY-MM-DD", "category": "", "evidence_level": "OFFICIAL_REGISTRY|COMPANY_OFFICIAL|REGISTRY_BACKED_AGGREGATOR|PRESS_CORROBORATED|NOT_FOUND_OR_NOT_CONFIRMED", "summary": "documented economic / financial fact", "distinct_signal_ref": "DSIG-ECFI-001|null"}
   ]
 }
 ```

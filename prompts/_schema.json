@@ -1,0 +1,260 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://harmoney.io/schemas/agent-envelope/1.0.json",
+  "title": "Harmoney AI Agent Canonical Envelope",
+  "description": "Shared output contract for all 9 agents. Strict on canonical fields; agents may add domain-specific blocks at root and inside risk_assessment without invalidating.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "risk_assessment",
+    "distinct_signals",
+    "timeline_summary",
+    "entities",
+    "key_topics",
+    "needs_enhanced_due_diligence",
+    "edd_triggers",
+    "human_final_decision",
+    "sources_reviewed"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "risk_assessment": { "$ref": "#/$defs/risk_assessment" },
+    "distinct_signals": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/distinct_signal" }
+    },
+    "timeline_summary": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/timeline_entry" }
+    },
+    "entities": { "$ref": "#/$defs/entities" },
+    "key_topics": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/key_topic" }
+    },
+    "needs_enhanced_due_diligence": { "type": "boolean" },
+    "edd_triggers": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "human_final_decision": { "const": true },
+    "sources_reviewed": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/source_review" }
+    }
+  },
+  "$defs": {
+    "iso_date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "distinct_signal_id": {
+      "type": "string",
+      "pattern": "^DSIG-[A-Z]+-\\d{3,}$"
+    },
+    "distinct_signal_ref": {
+      "anyOf": [
+        { "$ref": "#/$defs/distinct_signal_id" },
+        { "type": "null" }
+      ]
+    },
+    "qualification": {
+      "enum": ["ESTABLISHED_FACT", "WEAK_SIGNAL", "UNPROVEN_HYPOTHESIS"]
+    },
+    "confidence_caps": {
+      "enum": ["HIGH", "MEDIUM", "LOW", "INSUFFICIENT"]
+    },
+    "confidence_level_lower": {
+      "enum": ["high", "medium", "low", "none"]
+    },
+    "intensity": {
+      "enum": ["weak", "strong", "critical"]
+    },
+    "temporal_weight": {
+      "enum": ["full", "recent", "normal", "reduced"]
+    },
+    "level": {
+      "enum": ["Low", "Medium", "High", "OFF"]
+    },
+    "vigilance": {
+      "enum": ["Low", "Standard", "Moderate", "High", "OFF"]
+    },
+    "risk_assessment": {
+      "type": "object",
+      "required": [
+        "has_new_information",
+        "is_at_risk",
+        "level",
+        "score",
+        "confidence",
+        "recommended_action",
+        "summary",
+        "main_category",
+        "human_final_decision",
+        "degraded_mode",
+        "score_breakdown",
+        "traceability_limits"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "has_new_information": { "type": "boolean" },
+        "is_at_risk": { "type": "boolean" },
+        "level": { "$ref": "#/$defs/level" },
+        "score": {
+          "anyOf": [
+            { "type": "integer", "minimum": 1, "maximum": 10 },
+            { "type": "null" }
+          ]
+        },
+        "confidence": { "$ref": "#/$defs/confidence_caps" },
+        "recommended_action": { "type": "string" },
+        "recommended_action_detail": { "type": "string" },
+        "summary": { "type": "string" },
+        "main_category": { "type": "string" },
+        "human_final_decision": { "const": true },
+        "vigilance": { "$ref": "#/$defs/vigilance" },
+        "degraded_mode": {
+          "type": "object",
+          "required": ["active", "type", "reason"],
+          "additionalProperties": false,
+          "properties": {
+            "active": { "type": "boolean" },
+            "type": { "type": "string" },
+            "reason": { "type": "string" }
+          }
+        },
+        "score_breakdown": {
+          "anyOf": [
+            { "type": "object" },
+            { "type": "null" }
+          ]
+        },
+        "traceability_limits": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "known_limits": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "evidence_source": {
+      "type": "object",
+      "required": ["source_name", "source_url", "source_date", "evidence_level"],
+      "additionalProperties": true,
+      "properties": {
+        "source_name": { "type": "string" },
+        "source_url": { "type": "string" },
+        "source_date": { "$ref": "#/$defs/iso_date" },
+        "evidence_level": { "type": "string" }
+      }
+    },
+    "distinct_signal": {
+      "type": "object",
+      "required": [
+        "distinct_signal_id",
+        "tag",
+        "category",
+        "qualification",
+        "intensity",
+        "confidence_level",
+        "temporal_weight",
+        "score_assigned",
+        "explanation",
+        "evidence_sources"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "distinct_signal_id": { "$ref": "#/$defs/distinct_signal_id" },
+        "tag": { "type": "string" },
+        "category": { "type": "string" },
+        "qualification": { "$ref": "#/$defs/qualification" },
+        "intensity": { "$ref": "#/$defs/intensity" },
+        "confidence_level": { "$ref": "#/$defs/confidence_level_lower" },
+        "temporal_weight": { "$ref": "#/$defs/temporal_weight" },
+        "score_assigned": { "type": "number" },
+        "explanation": { "type": "string" },
+        "evidence_sources": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/evidence_source" }
+        }
+      }
+    },
+    "timeline_entry": {
+      "type": "object",
+      "required": [
+        "date",
+        "label",
+        "description",
+        "category",
+        "qualification",
+        "confidence",
+        "distinct_signal_ref"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "date": { "$ref": "#/$defs/iso_date" },
+        "label": { "type": "string" },
+        "description": { "type": "string" },
+        "category": { "type": "string" },
+        "qualification": { "$ref": "#/$defs/qualification" },
+        "confidence": { "$ref": "#/$defs/confidence_caps" },
+        "distinct_signal_ref": { "$ref": "#/$defs/distinct_signal_ref" }
+      }
+    },
+    "entities": {
+      "type": "object",
+      "required": ["individuals", "organizations", "locations"],
+      "additionalProperties": false,
+      "properties": {
+        "individuals": {
+          "type": "array",
+          "items": { "type": "object", "additionalProperties": true }
+        },
+        "organizations": {
+          "type": "array",
+          "items": { "type": "object", "additionalProperties": true }
+        },
+        "locations": {
+          "type": "array",
+          "items": { "type": "object", "additionalProperties": true }
+        }
+      }
+    },
+    "key_topic": {
+      "type": "object",
+      "required": ["topic", "summary"],
+      "additionalProperties": true,
+      "properties": {
+        "topic": { "type": "string" },
+        "summary": { "type": "string" }
+      }
+    },
+    "source_review": {
+      "type": "object",
+      "required": [
+        "source_name",
+        "source_url",
+        "source_date",
+        "category",
+        "evidence_level",
+        "summary",
+        "distinct_signal_ref"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "source_name": { "type": "string" },
+        "source_url": { "type": "string" },
+        "source_date": { "$ref": "#/$defs/iso_date" },
+        "category": { "type": "string" },
+        "evidence_level": { "type": "string" },
+        "summary": { "type": "string" },
+        "distinct_signal_ref": { "$ref": "#/$defs/distinct_signal_ref" }
+      }
+    }
+  }
+}

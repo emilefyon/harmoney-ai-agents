@@ -12,11 +12,28 @@ This file is the contract for downstream consumers (API wrapper, dashboards, ale
 - **Numbers:** integers where appropriate (counts, scores). Fields that may be unset use `null` rather than `0`.
 - **URLs:** must point to the **exact source page** (article, filing, register entry) — never a homepage.
 - **Strings with `|` separators** in the schema below describe the closed enum of allowed values; the agent returns ONE of them, not the literal string.
+- **Schema version:** every output carries `"schema_version": "1.0"` at the root. Bump on any breaking envelope change.
+- **`distinct_signal_id` format:** `DSIG-{AGENT_CODE}-{NNN}` where `AGENT_CODE` matches `[A-Z]+` and `NNN` is a zero-padded sequence (3+ digits). Codes per agent:
+
+  | Agent | code |
+  |---|---|
+  | `economic_coherence_financial_integrity` | `ECFI` |
+  | `business_relationships_vigilance` | `BRV` |
+  | `company_network_multiplicity` | `CNM` |
+  | `negative_news_adverse_intelligence` | `NN` |
+  | `effective_control_satellites` | `SAT` |
+  | `pm_activity_economic_substance` | `ACT` |
+  | `regulatory_signals_sanctions` | `REG` |
+  | `domiciliation_risk_pm` | `DOMPM` |
+  | `domiciliation_risk_pp` | `DOMPP` |
+
+  Full regex: `^DSIG-[A-Z]+-\d{3,}$`. Ids are unique within one agent's output; cross-agent uniqueness is guaranteed by the agent prefix.
 
 ## Root-level keys (canonical envelope)
 
 ```json
 {
+  "schema_version": "1.0",
   "risk_assessment": { ... },
   "distinct_signals": [ ... ],
   "timeline_summary": [ ... ],
@@ -30,6 +47,10 @@ This file is the contract for downstream consumers (API wrapper, dashboards, ale
 ```
 
 Plus, for each agent, **zero or more domain-specific blocks at root**.
+
+### `schema_version`
+
+String literal `"1.0"`. Bumped on any breaking change to the canonical envelope (renamed/removed root keys, type changes on canonical fields). Adding new optional fields or new agent-specific domain blocks does not require a bump.
 
 ### `risk_assessment`
 
@@ -47,7 +68,7 @@ Plus, for each agent, **zero or more domain-specific blocks at root**.
   "human_final_decision": true,
   "degraded_mode": {
     "active": false,
-    "type": "agent-specific enum",
+    "type": "NONE|HOMONYMY_UNRESOLVED|NO_SIGNAL_FOUND|STATUS_UNRESOLVABLE|JURISDICTION_SCOPE_LIMITED|FOREIGN_REGISTRY_INACCESSIBLE|NO_ADDRESS_CONFIRMED|<agent-extension>",
     "reason": ""
   },
   "score_breakdown": { /* agent-specific numeric breakdown OR null for qualitative agents */ },
@@ -59,6 +80,7 @@ Plus, for each agent, **zero or more domain-specific blocks at root**.
 - `score_breakdown`: structured object for quantitative agents; `null` for qualitative agents.
 - `vigilance` (additional field, used by some agents): `Low|Standard|Moderate|High|OFF`.
 - `monitoring_mode_active`, `jurisdiction_scope_applied`, `multi_address_analysis`: additional agent-specific flags inside `risk_assessment`.
+- `degraded_mode.type`: shared base values are listed above. Each agent may extend with domain-specific values (e.g. `DIRECTOR_UNIDENTIFIABLE`, `OPERATOR_UNIDENTIFIABLE`, `PM_IDENTITY_UNRESOLVABLE`). The full per-agent enumeration lives in `_enum_registry.md`.
 
 ### `distinct_signals`
 
@@ -178,18 +200,24 @@ Replaces the legacy field name `articles_analyzed` (the rename was applied in 20
 | `domiciliation_risk_pm` | (additional sub-blocks live inside `risk_assessment`: `address_analysis`, `operator_analysis`, `address_osint_consistency`) |
 | `domiciliation_risk_pp` | (additional sub-blocks live inside `risk_assessment`: `anchoring_analysis`, `address_analysis`) |
 
+## Companion files
+
+- **`_schema.json`** — JSON Schema (draft 2020-12) for the canonical envelope. Strict on canonical fields, lenient on agent-specific domain blocks. Use this in the API wrapper for runtime validation.
+- **`_enum_registry.md`** — documentation-only inventory of enum values per field per agent (`category`, `tag`, `evidence_level`, `recommended_action`, `degraded_mode.type`, etc.). Not runtime-enforced; consult when building typed clients or when investigating a model drift.
+
 ## Validation pseudo-code (for the API wrapper)
 
 ```js
 function validateCanonicalEnvelope(json) {
   const required = [
-    "risk_assessment", "distinct_signals", "timeline_summary",
+    "schema_version", "risk_assessment", "distinct_signals", "timeline_summary",
     "entities", "key_topics", "needs_enhanced_due_diligence",
     "edd_triggers", "human_final_decision", "sources_reviewed",
   ];
   for (const k of required) {
     if (!(k in json)) throw new Error(`missing root key: ${k}`);
   }
+  if (json.schema_version !== "1.0") throw new Error(`unsupported schema_version: ${json.schema_version}`);
   if (typeof json.human_final_decision !== "boolean") throw new Error("human_final_decision must be boolean");
   if (typeof json.needs_enhanced_due_diligence !== "boolean") throw new Error("needs_enhanced_due_diligence must be boolean");
   if (!Array.isArray(json.distinct_signals)) throw new Error("distinct_signals must be array");

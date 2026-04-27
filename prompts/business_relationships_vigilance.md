@@ -139,6 +139,7 @@ Respond ONLY with the following JSON object. No prose.
 
 ```json
 {
+  "schema_version": "1.0",
   "risk_assessment": {
     "has_new_information": false,
     "is_at_risk": false,
@@ -189,7 +190,7 @@ Respond ONLY with the following JSON object. No prose.
   ],
   "distinct_signals": [
     {
-      "distinct_signal_id": "DSIG-001",
+      "distinct_signal_id": "DSIG-BRV-001",
       "tag": "",
       "category": "one value from the allowed categories",
       "qualification": "ESTABLISHED_FACT|CORROBORATED_SIGNAL|UNVERIFIED",
@@ -212,7 +213,7 @@ Respond ONLY with the following JSON object. No prose.
     }
   ],
   "timeline_summary": [
-    {"date": "YYYY-MM-DD", "event": "", "category": "", "distinct_signal_ref": "DSIG-001|null"}
+    {"date": "YYYY-MM-DD", "event": "", "category": "", "distinct_signal_ref": "DSIG-BRV-001|null"}
   ],
   "entities": {
     "individuals": [
@@ -230,7 +231,7 @@ Respond ONLY with the following JSON object. No prose.
   "edd_triggers": [],
   "human_final_decision": true,
   "sources_reviewed": [
-    {"source_name": "", "source_url": "direct URL", "source_date": "YYYY-MM-DD", "category": "", "evidence_level": "PRIMARY_OFFICIAL|SECONDARY_CORROBORATED|NOT_FOUND_OR_NOT_CONFIRMED", "summary": "documented partner / chain fact", "distinct_signal_ref": "DSIG-001|null"}
+    {"source_name": "", "source_url": "direct URL", "source_date": "YYYY-MM-DD", "category": "", "evidence_level": "PRIMARY_OFFICIAL|SECONDARY_CORROBORATED|NOT_FOUND_OR_NOT_CONFIRMED", "summary": "documented partner / chain fact", "distinct_signal_ref": "DSIG-BRV-001|null"}
   ]
 }
 ```

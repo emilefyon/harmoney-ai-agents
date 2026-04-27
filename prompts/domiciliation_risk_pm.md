@@ -219,6 +219,7 @@ Respond ONLY with the following JSON object. No prose.
 
 ```json
 {
+  "schema_version": "1.0",
   "risk_assessment": {
     "has_new_information": false,
     "is_at_risk": false,
@@ -290,7 +291,7 @@ Respond ONLY with the following JSON object. No prose.
   },
   "distinct_signals": [
     {
-      "distinct_signal_id": "DSIG-001",
+      "distinct_signal_id": "DSIG-DOMPM-001",
       "tag": "e.g. MASS_CODOMICILIATION|OPERATOR_NO_SIREN|ADVERSE_MENTION_OPERATOR_CONFIRMED|OFFSHORE_ADDRESS",
       "category": "one value from the allowed categories",
       "qualification": "ESTABLISHED_FACT|WEAK_SIGNAL|UNPROVEN_HYPOTHESIS",
@@ -306,7 +307,7 @@ Respond ONLY with the following JSON object. No prose.
     }
   ],
   "timeline_summary": [
-    {"date": "YYYY-MM-DD", "label": "", "description": "", "category": "", "qualification": "ESTABLISHED_FACT|WEAK_SIGNAL|UNPROVEN_HYPOTHESIS", "confidence": "HIGH|MEDIUM|LOW|INSUFFICIENT", "distinct_signal_ref": "DSIG-001|null"}
+    {"date": "YYYY-MM-DD", "label": "", "description": "", "category": "", "qualification": "ESTABLISHED_FACT|WEAK_SIGNAL|UNPROVEN_HYPOTHESIS", "confidence": "HIGH|MEDIUM|LOW|INSUFFICIENT", "distinct_signal_ref": "DSIG-DOMPM-001|null"}
   ],
   "entities": {
     "individuals": [],
@@ -320,7 +321,7 @@ Respond ONLY with the following JSON object. No prose.
   "edd_triggers": [],
   "human_final_decision": true,
   "sources_reviewed": [
-    {"source_name": "", "source_url": "", "source_date": "YYYY-MM-DD", "category": "", "source_type": "PRIMARY|SECONDARY_ADMISSIBLE|VISUAL_DESCRIPTIVE", "evidence_level": "PRIMARY_OFFICIAL_REGISTRY|SECONDARY_CORROBORATED|VISUAL_OBSERVATION|NOT_FOUND_OR_NOT_CONFIRMED", "summary": "", "distinct_signal_ref": "DSIG-001|null"}
+    {"source_name": "", "source_url": "", "source_date": "YYYY-MM-DD", "category": "", "source_type": "PRIMARY|SECONDARY_ADMISSIBLE|VISUAL_DESCRIPTIVE", "evidence_level": "PRIMARY_OFFICIAL_REGISTRY|SECONDARY_CORROBORATED|VISUAL_OBSERVATION|NOT_FOUND_OR_NOT_CONFIRMED", "summary": "", "distinct_signal_ref": "DSIG-DOMPM-001|null"}
   ]
 }
 ```

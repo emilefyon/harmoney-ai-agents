@@ -237,6 +237,7 @@ Respond ONLY with the following JSON object. No prose.
 
 ```json
 {
+  "schema_version": "1.0",
   "risk_assessment": {
     "has_new_information": false,
     "is_at_risk": false,
@@ -327,7 +328,7 @@ Respond ONLY with the following JSON object. No prose.
   },
   "distinct_signals": [
     {
-      "distinct_signal_id": "SIG-001",
+      "distinct_signal_id": "DSIG-CNM-001",
       "tag": "",
       "intensity": "weak|strong",
       "confidence_level": "high|medium|low|none",
@@ -343,7 +344,7 @@ Respond ONLY with the following JSON object. No prose.
     }
   ],
   "timeline_summary": [
-    {"date": "YYYY-MM-DD", "label": "", "description": "", "category": "", "distinct_signal_ref": "SIG-001|null"}
+    {"date": "YYYY-MM-DD", "label": "", "description": "", "category": "", "distinct_signal_ref": "DSIG-CNM-001|null"}
   ],
   "entities": {
     "individuals": [
@@ -361,7 +362,7 @@ Respond ONLY with the following JSON object. No prose.
   "edd_triggers": [],
   "human_final_decision": true,
   "sources_reviewed": [
-    {"source_name": "", "source_url": "direct URL to the exact page", "source_date": "YYYY-MM-DD", "category": "", "evidence_level": "OFFICIAL_REGISTRY|PRESS_CORROBORATED|UNCONFIRMED|NOT_FOUND_OR_NOT_CONFIRMED", "summary": "documented network fact", "distinct_signal_ref": "SIG-001|null"}
+    {"source_name": "", "source_url": "direct URL to the exact page", "source_date": "YYYY-MM-DD", "category": "", "evidence_level": "OFFICIAL_REGISTRY|PRESS_CORROBORATED|UNCONFIRMED|NOT_FOUND_OR_NOT_CONFIRMED", "summary": "documented network fact", "distinct_signal_ref": "DSIG-CNM-001|null"}
   ]
 }
 ```
