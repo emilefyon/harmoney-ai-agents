@@ -112,7 +112,7 @@ export async function loadPrompt(promptsDir, name) {
 export async function listPrompts(promptsDir) {
   const entries = await readdir(promptsDir, { withFileTypes: true });
   return entries
-    .filter((e) => e.isFile() && e.name.endsWith('.md'))
+    .filter((e) => e.isFile() && e.name.endsWith('.md') && !e.name.startsWith('_'))
     .map((e) => e.name.replace(/\.md$/, ''))
     .sort();
 }
