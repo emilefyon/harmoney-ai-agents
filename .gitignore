@@ -4,6 +4,7 @@ node_modules/
 .api-port
 *.log
 .DS_Store
+.claude/
 
 
 .docs

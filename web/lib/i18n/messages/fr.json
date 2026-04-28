@@ -1,83 +1,134 @@
 {
   "nav": {
-    "home": "Home",
+    "home": "Accueil",
     "agents": "Agents",
-    "playground": "Playground",
-    "docs": "API docs"
+    "playground": "Atelier",
+    "docs": "Documentation API"
   },
   "common": {
-    "tryItCta": "Try this agent",
-    "viewAllAgents": "View all 9 agents",
-    "openPlayground": "Open the playground",
-    "loading": "Loading…",
-    "error": "Something went wrong",
-    "errorRequestId": "Request ID: {id}",
+    "tryItCta": "Essayer cet agent",
+    "viewAllAgents": "Voir les 9 agents",
+    "openPlayground": "Ouvrir l'atelier",
+    "loading": "Chargement…",
+    "error": "Une erreur est survenue",
+    "errorRequestId": "ID de requête : {id}",
     "draftBanner": "Traduction en cours — contenu affiché en anglais."
   },
   "home": {
     "heroEyebrow": "Harmoney AI Vigilance Agents",
-    "heroTitle": "A library of 9 specialised AML/CFT agents — auditable, primary-sourced, reviewer-ready.",
-    "heroSubtitle": "Compress hours of manual KYC/KYB work into structured evidence a compliance officer can sign off on.",
-    "heroCtaPrimary": "Explore the agents",
-    "heroCtaSecondary": "Open the playground",
-    "valuePropsTitle": "Why these agents",
+    "heroTitle": "Une bibliothèque de 9 agents LCB-FT spécialisés — auditables, à partir de sources primaires, prêts pour revue.",
+    "heroSubtitle": "Réduisez des heures de travail KYC/KYB manuel à des éléments probants structurés que le responsable conformité peut valider.",
+    "heroCtaPrimary": "Découvrir les agents",
+    "heroCtaSecondary": "Ouvrir l'atelier",
+    "valuePropsTitle": "Pourquoi ces agents",
     "valueProps": {
       "sources": {
-        "title": "Primary sources only",
-        "body": "Official registries, regulator communications, sanctions lists, judicial publications, and tier-1 press citing official sources. Never social media, blogs or forums."
+        "title": "Sources primaires uniquement",
+        "body": "Registres officiels, communications des régulateurs, listes de sanctions, publications judiciaires et presse de référence citant des sources officielles. Jamais de réseaux sociaux, blogs ou forums."
       },
       "scoring": {
-        "title": "Consistent scoring",
-        "body": "Quantitative thresholds, dominant-signal logic, mitigants applied before floors, floors before caps. Two analysts on the same review get the same risk grade."
+        "title": "Scoring cohérent",
+        "body": "Seuils quantitatifs, logique du signal dominant, mitigants appliqués avant les planchers, planchers avant les plafonds. Deux analystes sur la même revue obtiennent le même niveau de risque."
       },
       "trail": {
-        "title": "Full citation trail",
-        "body": "Every material statement is cited — source name, direct page link, and the date the source was published. Reproducible line by line."
+        "title": "Piste de citation complète",
+        "body": "Chaque affirmation matérielle est citée — nom de la source, lien direct vers la page et date de publication de la source. Reproductible ligne par ligne."
       },
       "human": {
-        "title": "Human-in-the-loop",
-        "body": "Decision support for a compliance reviewer, never an automated compliance verdict. The reviewer always signs off."
+        "title": "Supervision humaine",
+        "body": "Aide à la décision pour l'analyste conformité, jamais un verdict de conformité automatisé. L'analyste valide toujours."
       }
     },
-    "agentsPreviewTitle": "Meet the 9 agents",
-    "agentsPreviewSubtitle": "Run any agent on demand for a single counterparty, or chain several together for a high-risk file.",
-    "methodologyTitle": "Shared methodology",
-    "methodologyBody": "Every agent applies the same admissible-source rules. Official registries and regulator or judicial communications are treated as authoritative. Press is admissible only when it corroborates an official source. Aggregators are admissible only when cross-referenced with a primary source. Findings from different agents combine into a single risk file on the same entity, scored on the same scale."
+    "agentsPreviewTitle": "Découvrez les 9 agents",
+    "agentsPreviewSubtitle": "Lancez n'importe quel agent à la demande pour une seule contrepartie, ou enchaînez-en plusieurs pour un dossier à risque élevé.",
+    "methodologyTitle": "Méthodologie partagée",
+    "methodologyBody": "Chaque agent applique les mêmes règles de sources admissibles. Les registres officiels et les communications des régulateurs ou autorités judiciaires sont considérés comme faisant autorité. La presse n'est admissible que lorsqu'elle corrobore une source officielle. Les agrégateurs ne sont admissibles que lorsqu'ils sont recoupés avec une source primaire. Les conclusions des différents agents se combinent en un dossier de risque unique sur la même entité, noté sur la même échelle."
   },
   "agents": {
-    "galleryTitle": "The 9 vigilance agents",
-    "gallerySubtitle": "Each agent applies the same source discipline and qualification scale, but covers a different risk surface.",
-    "filterAll": "All",
+    "galleryTitle": "Les 9 agents de vigilance",
+    "gallerySubtitle": "Chaque agent applique la même discipline de sources et la même échelle de qualification, mais couvre une surface de risque différente.",
+    "filterAll": "Tous",
     "filterOnboarding": "Onboarding",
-    "filterPeriodic": "Periodic review",
+    "filterPeriodic": "Revue périodique",
     "filterEdd": "EDD",
     "filterSanctions": "Sanctions",
-    "bestUsedFor": "Best used for"
+    "bestUsedFor": "Idéal pour"
   },
   "agentPage": {
-    "whatItCovers": "What it covers",
-    "methodology": "Methodology",
-    "sampleOutput": "Sample output",
-    "sampleOutputBody": "A real envelope from a previous run, rendered through the same viewer used in the playground.",
-    "sampleOutputMissing": "Sample output coming soon for this agent.",
-    "tryCta": "Run this agent in the playground"
+    "whatItCovers": "Ce qu'il couvre",
+    "methodology": "Méthodologie",
+    "sampleOutput": "Exemple de sortie",
+    "sampleOutputBody": "Une enveloppe réelle issue d'une exécution précédente, rendue via le même visualiseur que celui utilisé dans l'atelier.",
+    "sampleOutputMissing": "Exemple de sortie bientôt disponible pour cet agent.",
+    "tryCta": "Lancer cet agent dans l'atelier",
+    "allAgents": "Tous les agents"
+  },
+  "agentMeta": {
+    "business-relationships-vigilance": {
+      "title": "Vigilance Relations d'affaires & Chaîne de valeur",
+      "tagline": "Cartographie les partenaires financiers, fournisseurs, distributeurs et tech-infrastructure d'une personne morale — et révèle le risque LCB-FT caché dans sa chaîne de valeur."
+    },
+    "company-network-multiplicity": {
+      "title": "Vigilance Multiplicité des réseaux de sociétés",
+      "tagline": "Détecte les schémas de société écran à travers les réseaux de mandats dirigeants/UBO, les adresses récurrentes, les anomalies de registre et la densité de la chaîne de contrôle."
+    },
+    "domiciliation-risk-pm": {
+      "title": "Risque de domiciliation PM",
+      "tagline": "Densité d'adresse, co-domiciliation, type d'opérateur, hubs de domiciliation de masse et mentions adverses sur l'adresse pour les personnes morales."
+    },
+    "domiciliation-risk-pp": {
+      "title": "Risque de domiciliation PP",
+      "tagline": "Adresse déclarée, domiciliation par un tiers, incohérence de juridiction et mentions adverses sur l'adresse pour les personnes physiques."
+    },
+    "economic-coherence-financial-integrity": {
+      "title": "Cohérence économique & Intégrité financière",
+      "tagline": "Comptes déposés, cohérence capital / chiffre d'affaires, flux intragroupes, dormance et anomalies financières structurelles."
+    },
+    "effective-control-satellites": {
+      "title": "Satellites de contrôle effectif (KYB contradictoire)",
+      "tagline": "Personnes exerçant un contrôle effectif autrement que par une détention supérieure à 25 % : directeurs pays, véhicules de portage, dirigeants de fait, partenaires de coentreprise."
+    },
+    "negative-news": {
+      "title": "Negative News & Renseignement défavorable",
+      "tagline": "Renseignement défavorable judiciaire, régulatoire, pénal et réputationnel sur 14 typologies — blanchiment, corruption, fraude, sanctions, cybercriminalité et plus encore."
+    },
+    "pm-activity-economic-substance": {
+      "title": "Activité PM & Substance économique",
+      "tagline": "Cycle de vie, schémas de dissolution, continuité des dépôts, substance économique et indicateurs de coquille / société éphémère."
+    },
+    "regulatory-signals-sanctions": {
+      "title": "Signaux régulatoires LCB-FT & Sanctions",
+      "tagline": "Sanctions des régulateurs, mises en demeure, retraits d'agrément, procédures pénales LCB-FT, gels des avoirs et inscriptions sur listes de surveillance."
+    }
+  },
+  "useCases": {
+    "onboarding": "Entrée en relation",
+    "periodic": "Revue périodique",
+    "edd": "Diligence renforcée",
+    "sanctions": "Filtrage des sanctions",
+    "tprm": "Risque tiers"
+  },
+  "appliesTo": {
+    "PHYSIQUE": "PP",
+    "MORALE": "PM",
+    "BOTH": "PP / PM"
   },
   "playground": {
-    "title": "Playground",
-    "subtitle": "Pick an agent, fill the form, run a real query against the local API.",
-    "pickAgent": "Pick an agent",
-    "settings": "Advanced settings",
-    "language": "Output language",
-    "model": "Model",
-    "temperature": "Temperature",
-    "run": "Run agent",
-    "running": "Running…",
+    "title": "Atelier",
+    "subtitle": "Choisissez un agent, remplissez le formulaire, lancez une vraie requête contre l'API locale.",
+    "pickAgent": "Choisir un agent",
+    "settings": "Paramètres avancés",
+    "language": "Langue de sortie",
+    "model": "Modèle",
+    "temperature": "Température",
+    "run": "Lancer l'agent",
+    "running": "Exécution en cours…",
     "runningHint": "La recherche approfondie peut prendre 30 s à 2 min.",
     "runningElapsed": "Écoulé : {duration}",
-    "noResultYet": "Run the agent to see results here.",
-    "saveRun": "Save run",
-    "exportJson": "Export JSON",
-    "copyLink": "Copy link",
+    "noResultYet": "Lancez l'agent pour voir les résultats ici.",
+    "saveRun": "Enregistrer l'exécution",
+    "exportJson": "Exporter JSON",
+    "copyLink": "Copier le lien",
     "promptTitle": "Voir le prompt",
     "promptOpen": "Afficher",
     "promptSystem": "Prompt système",
@@ -88,55 +139,55 @@
     "rawOnlyEmpty": "(aucun contenu)"
   },
   "form": {
-    "subjectType": "Subject type",
-    "fullName": "Full name",
+    "subjectType": "Type de sujet",
+    "fullName": "Nom complet",
     "fullNamePlaceholder": "Jane Doe / ACME SA",
-    "country": "Country",
+    "country": "Pays",
     "countryPlaceholder": "FR, BE, LU…",
-    "dateOfBirth": "Date of birth",
-    "nationality": "Nationality",
-    "registryId": "Registry ID",
-    "registryIdPlaceholder": "SIREN, LEI, KvK number…",
-    "functionOrRole": "Function or role",
-    "activity": "Activity",
-    "aliases": "Aliases (comma-separated)",
-    "jurisdictionScope": "Jurisdiction scope",
-    "monitoringMode": "Monitoring mode",
-    "additionalContext": "Additional context",
-    "additionalContextPlaceholder": "Anything else the agent should know…",
-    "required": "Required"
+    "dateOfBirth": "Date de naissance",
+    "nationality": "Nationalité",
+    "registryId": "Identifiant registre",
+    "registryIdPlaceholder": "SIREN, LEI, numéro KvK…",
+    "functionOrRole": "Fonction ou rôle",
+    "activity": "Activité",
+    "aliases": "Alias (séparés par des virgules)",
+    "jurisdictionScope": "Périmètre de juridiction",
+    "monitoringMode": "Mode de surveillance",
+    "additionalContext": "Contexte additionnel",
+    "additionalContextPlaceholder": "Toute autre information utile à l'agent…",
+    "required": "Obligatoire"
   },
   "result": {
     "metaCompletedIn": "Terminé en {duration}",
     "metaCost": "Coût estimé {amount}",
     "metaCostHint": "Basé sur la consommation de jetons rapportée et les tarifs publiés — à titre indicatif uniquement.",
-    "tabSummary": "Summary",
-    "tabRaw": "Raw JSON",
-    "riskLevel": "Risk level",
+    "tabSummary": "Synthèse",
+    "tabRaw": "JSON brut",
+    "riskLevel": "Niveau de risque",
     "riskScore": "Score",
-    "confidence": "Confidence",
-    "recommendedAction": "Recommended action",
-    "summary": "Summary",
-    "eddBanner": "Enhanced Due Diligence recommended",
-    "signalsTitle": "Distinct signals",
-    "signalsEmpty": "No distinct signals.",
+    "confidence": "Confiance",
+    "recommendedAction": "Action recommandée",
+    "summary": "Synthèse",
+    "eddBanner": "Diligence renforcée recommandée",
+    "signalsTitle": "Signaux distincts",
+    "signalsEmpty": "Aucun signal distinct.",
     "qualification": "Qualification",
-    "intensity": "Intensity",
-    "evidence": "Evidence",
-    "sourcesTitle": "Sources reviewed",
-    "sourcesEmpty": "No sources listed.",
+    "intensity": "Intensité",
+    "evidence": "Preuves",
+    "sourcesTitle": "Sources consultées",
+    "sourcesEmpty": "Aucune source listée.",
     "sourceDate": "Date",
-    "sourceCategory": "Category",
-    "topicsTitle": "Key topics",
-    "copy": "Copy",
-    "copied": "Copied",
-    "download": "Download .json",
+    "sourceCategory": "Catégorie",
+    "topicsTitle": "Sujets clés",
+    "copy": "Copier",
+    "copied": "Copié",
+    "download": "Télécharger .json",
     "downloadPdf": "Télécharger PDF",
     "downloadPdfPending": "Génération du PDF…",
     "downloadPdfError": "Impossible de générer le PDF."
   },
   "footer": {
-    "tagline": "Smarter workflows. Better decisions.",
+    "tagline": "Des workflows plus intelligents. De meilleures décisions.",
     "rights": "© Harmoney"
   }
 }

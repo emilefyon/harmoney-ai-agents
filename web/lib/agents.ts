@@ -133,11 +133,3 @@ export const AGENTS: AgentMeta[] = [
 export function getAgent(slug: string): AgentMeta | undefined {
   return AGENTS.find((a) => a.slug === slug);
 }
-
-export const USE_CASE_LABELS: Record<AgentUseCase, string> = {
-  onboarding: 'KYB / KYC onboarding',
-  periodic: 'Periodic review',
-  edd: 'Enhanced Due Diligence',
-  sanctions: 'Sanctions screening',
-  tprm: 'Third-party risk',
-};

@@ -60,7 +60,58 @@
     "sampleOutput": "Sample output",
     "sampleOutputBody": "A real envelope from a previous run, rendered through the same viewer used in the playground.",
     "sampleOutputMissing": "Sample output coming soon for this agent.",
-    "tryCta": "Run this agent in the playground"
+    "tryCta": "Run this agent in the playground",
+    "allAgents": "All agents"
+  },
+  "agentMeta": {
+    "business-relationships-vigilance": {
+      "title": "Business Relationships & Value Chain Vigilance",
+      "tagline": "Maps a legal entity's financial, supplier, distribution and tech-infrastructure partners — and surfaces the AML/CFT risk hidden in its value chain."
+    },
+    "company-network-multiplicity": {
+      "title": "Company Network Multiplicity Vigilance",
+      "tagline": "Detects shell-company patterns through director/UBO mandate networks, recurring addresses, registry anomalies and control-chain density."
+    },
+    "domiciliation-risk-pm": {
+      "title": "PM Domiciliation Risk",
+      "tagline": "Address density, co-domiciliation, operator type, mass-domiciliation hubs and adverse address mentions for legal entities."
+    },
+    "domiciliation-risk-pp": {
+      "title": "PP Domiciliation Risk",
+      "tagline": "Declared address, third-party domiciliation, jurisdiction mismatch and adverse address-link mentions for natural persons."
+    },
+    "economic-coherence-financial-integrity": {
+      "title": "Economic Coherence & Financial Integrity",
+      "tagline": "Filed accounts, capital and revenue coherence, intragroup flows, dormancy and structural financial anomalies."
+    },
+    "effective-control-satellites": {
+      "title": "Effective Control Satellites (Contradictory KYB)",
+      "tagline": "Persons exercising effective control through means other than >25% ownership: country directors, holding vehicles, shadow directors, JV partners."
+    },
+    "negative-news": {
+      "title": "Negative News & Adverse Intelligence",
+      "tagline": "Judicial, regulatory, criminal and reputational adverse intelligence across 14 typologies — laundering, corruption, fraud, sanctions, cybercrime and more."
+    },
+    "pm-activity-economic-substance": {
+      "title": "PM Activity & Economic Substance",
+      "tagline": "Lifecycle, dissolution patterns, filing continuity, economic substance and shell/ephemeral indicators."
+    },
+    "regulatory-signals-sanctions": {
+      "title": "AML/CFT Regulatory Signals & Sanctions",
+      "tagline": "Regulator sanctions, formal notices, licence withdrawals, AML criminal proceedings, asset freezes and watchlist designations."
+    }
+  },
+  "useCases": {
+    "onboarding": "KYB / KYC onboarding",
+    "periodic": "Periodic review",
+    "edd": "Enhanced Due Diligence",
+    "sanctions": "Sanctions screening",
+    "tprm": "Third-party risk"
+  },
+  "appliesTo": {
+    "PHYSIQUE": "PP",
+    "MORALE": "PM",
+    "BOTH": "PP / PM"
   },
   "playground": {
     "title": "Playground",

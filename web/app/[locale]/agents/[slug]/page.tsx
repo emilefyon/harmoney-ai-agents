@@ -2,7 +2,7 @@ import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { marked } from 'marked';
 import { Link } from '@/lib/i18n/navigation';
-import { getAgent, AGENTS, USE_CASE_LABELS } from '@/lib/agents';
+import { getAgent, AGENTS } from '@/lib/agents';
 import { loadAgentContent, loadSampleEnvelope } from '@/lib/content';
 import { ResultViewer } from '@/components/result/ResultViewer';
 import type { Locale } from '@/lib/i18n/routing';
@@ -24,6 +24,8 @@ export default async function AgentLandingPage({
 
   const t = await getTranslations('agentPage');
   const tCommon = await getTranslations('common');
+  const tMeta = await getTranslations('agentMeta');
+  const tUseCases = await getTranslations('useCases');
   const content = await loadAgentContent(slug, locale as Locale);
   const sample = agent.hasSample ? ((await loadSampleEnvelope(slug)) as Envelope | null) : null;
 
@@ -38,16 +40,16 @@ export default async function AgentLandingPage({
             href="/agents"
             className="text-cyan text-sm no-underline hover:text-white mb-6 inline-block"
           >
-            ← All agents
+            ← {t('allAgents')}
           </Link>
           <h1 className="font-display text-white text-3xl md:text-4xl leading-tight mb-4">
-            {agent.title}
+            {tMeta(`${slug}.title`)}
           </h1>
-          <p className="text-purple-light text-lg max-w-3xl mb-6">{agent.tagline}</p>
+          <p className="text-purple-light text-lg max-w-3xl mb-6">{tMeta(`${slug}.tagline`)}</p>
           <div className="flex flex-wrap gap-2">
             {agent.bestUsedFor.map((u) => (
               <span key={u} className="chip bg-white/10 text-cyan">
-                {USE_CASE_LABELS[u]}
+                {tUseCases(u)}
               </span>
             ))}
           </div>

@@ -22,10 +22,13 @@ export default async function PlaygroundAgentPage({
   if (!agent) notFound();
 
   const fields = AGENT_FIELDS[agent.slug] ?? [];
-  const [t, prompt] = await Promise.all([
+  const [t, tMeta, prompt] = await Promise.all([
     getTranslations('playground'),
+    getTranslations('agentMeta'),
     loadAgentPrompt(agent.promptName),
   ]);
+  const localizedTitle = tMeta(`${agent.slug}.title`);
+  const localizedTagline = tMeta(`${agent.slug}.tagline`);
 
   return (
     <section className="mx-auto max-w-7xl px-6 py-12">
@@ -36,14 +39,14 @@ export default async function PlaygroundAgentPage({
         >
           ← {t('title')}
         </Link>
-        <h1 className="font-display text-2xl md:text-3xl">{agent.title}</h1>
-        <p className="text-ink mt-2 max-w-3xl">{agent.tagline}</p>
+        <h1 className="font-display text-2xl md:text-3xl">{localizedTitle}</h1>
+        <p className="text-ink mt-2 max-w-3xl">{localizedTagline}</p>
       </div>
 
       <PlaygroundClient
         agentSlug={agent.slug}
         apiSlug={agent.apiSlug}
-        agentTitle={agent.title}
+        agentTitle={localizedTitle}
         fields={fields}
       />
 
