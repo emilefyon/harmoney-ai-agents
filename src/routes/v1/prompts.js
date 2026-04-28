@@ -58,6 +58,7 @@ export function promptsRouter() {
         user_message: out.user_message,
         result: out.result,
         validation: out.validation,
+        ...(out.escalation ? { escalation: out.escalation } : {}),
       });
     } catch (err) {
       next(err);

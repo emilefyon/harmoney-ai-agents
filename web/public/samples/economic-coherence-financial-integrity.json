@@ -1,0 +1,197 @@
+{
+  "prompt": "economic_coherence_financial_integrity",
+  "missing_variables": [],
+  "settings": {
+    "model": "sonar-pro",
+    "temperature": 0,
+    "return_citations": true
+  },
+  "user_message": "Run an Economic Coherence & Financial Integrity assessment for the following entity.\n\nENTITY:\n- Legal name: Renault SA\n- Country / jurisdiction: France\n- Registry identifier (SIREN / BCE / Companies House / LEI / other): 441639465\n- Declared legal form (if known): SA cotée\n- Declared activity / NAF / NACE (if known): Construction automobile\n\nOPTIONAL CONTEXT:\n- Additional context provided by the requester: Wrapper smoke test\n- Analysis date (override \"today\" if needed): 2026-04-27\n\nApply the methodology defined in your system instructions and return JSON only.",
+  "result": {
+    "model": "sonar-pro",
+    "usage": {
+      "prompt_tokens": 4248,
+      "completion_tokens": 532,
+      "total_tokens": 4780,
+      "search_context_size": "low",
+      "cost": {
+        "input_tokens_cost": 0.01274,
+        "output_tokens_cost": 0.00798,
+        "request_cost": 0.006,
+        "total_cost": 0.02672
+      }
+    },
+    "citations": [
+      "https://ratings.moodys.com/ratings-news/420626",
+      "http://www.climateaction100.org/company-assessments/renault-s-a/",
+      "https://www.renault.co.za/glossary-of-terms",
+      "https://www.renaultgroup.com/en/finance/",
+      "https://www.renaultgroup.com/en/popin/2025-financial-results-19-february-2026/",
+      "https://www.spglobal.com/sustainable1/en/scores/results",
+      "https://www.morningstar.com/stocks/xhan/rnl/earnings-transcript",
+      "https://media.renaultgroup.com/section/thematiques/finance-commerce/resultats-financiers/?lang=eng"
+    ],
+    "content": "```json\n{\n  \"risk_assessment\": {\n    \"has_new_information\": \"Yes\",\n    \"is_at_risk\": \"No\",\n    \"level\": \"Bas\",\n    \"score\": 1,\n    \"vigilance\": \"Faible\",\n    \"summary\": \"Renault SA (SIREN 441639465) is a publicly listed French automotive company with full financial visibility through official publications of annual results, integrated reports, and audited financial statements up to 2025. Recent financial performance shows solid growth, record operating profit, and revenue increases as per company disclosures. Credit ratings affirmed at Ba1 with no insolvency or transparency issues identified. No anomalies, offshore structures, or regulatory proceedings detected in available sources.\",\n    \"main_category\": \"Accounts_Filing_and_Transparency_Issues\",\n    \"degraded_mode\": {\n      \"active\": false,\n      \"type\": \"NONE\",\n      \"reason\": \"\"\n    },\n    \"recommended_actions\": [],\n    \"traceability_limits\": {\n      \"known_limits\": [\"Search results limited to English-language investor relations and ratings sites; direct P1 registry access (INPI/BODACC) and latest XBRL filings not surfaced\"]\n    }\n  },\n  \"coherence_economique\": {\n    \"rules_version\": \"CECO_V4_DETERMINISTIC\",\n    \"entity_resolution\": {\n      \"status\": \"CONFIRMED\",\n      \"identifier\": \"SIREN 441639465\",\n      \"legal_name\": \"Renault SA\",\n      \"jurisdiction\": \"France\",\n      \"legal_form\": \"SA cotée\",\n      \"incorporation_date\": \"NOT_FOUND_OR_NOT_CONFIRMED\"\n    },\n    \"signals\": [],\n    \"score_breakdown\": {\n      \"distinct_event_count\": 0,\n      \"dominant_event_triggered\": null,\n      \"base_score\": 0,\n      \"secondary_increment\": 0,\n      \"sensitive_increment\": 0,\n      \"convergence_increment\": 0,\n      \"gross_score\": 0,\n      \"mitigating_points\": 0,\n      \"mitigating_factors_applied\": [],\n      \"adjusted_score\": 0,\n      \"floor_triggered\": null,\n      \"floor_value\": 0,\n      \"final_score\": 1,\n      \"axes_covered\": [],\n      \"offshore_risk_triggered\": false,\n      \"fatf_classification\": \"NONE\"\n    },\n    \"needs_enhanced_due_diligence\": false,\n    \"edd_triggers\": [],\n    \"decision_finale_humaine\": true\n  }\n}\n```",
+    "json": {
+      "risk_assessment": {
+        "has_new_information": "Yes",
+        "is_at_risk": "No",
+        "level": "Bas",
+        "score": 1,
+        "vigilance": "Faible",
+        "summary": "Renault SA (SIREN 441639465) is a publicly listed French automotive company with full financial visibility through official publications of annual results, integrated reports, and audited financial statements up to 2025. Recent financial performance shows solid growth, record operating profit, and revenue increases as per company disclosures. Credit ratings affirmed at Ba1 with no insolvency or transparency issues identified. No anomalies, offshore structures, or regulatory proceedings detected in available sources.",
+        "main_category": "Accounts_Filing_and_Transparency_Issues",
+        "degraded_mode": {
+          "active": false,
+          "type": "NONE",
+          "reason": ""
+        },
+        "recommended_actions": [],
+        "traceability_limits": {
+          "known_limits": [
+            "Search results limited to English-language investor relations and ratings sites; direct P1 registry access (INPI/BODACC) and latest XBRL filings not surfaced"
+          ]
+        }
+      },
+      "coherence_economique": {
+        "rules_version": "CECO_V4_DETERMINISTIC",
+        "entity_resolution": {
+          "status": "CONFIRMED",
+          "identifier": "SIREN 441639465",
+          "legal_name": "Renault SA",
+          "jurisdiction": "France",
+          "legal_form": "SA cotée",
+          "incorporation_date": "NOT_FOUND_OR_NOT_CONFIRMED"
+        },
+        "signals": [],
+        "score_breakdown": {
+          "distinct_event_count": 0,
+          "dominant_event_triggered": null,
+          "base_score": 0,
+          "secondary_increment": 0,
+          "sensitive_increment": 0,
+          "convergence_increment": 0,
+          "gross_score": 0,
+          "mitigating_points": 0,
+          "mitigating_factors_applied": [],
+          "adjusted_score": 0,
+          "floor_triggered": null,
+          "floor_value": 0,
+          "final_score": 1,
+          "axes_covered": [],
+          "offshore_risk_triggered": false,
+          "fatf_classification": "NONE"
+        },
+        "needs_enhanced_due_diligence": false,
+        "edd_triggers": [],
+        "decision_finale_humaine": true
+      }
+    },
+    "raw": {
+      "id": "89ecb837-0b4e-4fc6-830a-52c77e8b4151",
+      "model": "sonar-pro",
+      "created": 1777324399,
+      "usage": {
+        "prompt_tokens": 4248,
+        "completion_tokens": 532,
+        "total_tokens": 4780,
+        "search_context_size": "low",
+        "cost": {
+          "input_tokens_cost": 0.01274,
+          "output_tokens_cost": 0.00798,
+          "request_cost": 0.006,
+          "total_cost": 0.02672
+        }
+      },
+      "citations": [
+        "https://ratings.moodys.com/ratings-news/420626",
+        "http://www.climateaction100.org/company-assessments/renault-s-a/",
+        "https://www.renault.co.za/glossary-of-terms",
+        "https://www.renaultgroup.com/en/finance/",
+        "https://www.renaultgroup.com/en/popin/2025-financial-results-19-february-2026/",
+        "https://www.spglobal.com/sustainable1/en/scores/results",
+        "https://www.morningstar.com/stocks/xhan/rnl/earnings-transcript",
+        "https://media.renaultgroup.com/section/thematiques/finance-commerce/resultats-financiers/?lang=eng"
+      ],
+      "search_results": [
+        {
+          "title": "Moody's Ratings Affirms Renault's Ba1 rating, changes outlook to ...",
+          "url": "https://ratings.moodys.com/ratings-news/420626",
+          "date": "2024-05-09",
+          "snippet": "Moody's Ratings (Moody's) has today affirmed all ratings of Renault SA (Renault or the group) including its Ba1 long-term corporate family rating (CFR).",
+          "source": "web"
+        },
+        {
+          "title": "Renault S.A. | Climate Action 100+",
+          "url": "http://www.climateaction100.org/company-assessments/renault-s-a/",
+          "date": "2025-10-21",
+          "last_updated": "2026-01-08",
+          "snippet": "This assessment, provided by the Carbon Tracker Initiative, evaluates whether a company's financial statements (including the notes thereto), and the auditor's ...",
+          "source": "web"
+        },
+        {
+          "title": "Glossary of Terms | Renault South Africa",
+          "url": "https://www.renault.co.za/glossary-of-terms",
+          "date": "2024-04-05",
+          "last_updated": "2024-11-19",
+          "snippet": "... financial commitments and information relating to the financial history of the person. • information of the vehicle and vehicle service history of the ...",
+          "source": "web"
+        },
+        {
+          "title": "Renault Group Finance – Results, Reports & Investor Updates",
+          "url": "https://www.renaultgroup.com/en/finance/",
+          "date": "2026-04-23",
+          "last_updated": "2026-04-23",
+          "snippet": "Our Finance section is designed to facilitate access to key financial reports, investor updates, and strategic insights enabling everyone to stay informed.",
+          "source": "web"
+        },
+        {
+          "title": "2025 Financial Results - 19 February 2026 - Renault Group",
+          "url": "https://www.renaultgroup.com/en/popin/2025-financial-results-19-february-2026/",
+          "date": "2026-02-19",
+          "last_updated": "2026-04-08",
+          "snippet": "2023-2024 integrated report illustrative image. Publication date: 16 May 2024. 2023-2024 integrated report. PDF - 18.6 MB. Open in a new tab.",
+          "source": "web"
+        },
+        {
+          "title": "Renault SA ESG Score - S&P Global",
+          "url": "https://www.spglobal.com/sustainable1/en/scores/results",
+          "date": "2025-09-02",
+          "last_updated": "2026-04-27",
+          "snippet": "The S&P Global ESG Score measures a company's performance on and management of material ESG risks, opportunities, and impacts informed by a ...",
+          "source": "web"
+        },
+        {
+          "title": "RNL - Renault SA Earnings Call Transcripts - Morningstar",
+          "url": "https://www.morningstar.com/stocks/xhan/rnl/earnings-transcript",
+          "date": "2026-04-07",
+          "last_updated": "2026-04-08",
+          "snippet": "Get access to full transcripts of current and past earnings calls to further evaluate Renault SA (RNL:XHAN) stock's performance and strategic direction.",
+          "source": "web"
+        },
+        {
+          "title": "Financial results - Renault Group global media website",
+          "url": "https://media.renaultgroup.com/section/thematiques/finance-commerce/resultats-financiers/?lang=eng",
+          "last_updated": "2026-04-18",
+          "snippet": "Financial results · 2025 Q1: Group revenue at €11.7 billion driven by a strong product performance · 2024 results: Solid growth, record operating profit and net ...",
+          "source": "web"
+        }
+      ],
+      "object": "chat.completion",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "```json\n{\n  \"risk_assessment\": {\n    \"has_new_information\": \"Yes\",\n    \"is_at_risk\": \"No\",\n    \"level\": \"Bas\",\n    \"score\": 1,\n    \"vigilance\": \"Faible\",\n    \"summary\": \"Renault SA (SIREN 441639465) is a publicly listed French automotive company with full financial visibility through official publications of annual results, integrated reports, and audited financial statements up to 2025. Recent financial performance shows solid growth, record operating profit, and revenue increases as per company disclosures. Credit ratings affirmed at Ba1 with no insolvency or transparency issues identified. No anomalies, offshore structures, or regulatory proceedings detected in available sources.\",\n    \"main_category\": \"Accounts_Filing_and_Transparency_Issues\",\n    \"degraded_mode\": {\n      \"active\": false,\n      \"type\": \"NONE\",\n      \"reason\": \"\"\n    },\n    \"recommended_actions\": [],\n    \"traceability_limits\": {\n      \"known_limits\": [\"Search results limited to English-language investor relations and ratings sites; direct P1 registry access (INPI/BODACC) and latest XBRL filings not surfaced\"]\n    }\n  },\n  \"coherence_economique\": {\n    \"rules_version\": \"CECO_V4_DETERMINISTIC\",\n    \"entity_resolution\": {\n      \"status\": \"CONFIRMED\",\n      \"identifier\": \"SIREN 441639465\",\n      \"legal_name\": \"Renault SA\",\n      \"jurisdiction\": \"France\",\n      \"legal_form\": \"SA cotée\",\n      \"incorporation_date\": \"NOT_FOUND_OR_NOT_CONFIRMED\"\n    },\n    \"signals\": [],\n    \"score_breakdown\": {\n      \"distinct_event_count\": 0,\n      \"dominant_event_triggered\": null,\n      \"base_score\": 0,\n      \"secondary_increment\": 0,\n      \"sensitive_increment\": 0,\n      \"convergence_increment\": 0,\n      \"gross_score\": 0,\n      \"mitigating_points\": 0,\n      \"mitigating_factors_applied\": [],\n      \"adjusted_score\": 0,\n      \"floor_triggered\": null,\n      \"floor_value\": 0,\n      \"final_score\": 1,\n      \"axes_covered\": [],\n      \"offshore_risk_triggered\": false,\n      \"fatf_classification\": \"NONE\"\n    },\n    \"needs_enhanced_due_diligence\": false,\n    \"edd_triggers\": [],\n    \"decision_finale_humaine\": true\n  }\n}\n```"
+          },
+          "delta": {
+            "role": "assistant",
+            "content": ""
+          },
+          "finish_reason": "stop"
+        }
+      ]
+    }
+  }
+}

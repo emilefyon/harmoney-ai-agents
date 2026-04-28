@@ -35,6 +35,14 @@ export function toVariables(input) {
   };
 }
 
+export function toReportSubject(input) {
+  const fields = [{ label: 'Country', value: input.country }];
+  if (input.registry_id) fields.push({ label: 'Registry ID', value: input.registry_id });
+  if (input.legal_form) fields.push({ label: 'Legal form', value: input.legal_form });
+  if (input.activity) fields.push({ label: 'Activity', value: input.activity });
+  return { label: 'Organisation', name: input.entity_name, fields };
+}
+
 export const economicCoherenceAgent = {
   slug: 'economic-coherence-financial-integrity',
   promptName: 'economic_coherence_financial_integrity',
@@ -44,4 +52,5 @@ export const economicCoherenceAgent = {
   inputSchema: EconomicCoherenceInput,
   bodySchema: EconomicCoherenceRunRequest,
   toVariables,
+  toReportSubject,
 };

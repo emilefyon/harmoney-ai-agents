@@ -45,6 +45,14 @@ export function toVariables(input) {
   };
 }
 
+export function toReportSubject(input) {
+  const fields = [{ label: 'Country', value: input.country }];
+  if (input.registry_id) fields.push({ label: 'Registry ID', value: input.registry_id });
+  if (input.activity) fields.push({ label: 'Activity', value: input.activity });
+  if (input.current_address) fields.push({ label: 'Address', value: input.current_address });
+  return { label: 'Organisation', name: input.entity_name, fields };
+}
+
 export const domiciliationRiskPmAgent = {
   slug: 'domiciliation-risk-pm',
   promptName: 'domiciliation_risk_pm',
@@ -54,4 +62,5 @@ export const domiciliationRiskPmAgent = {
   inputSchema: DomiciliationRiskPmInput,
   bodySchema: DomiciliationRiskPmRunRequest,
   toVariables,
+  toReportSubject,
 };

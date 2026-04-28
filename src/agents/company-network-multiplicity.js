@@ -42,6 +42,22 @@ export function toVariables(input) {
   };
 }
 
+export function toReportSubject(input) {
+  const isEntity = input.actor_type === 'MORALE';
+  const fields = [
+    { label: 'Country', value: input.country },
+    { label: 'Actor type', value: isEntity ? 'Legal entity' : 'Natural person' },
+  ];
+  if (input.date_of_birth) fields.push({ label: 'Date of birth', value: input.date_of_birth });
+  if (input.registry_id) fields.push({ label: 'Registry ID', value: input.registry_id });
+  if (input.known_company_context) fields.push({ label: 'Context', value: input.known_company_context });
+  return {
+    label: isEntity ? 'Organisation' : 'Individual',
+    name: input.full_name,
+    fields,
+  };
+}
+
 export const companyNetworkMultiplicityAgent = {
   slug: 'company-network-multiplicity',
   promptName: 'company_network_multiplicity',
@@ -51,4 +67,5 @@ export const companyNetworkMultiplicityAgent = {
   inputSchema: CompanyNetworkMultiplicityInput,
   bodySchema: CompanyNetworkMultiplicityRunRequest,
   toVariables,
+  toReportSubject,
 };

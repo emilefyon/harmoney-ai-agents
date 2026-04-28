@@ -10,10 +10,12 @@ import { apiKeyAuth } from './middleware/auth.js';
 import { errorHandler } from './middleware/errorHandler.js';
 import { v1Router } from './routes/v1/index.js';
 import { buildOpenApiSpec } from './openapi.js';
+import { createJobStore } from './jobs/store.js';
 
-export function createApp() {
+export function createApp({ jobStore } = {}) {
   const app = express();
   app.disable('x-powered-by');
+  app.locals.jobStore = jobStore ?? createJobStore();
 
   app.use(helmet({ contentSecurityPolicy: false }));
   app.use(express.json({ limit: '1mb' }));
@@ -52,7 +54,7 @@ export function createApp() {
         }),
   });
 
-  app.use('/v1', apiKeyAuth, limiter, v1Router());
+  app.use('/v1', apiKeyAuth, limiter, v1Router({ jobStore: app.locals.jobStore }));
 
   app.use((req, res) => {
     res.status(404).type('application/problem+json').json({

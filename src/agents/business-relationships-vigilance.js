@@ -35,6 +35,14 @@ export function toVariables(input) {
   };
 }
 
+export function toReportSubject(input) {
+  const fields = [{ label: 'Country', value: input.country }];
+  if (input.registry_id) fields.push({ label: 'Registry ID', value: input.registry_id });
+  if (input.official_website) fields.push({ label: 'Website', value: input.official_website });
+  if (input.activity) fields.push({ label: 'Activity', value: input.activity });
+  return { label: 'Organisation', name: input.entity_name, fields };
+}
+
 export const businessRelationshipsAgent = {
   slug: 'business-relationships-vigilance',
   promptName: 'business_relationships_vigilance',
@@ -44,4 +52,5 @@ export const businessRelationshipsAgent = {
   inputSchema: BusinessRelationshipsInput,
   bodySchema: BusinessRelationshipsRunRequest,
   toVariables,
+  toReportSubject,
 };

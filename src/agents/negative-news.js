@@ -60,6 +60,26 @@ export function toVariables(input) {
   };
 }
 
+export function toReportSubject(input) {
+  const isEntity = input.subject_type === 'MORALE';
+  const fields = [
+    { label: 'Country', value: input.country },
+    { label: 'Subject type', value: isEntity ? 'Legal entity' : 'Natural person' },
+  ];
+  if (input.date_of_birth) fields.push({ label: 'Date of birth', value: input.date_of_birth });
+  if (input.nationality) fields.push({ label: 'Nationality', value: input.nationality });
+  if (input.registry_id) fields.push({ label: 'Registry ID', value: input.registry_id });
+  if (input.function_or_role) fields.push({ label: 'Function / role', value: input.function_or_role });
+  if (Array.isArray(input.aliases) && input.aliases.length > 0) {
+    fields.push({ label: 'Aliases', value: input.aliases.join(', ') });
+  }
+  return {
+    label: isEntity ? 'Organisation' : 'Individual',
+    name: input.full_name,
+    fields,
+  };
+}
+
 export const negativeNewsAgent = {
   slug: 'negative-news',
   promptName: 'negative_news_adverse_intelligence',
@@ -69,4 +89,5 @@ export const negativeNewsAgent = {
   inputSchema: NegativeNewsInput,
   bodySchema: NegativeNewsRunRequest,
   toVariables,
+  toReportSubject,
 };

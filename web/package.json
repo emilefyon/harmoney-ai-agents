@@ -1,0 +1,31 @@
+{
+  "name": "harmoney-ai-agents-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3001",
+    "build": "next build",
+    "start": "next start -p 3001",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "marked": "^18.0.2",
+    "next": "^16.2.4",
+    "next-intl": "^4.9.2",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "react-hook-form": "7.53.0",
+    "zod": "3.23.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.19",
+    "@types/node": "20.16.10",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "autoprefixer": "10.4.20",
+    "postcss": "8.4.47",
+    "tailwindcss": "3.4.13",
+    "typescript": "5.6.2"
+  }
+}

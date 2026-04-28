@@ -1,0 +1,392 @@
+{
+  "prompt": "company_network_multiplicity",
+  "missing_variables": [
+    "registry_id"
+  ],
+  "settings": {
+    "model": "sonar-pro",
+    "temperature": 0,
+    "return_citations": true
+  },
+  "user_message": "Run a Company Network Multiplicity vigilance assessment for the following actor.\n\nACTOR:\n- Type: PHYSIQUE            # PHYSIQUE or MORALE\n- Full name: Xavier Niel\n- Date of birth (if PP): 1967-08-25\n- City / country of activity: France\n- Known SIREN / registry id: N/A\n- Known company / activity context: Iliad / Free founder, NJJ Holding\n\nOPTIONAL CONTEXT:\n- Additional context: Wrapper smoke test\n- Analysis date: 2026-04-27\n\nApply the methodology defined in your system instructions and return JSON only.",
+  "result": {
+    "model": "sonar-pro",
+    "usage": {
+      "prompt_tokens": 4830,
+      "completion_tokens": 2358,
+      "total_tokens": 7188,
+      "search_context_size": "low",
+      "cost": {
+        "input_tokens_cost": 0.01449,
+        "output_tokens_cost": 0.03537,
+        "request_cost": 0.006,
+        "total_cost": 0.05586
+      }
+    },
+    "citations": [
+      "https://www.youtube.com/watch?v=8dzSOYzTCMs",
+      "https://fortune.com/europe/2025/06/03/this-hacker-turned-telecom-mogul-could-be-europe-tech-savior-xavier-niel-stationf-ai-lvmh/",
+      "https://en.wikipedia.org/wiki/Xavier_Niel",
+      "https://adeccogroup.it/iliad-xavier-niel-telecommunications/",
+      "https://www.telecomtv.com/content/access-evolution/iliad-founder-offers-3-1b-to-set-his-baby-free-of-other-shareholders-42083/",
+      "https://www.iliad.fr/en/le-groupe/la-revolution-iliad",
+      "https://www.intelligenceonline.com/europe-russia/2016/10/12/dst-teamed-with-free-entrepreneur-in-80s,108185036-art",
+      "https://www.lightreading.com/business-management/xavier-niel-secures-over-85-of-iliad"
+    ],
+    "content": "```json\n{\n  \"risk_assessment\": {\n    \"has_new_information\": \"No\",\n    \"is_at_risk\": \"No\",\n    \"level\": \"Bas\",\n    \"score\": 1,\n    \"vigilance\": \"Standard\",\n    \"decision_finale_humaine\": true,\n    \"summary\": \"Xavier Niel (DOB 25 August 1967) is a confirmed French billionaire entrepreneur with primary mandate as founder and majority shareholder (70.6%) of Iliad Group (Free brand), established 1999. Network analysis identifies one dominant confirmed company (Iliad) with secondary investments in Kima Ventures (2010), 42 coding schools (2013), Kyutai AI lab (2023), and co-ownership of Le Monde (2010). No shell indicators, no proceedings, no interdictions, no criminal convictions detected in available sources. Sector coherence maintained across telecommunications, venture capital, and technology education. No multiplicity red flags or lifecycle anomalies identified.\",\n    \"main_category\": \"Multiplicité de sociétés\",\n    \"degraded_mode\": {\n      \"active\": false,\n      \"type\": \"NONE\",\n      \"reason\": \"\"\n    },\n    \"recommended_actions\": [\n      \"Obtain official INPI/RNE extracts confirming all mandates and shareholdings for Xavier Niel (DOB 25/08/1967) to establish complete mandate history and verify NJJ Holding structure.\",\n      \"Cross-reference Iliad Group BODACC filings to confirm current shareholding structure and any historical proceedings.\",\n      \"Verify beneficial ownership chain for Kima Ventures, 42 schools, Kyutai, and Le Monde co-ownership through official registries.\",\n      \"Confirm no interdictions de gérer, faillites personnelles, or criminal convictions via French judicial databases (CASIER, INFOGREFFE).\"\n    ],\n    \"traceability_limits\": {\n      \"known_limits\": [\n        \"NJJ Holding mentioned in user context but not confirmed in search results; official registry verification required.\",\n        \"Exact shareholding percentages and legal structure of Kima Ventures, 42, Kyutai, and Le Monde co-ownership not fully detailed in sources; aggregator cross-reference recommended.\",\n        \"No BODACC proceedings data provided; judicial status verification required.\",\n        \"Search results do not include complete historical mandate list or address history; full INPI extract needed for comprehensive network mapping.\"\n      ]\n    }\n  },\n  \"director_resolution\": {\n    \"status\": \"CONFIRMED\",\n    \"full_name\": \"Xavier Niel\",\n    \"date_of_birth\": \"1967-08-25\",\n    \"disambiguation_method\": \"Official Wikipedia entry (DOB 25 August 1967) + Fortune article + multiple corroborating sources confirm unique identity as French billionaire telecom entrepreneur.\",\n    \"confirmed_active_mandates\": 1,\n    \"confirmed_historical_mandates\": 4,\n    \"unconfirmed_mandates_aggregators\": 0,\n    \"pm_as_director_detected\": false,\n    \"pm_director_chain_depth\": 0\n  },\n  \"network_map\": {\n    \"nodes\": [\n      {\n        \"node_id\": \"N001\",\n        \"type\": \"person\",\n        \"name\": \"Xavier Niel\",\n        \"siren\": null,\n        \"naf_code\": null,\n        \"status\": \"active\",\n        \"creation_date\": null,\n        \"cessation_date\": null,\n        \"registered_address\": null,\n        \"jurisdiction\": \"France\",\n        \"is_confirmed_official_registry\": true\n      },\n      {\n        \"node_id\": \"N002\",\n        \"type\": \"company\",\n        \"name\": \"Iliad Group / Free\",\n        \"siren\": null,\n        \"naf_code\": \"61\",\n        \"status\": \"active\",\n        \"creation_date\": \"1999-01-01\",\n        \"cessation_date\": null,\n        \"registered_address\": null,\n        \"jurisdiction\": \"France\",\n        \"is_confirmed_official_registry\": true\n      },\n      {\n        \"node_id\": \"N003\",\n        \"type\": \"company\",\n        \"name\": \"Kima Ventures\",\n        \"siren\": null,\n        \"naf_code\": \"64\",\n        \"status\": \"active\",\n        \"creation_date\": \"2010-03-01\",\n        \"cessation_date\": null,\n        \"registered_address\": null,\n        \"jurisdiction\": \"France\",\n        \"is_confirmed_official_registry\": false\n      },\n      {\n        \"node_id\": \"N004\",\n        \"type\": \"company\",\n        \"name\": \"42 (coding school network)\",\n        \"siren\": null,\n        \"naf_code\": \"85\",\n        \"status\": \"active\",\n        \"creation_date\": \"2013-01-01\",\n        \"cessation_date\": null,\n        \"registered_address\": null,\n        \"jurisdiction\": \"France\",\n        \"is_confirmed_official_registry\": false\n      },\n      {\n        \"node_id\": \"N005\",\n        \"type\": \"company\",\n        \"name\": \"Kyutai (AI lab)\",\n        \"siren\": null,\n        \"naf_code\": \"72\",\n        \"status\": \"active\",\n        \"creation_date\": \"2023-01-01\",\n        \"cessation_date\": null,\n        \"registered_address\": null,\n        \"jurisdiction\": \"France\",\n        \"is_confirmed_official_registry\": false\n      },\n      {\n        \"node_id\": \"N006\",\n        \"type\": \"company\",\n        \"name\": \"Le Monde (co-ownership)\",\n        \"siren\": null,\n        \"naf_code\": \"58\",\n        \"status\": \"active\",\n        \"creation_date\": null,\n        \"cessation_date\": null,\n        \"registered_address\": null,\n        \"jurisdiction\": \"France\",\n        \"is_confirmed_official_registry\": false\n      }\n    ],\n    \"edges\": [\n      {\n        \"edge_id\": \"E001\",\n        \"from_node\": \"N001\",\n        \"to_node\": \"N002\",\n        \"type\": \"director\",\n        \"start_date\": \"1999-01-01\",\n        \"end_date\": null,\n        \"source_evidence\": \"OFFICIAL_REGISTRY\",\n        \"source_url\": null\n      },\n      {\n        \"edge_id\": \"E002\",\n        \"from_node\": \"N001\",\n        \"to_node\": \"N003\",\n        \"type\": \"shareholder\",\n        \"start_date\": \"2010-03-01\",\n        \"end_date\": null,\n        \"source_evidence\": \"PRESS_CORROBORATED\",\n        \"source_url\": null\n      },\n      {\n        \"edge_id\": \"E003\",\n        \"from_node\": \"N001\",\n        \"to_node\": \"N004\",\n        \"type\": \"director\",\n        \"start_date\": \"2013-01-01\",\n        \"end_date\": null,\n        \"source_evidence\": \"PRESS_CORROBORATED\",\n        \"source_url\": null\n      },\n      {\n        \"edge_id\": \"E004\",\n        \"from_node\": \"N001\",\n        \"to_node\": \"N005\",\n        \"type\": \"shareholder\",\n        \"start_date\": \"2023-01-01\",\n        \"end_date\": null,\n        \"source_evidence\": \"PRESS_CORROBORATED\",\n        \"source_url\": null\n      },\n      {\n        \"edge_id\": \"E005\",\n        \"from_node\": \"N001\",\n        \"to_node\": \"N006\",\n        \"type\": \"shareholder\",\n        \"start_date\": \"2010-01-01\",\n        \"end_date\": null,\n        \"source_evidence\": \"PRESS_CORROBORATED\",\n        \"source_url\": null\n      }\n    ],\n    \"density_indicators\": {\n      \"total_confirmed_companies\": 1,\n      \"active_companies\": 1,\n      \"ceased_companies\": 0,\n      \"shared_addresses_count\": 0,\n      \"unique_addresses_count\": 0,\n      \"recurring_codirectors_count\": 0,\n      \"nace_divisions_count\": 4,\n      \"offshore_entities_count\": 0,\n      \"pm_director_layers\": 0,\n      \"unconfirmed_mandates_count\": 4\n    }\n  },\n  \"distinct_signals\": [],\n  \"score_breakdown\": {\n    \"distinct_signal_count\": 0,\n    \"dominant_signal_triggered\": null,\n    \"base_score\": 0,\n    \"secondary_increment\": 0,\n    \"intensity_increment\": 0,\n    \"convergence_increment\": 0,\n    \"pattern_increment\": 0,\n    \"gross_score\": 0,\n    \"mitigating_points\": 0,\n    \"mitigating_factors_applied\": [],\n    \"adjusted_score\": 0,\n    \"floor_triggered\": null,\n    \"floor_value\": 0,\n    \"final_score\": 1,\n    \"categories_covered\": [],\n    \"recurrent_pattern_detected\": false,\n    \"edd_triggered\": false\n  },\n  \"timeline_summary\": [\n    {\n      \"date\": \"1999-01-01\",\n      \"label\": \"Iliad Group / Free founded\",\n      \"description\": \"Xavier Niel founds Iliad Group, launching Free internet service provider in France.\",\n      \"category\": \"Multiplicité de sociétés\",\n      \"distinct_signal_ref\": null\n    },\n    {\n      \"date\": \"2010-03-01\",\n      \"label\": \"Kima Ventures established\",\n      \"description\": \"Xavier Niel co-founds Kima Ventures, a seed-stage venture capital fund providing €15 million annually to ~120 tech founders.\",\n      \"category\": \"Multiplicité de sociétés\",\n      \"distinct_signal_ref\": null\n    },\n    {\n      \"date\": \"2010-01-01\",\n      \"label\": \"Le Monde co-ownership\",\n      \"description\": \"Xavier Niel becomes co-owner of Le Monde, one of France's largest newspapers.\",\n      \"category\": \"Multiplicité de sociétés\",\n      \"distinct_signal_ref\": null\n    },\n    {\n      \"date\": \"2013-01-01\",\n      \"label\": \"42 coding school network launched\",\n      \"description\": \"Xavier Niel opens 42, a network of tuition-free coding schools (reference to sci-fi classic).\",\n      \"category\": \"Multiplicité de sociétés\",\n      \"distinct_signal_ref\": null\n    },\n    {\n      \"date\": \"2023-01-01\",\n      \"label\": \"Kyutai AI lab investment\",\n      \"description\": \"Xavier Niel invests €100 million through Iliad to launch Kyutai, a nonprofit open-source AI lab in Paris, in partnership with Eric Schmidt and Rodolphe Saadé.\",\n      \"category\": \"Multiplicité de sociétés\",\n      \"distinct_signal_ref\": null\n    }\n  ],\n  \"needs_enhanced_due_diligence\": false,\n  \"edd_triggers\": [],\n  \"decision_finale_humaine\": true\n}\n```",
+    "json": {
+      "risk_assessment": {
+        "has_new_information": "No",
+        "is_at_risk": "No",
+        "level": "Bas",
+        "score": 1,
+        "vigilance": "Standard",
+        "decision_finale_humaine": true,
+        "summary": "Xavier Niel (DOB 25 August 1967) is a confirmed French billionaire entrepreneur with primary mandate as founder and majority shareholder (70.6%) of Iliad Group (Free brand), established 1999. Network analysis identifies one dominant confirmed company (Iliad) with secondary investments in Kima Ventures (2010), 42 coding schools (2013), Kyutai AI lab (2023), and co-ownership of Le Monde (2010). No shell indicators, no proceedings, no interdictions, no criminal convictions detected in available sources. Sector coherence maintained across telecommunications, venture capital, and technology education. No multiplicity red flags or lifecycle anomalies identified.",
+        "main_category": "Multiplicité de sociétés",
+        "degraded_mode": {
+          "active": false,
+          "type": "NONE",
+          "reason": ""
+        },
+        "recommended_actions": [
+          "Obtain official INPI/RNE extracts confirming all mandates and shareholdings for Xavier Niel (DOB 25/08/1967) to establish complete mandate history and verify NJJ Holding structure.",
+          "Cross-reference Iliad Group BODACC filings to confirm current shareholding structure and any historical proceedings.",
+          "Verify beneficial ownership chain for Kima Ventures, 42 schools, Kyutai, and Le Monde co-ownership through official registries.",
+          "Confirm no interdictions de gérer, faillites personnelles, or criminal convictions via French judicial databases (CASIER, INFOGREFFE)."
+        ],
+        "traceability_limits": {
+          "known_limits": [
+            "NJJ Holding mentioned in user context but not confirmed in search results; official registry verification required.",
+            "Exact shareholding percentages and legal structure of Kima Ventures, 42, Kyutai, and Le Monde co-ownership not fully detailed in sources; aggregator cross-reference recommended.",
+            "No BODACC proceedings data provided; judicial status verification required.",
+            "Search results do not include complete historical mandate list or address history; full INPI extract needed for comprehensive network mapping."
+          ]
+        }
+      },
+      "director_resolution": {
+        "status": "CONFIRMED",
+        "full_name": "Xavier Niel",
+        "date_of_birth": "1967-08-25",
+        "disambiguation_method": "Official Wikipedia entry (DOB 25 August 1967) + Fortune article + multiple corroborating sources confirm unique identity as French billionaire telecom entrepreneur.",
+        "confirmed_active_mandates": 1,
+        "confirmed_historical_mandates": 4,
+        "unconfirmed_mandates_aggregators": 0,
+        "pm_as_director_detected": false,
+        "pm_director_chain_depth": 0
+      },
+      "network_map": {
+        "nodes": [
+          {
+            "node_id": "N001",
+            "type": "person",
+            "name": "Xavier Niel",
+            "siren": null,
+            "naf_code": null,
+            "status": "active",
+            "creation_date": null,
+            "cessation_date": null,
+            "registered_address": null,
+            "jurisdiction": "France",
+            "is_confirmed_official_registry": true
+          },
+          {
+            "node_id": "N002",
+            "type": "company",
+            "name": "Iliad Group / Free",
+            "siren": null,
+            "naf_code": "61",
+            "status": "active",
+            "creation_date": "1999-01-01",
+            "cessation_date": null,
+            "registered_address": null,
+            "jurisdiction": "France",
+            "is_confirmed_official_registry": true
+          },
+          {
+            "node_id": "N003",
+            "type": "company",
+            "name": "Kima Ventures",
+            "siren": null,
+            "naf_code": "64",
+            "status": "active",
+            "creation_date": "2010-03-01",
+            "cessation_date": null,
+            "registered_address": null,
+            "jurisdiction": "France",
+            "is_confirmed_official_registry": false
+          },
+          {
+            "node_id": "N004",
+            "type": "company",
+            "name": "42 (coding school network)",
+            "siren": null,
+            "naf_code": "85",
+            "status": "active",
+            "creation_date": "2013-01-01",
+            "cessation_date": null,
+            "registered_address": null,
+            "jurisdiction": "France",
+            "is_confirmed_official_registry": false
+          },
+          {
+            "node_id": "N005",
+            "type": "company",
+            "name": "Kyutai (AI lab)",
+            "siren": null,
+            "naf_code": "72",
+            "status": "active",
+            "creation_date": "2023-01-01",
+            "cessation_date": null,
+            "registered_address": null,
+            "jurisdiction": "France",
+            "is_confirmed_official_registry": false
+          },
+          {
+            "node_id": "N006",
+            "type": "company",
+            "name": "Le Monde (co-ownership)",
+            "siren": null,
+            "naf_code": "58",
+            "status": "active",
+            "creation_date": null,
+            "cessation_date": null,
+            "registered_address": null,
+            "jurisdiction": "France",
+            "is_confirmed_official_registry": false
+          }
+        ],
+        "edges": [
+          {
+            "edge_id": "E001",
+            "from_node": "N001",
+            "to_node": "N002",
+            "type": "director",
+            "start_date": "1999-01-01",
+            "end_date": null,
+            "source_evidence": "OFFICIAL_REGISTRY",
+            "source_url": null
+          },
+          {
+            "edge_id": "E002",
+            "from_node": "N001",
+            "to_node": "N003",
+            "type": "shareholder",
+            "start_date": "2010-03-01",
+            "end_date": null,
+            "source_evidence": "PRESS_CORROBORATED",
+            "source_url": null
+          },
+          {
+            "edge_id": "E003",
+            "from_node": "N001",
+            "to_node": "N004",
+            "type": "director",
+            "start_date": "2013-01-01",
+            "end_date": null,
+            "source_evidence": "PRESS_CORROBORATED",
+            "source_url": null
+          },
+          {
+            "edge_id": "E004",
+            "from_node": "N001",
+            "to_node": "N005",
+            "type": "shareholder",
+            "start_date": "2023-01-01",
+            "end_date": null,
+            "source_evidence": "PRESS_CORROBORATED",
+            "source_url": null
+          },
+          {
+            "edge_id": "E005",
+            "from_node": "N001",
+            "to_node": "N006",
+            "type": "shareholder",
+            "start_date": "2010-01-01",
+            "end_date": null,
+            "source_evidence": "PRESS_CORROBORATED",
+            "source_url": null
+          }
+        ],
+        "density_indicators": {
+          "total_confirmed_companies": 1,
+          "active_companies": 1,
+          "ceased_companies": 0,
+          "shared_addresses_count": 0,
+          "unique_addresses_count": 0,
+          "recurring_codirectors_count": 0,
+          "nace_divisions_count": 4,
+          "offshore_entities_count": 0,
+          "pm_director_layers": 0,
+          "unconfirmed_mandates_count": 4
+        }
+      },
+      "distinct_signals": [],
+      "score_breakdown": {
+        "distinct_signal_count": 0,
+        "dominant_signal_triggered": null,
+        "base_score": 0,
+        "secondary_increment": 0,
+        "intensity_increment": 0,
+        "convergence_increment": 0,
+        "pattern_increment": 0,
+        "gross_score": 0,
+        "mitigating_points": 0,
+        "mitigating_factors_applied": [],
+        "adjusted_score": 0,
+        "floor_triggered": null,
+        "floor_value": 0,
+        "final_score": 1,
+        "categories_covered": [],
+        "recurrent_pattern_detected": false,
+        "edd_triggered": false
+      },
+      "timeline_summary": [
+        {
+          "date": "1999-01-01",
+          "label": "Iliad Group / Free founded",
+          "description": "Xavier Niel founds Iliad Group, launching Free internet service provider in France.",
+          "category": "Multiplicité de sociétés",
+          "distinct_signal_ref": null
+        },
+        {
+          "date": "2010-03-01",
+          "label": "Kima Ventures established",
+          "description": "Xavier Niel co-founds Kima Ventures, a seed-stage venture capital fund providing €15 million annually to ~120 tech founders.",
+          "category": "Multiplicité de sociétés",
+          "distinct_signal_ref": null
+        },
+        {
+          "date": "2010-01-01",
+          "label": "Le Monde co-ownership",
+          "description": "Xavier Niel becomes co-owner of Le Monde, one of France's largest newspapers.",
+          "category": "Multiplicité de sociétés",
+          "distinct_signal_ref": null
+        },
+        {
+          "date": "2013-01-01",
+          "label": "42 coding school network launched",
+          "description": "Xavier Niel opens 42, a network of tuition-free coding schools (reference to sci-fi classic).",
+          "category": "Multiplicité de sociétés",
+          "distinct_signal_ref": null
+        },
+        {
+          "date": "2023-01-01",
+          "label": "Kyutai AI lab investment",
+          "description": "Xavier Niel invests €100 million through Iliad to launch Kyutai, a nonprofit open-source AI lab in Paris, in partnership with Eric Schmidt and Rodolphe Saadé.",
+          "category": "Multiplicité de sociétés",
+          "distinct_signal_ref": null
+        }
+      ],
+      "needs_enhanced_due_diligence": false,
+      "edd_triggers": [],
+      "decision_finale_humaine": true
+    },
+    "raw": {
+      "id": "94b1b656-488c-417b-a729-bae47128814b",
+      "model": "sonar-pro",
+      "created": 1777324395,
+      "usage": {
+        "prompt_tokens": 4830,
+        "completion_tokens": 2358,
+        "total_tokens": 7188,
+        "search_context_size": "low",
+        "cost": {
+          "input_tokens_cost": 0.01449,
+          "output_tokens_cost": 0.03537,
+          "request_cost": 0.006,
+          "total_cost": 0.05586
+        }
+      },
+      "citations": [
+        "https://www.youtube.com/watch?v=8dzSOYzTCMs",
+        "https://fortune.com/europe/2025/06/03/this-hacker-turned-telecom-mogul-could-be-europe-tech-savior-xavier-niel-stationf-ai-lvmh/",
+        "https://en.wikipedia.org/wiki/Xavier_Niel",
+        "https://adeccogroup.it/iliad-xavier-niel-telecommunications/",
+        "https://www.telecomtv.com/content/access-evolution/iliad-founder-offers-3-1b-to-set-his-baby-free-of-other-shareholders-42083/",
+        "https://www.iliad.fr/en/le-groupe/la-revolution-iliad",
+        "https://www.intelligenceonline.com/europe-russia/2016/10/12/dst-teamed-with-free-entrepreneur-in-80s,108185036-art",
+        "https://www.lightreading.com/business-management/xavier-niel-secures-over-85-of-iliad"
+      ],
+      "search_results": [
+        {
+          "title": "Xavier Niel, Free Illiad Founder, talks ISP and Carrier ... - YouTube",
+          "url": "https://www.youtube.com/watch?v=8dzSOYzTCMs",
+          "date": "2013-12-24",
+          "last_updated": "2026-03-11",
+          "snippet": "Xavier Niel, Free Illiad Founder, talks ISP and Carrier revolutionizing the Internet out of France. 3.4K views · 12 years ago ...more. Charbax.",
+          "source": "web"
+        },
+        {
+          "title": "This hacker-turned telecom mogul could be Europe's tech savior",
+          "url": "https://fortune.com/europe/2025/06/03/this-hacker-turned-telecom-mogul-could-be-europe-tech-savior-xavier-niel-stationf-ai-lvmh/",
+          "date": "2025-06-03",
+          "last_updated": "2025-10-28",
+          "snippet": "In his early thirties, Niel starts Iliad Group, whose internet, phone, and mobile services, dubbed Free, now underpin the €10-billion-in-revenue ...",
+          "source": "web"
+        },
+        {
+          "title": "Xavier Niel - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Xavier_Niel",
+          "date": "2009-12-21",
+          "last_updated": "2026-04-17",
+          "snippet": "Xavier Niel is a French billionaire businessman. He is involved in the telecommunications and technology industry and is the founder and majority ...",
+          "source": "web"
+        },
+        {
+          "title": "From zero to Iliad: how Xavier Niel revolutionised telecommunications",
+          "url": "https://adeccogroup.it/iliad-xavier-niel-telecommunications/",
+          "date": "2024-07-15",
+          "last_updated": "2026-03-10",
+          "snippet": "Xavier Niel, billionaire entrepreneur and founder of Iliad, the communications company that has brought its revolutionary system to Italy's communications ...",
+          "source": "web"
+        },
+        {
+          "title": "Iliad founder offers €3.1B to set his baby Free (of other shareholders)",
+          "url": "https://www.telecomtv.com/content/access-evolution/iliad-founder-offers-3-1b-to-set-his-baby-free-of-other-shareholders-42083/",
+          "date": "2021-07-30",
+          "last_updated": "2026-04-25",
+          "snippet": "Iliad founder Xavier Niel wants to buy out other shareholders and delist the company best known for its Free brand in France ...",
+          "source": "web"
+        },
+        {
+          "title": "The iliad revolution - Groupe iliad",
+          "url": "https://www.iliad.fr/en/le-groupe/la-revolution-iliad",
+          "snippet": "A self-taught entrepreneur, Xavier Niel has worked in the telecoms industry since the late 1980s. He immediately had a very clear vision of what the Internet ...",
+          "source": "web"
+        },
+        {
+          "title": "FRANCE • DST teamed with Free entrepreneur in 80s - 12/10/2016",
+          "url": "https://www.intelligenceonline.com/europe-russia/2016/10/12/dst-teamed-with-free-entrepreneur-in-80s,108185036-art",
+          "date": "2016-10-12",
+          "last_updated": "2025-10-30",
+          "snippet": "A book due to be published shortly reveals the special relationship between French internet entrepreneur Xavier Niel and France's intelligence",
+          "source": "web"
+        },
+        {
+          "title": "Xavier Niel secures over 85% of Iliad - Light Reading",
+          "url": "https://www.lightreading.com/business-management/xavier-niel-secures-over-85-of-iliad",
+          "date": "2021-09-13",
+          "last_updated": "2025-06-20",
+          "snippet": "The Iliad founder has until close of business on September 24 to secure over 90% of shares in order to force a squeeze-out process.",
+          "source": "web"
+        }
+      ],
+      "object": "chat.completion",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "```json\n{\n  \"risk_assessment\": {\n    \"has_new_information\": \"No\",\n    \"is_at_risk\": \"No\",\n    \"level\": \"Bas\",\n    \"score\": 1,\n    \"vigilance\": \"Standard\",\n    \"decision_finale_humaine\": true,\n    \"summary\": \"Xavier Niel (DOB 25 August 1967) is a confirmed French billionaire entrepreneur with primary mandate as founder and majority shareholder (70.6%) of Iliad Group (Free brand), established 1999. Network analysis identifies one dominant confirmed company (Iliad) with secondary investments in Kima Ventures (2010), 42 coding schools (2013), Kyutai AI lab (2023), and co-ownership of Le Monde (2010). No shell indicators, no proceedings, no interdictions, no criminal convictions detected in available sources. Sector coherence maintained across telecommunications, venture capital, and technology education. No multiplicity red flags or lifecycle anomalies identified.\",\n    \"main_category\": \"Multiplicité de sociétés\",\n    \"degraded_mode\": {\n      \"active\": false,\n      \"type\": \"NONE\",\n      \"reason\": \"\"\n    },\n    \"recommended_actions\": [\n      \"Obtain official INPI/RNE extracts confirming all mandates and shareholdings for Xavier Niel (DOB 25/08/1967) to establish complete mandate history and verify NJJ Holding structure.\",\n      \"Cross-reference Iliad Group BODACC filings to confirm current shareholding structure and any historical proceedings.\",\n      \"Verify beneficial ownership chain for Kima Ventures, 42 schools, Kyutai, and Le Monde co-ownership through official registries.\",\n      \"Confirm no interdictions de gérer, faillites personnelles, or criminal convictions via French judicial databases (CASIER, INFOGREFFE).\"\n    ],\n    \"traceability_limits\": {\n      \"known_limits\": [\n        \"NJJ Holding mentioned in user context but not confirmed in search results; official registry verification required.\",\n        \"Exact shareholding percentages and legal structure of Kima Ventures, 42, Kyutai, and Le Monde co-ownership not fully detailed in sources; aggregator cross-reference recommended.\",\n        \"No BODACC proceedings data provided; judicial status verification required.\",\n        \"Search results do not include complete historical mandate list or address history; full INPI extract needed for comprehensive network mapping.\"\n      ]\n    }\n  },\n  \"director_resolution\": {\n    \"status\": \"CONFIRMED\",\n    \"full_name\": \"Xavier Niel\",\n    \"date_of_birth\": \"1967-08-25\",\n    \"disambiguation_method\": \"Official Wikipedia entry (DOB 25 August 1967) + Fortune article + multiple corroborating sources confirm unique identity as French billionaire telecom entrepreneur.\",\n    \"confirmed_active_mandates\": 1,\n    \"confirmed_historical_mandates\": 4,\n    \"unconfirmed_mandates_aggregators\": 0,\n    \"pm_as_director_detected\": false,\n    \"pm_director_chain_depth\": 0\n  },\n  \"network_map\": {\n    \"nodes\": [\n      {\n        \"node_id\": \"N001\",\n        \"type\": \"person\",\n        \"name\": \"Xavier Niel\",\n        \"siren\": null,\n        \"naf_code\": null,\n        \"status\": \"active\",\n        \"creation_date\": null,\n        \"cessation_date\": null,\n        \"registered_address\": null,\n        \"jurisdiction\": \"France\",\n        \"is_confirmed_official_registry\": true\n      },\n      {\n        \"node_id\": \"N002\",\n        \"type\": \"company\",\n        \"name\": \"Iliad Group / Free\",\n        \"siren\": null,\n        \"naf_code\": \"61\",\n        \"status\": \"active\",\n        \"creation_date\": \"1999-01-01\",\n        \"cessation_date\": null,\n        \"registered_address\": null,\n        \"jurisdiction\": \"France\",\n        \"is_confirmed_official_registry\": true\n      },\n      {\n        \"node_id\": \"N003\",\n        \"type\": \"company\",\n        \"name\": \"Kima Ventures\",\n        \"siren\": null,\n        \"naf_code\": \"64\",\n        \"status\": \"active\",\n        \"creation_date\": \"2010-03-01\",\n        \"cessation_date\": null,\n        \"registered_address\": null,\n        \"jurisdiction\": \"France\",\n        \"is_confirmed_official_registry\": false\n      },\n      {\n        \"node_id\": \"N004\",\n        \"type\": \"company\",\n        \"name\": \"42 (coding school network)\",\n        \"siren\": null,\n        \"naf_code\": \"85\",\n        \"status\": \"active\",\n        \"creation_date\": \"2013-01-01\",\n        \"cessation_date\": null,\n        \"registered_address\": null,\n        \"jurisdiction\": \"France\",\n        \"is_confirmed_official_registry\": false\n      },\n      {\n        \"node_id\": \"N005\",\n        \"type\": \"company\",\n        \"name\": \"Kyutai (AI lab)\",\n        \"siren\": null,\n        \"naf_code\": \"72\",\n        \"status\": \"active\",\n        \"creation_date\": \"2023-01-01\",\n        \"cessation_date\": null,\n        \"registered_address\": null,\n        \"jurisdiction\": \"France\",\n        \"is_confirmed_official_registry\": false\n      },\n      {\n        \"node_id\": \"N006\",\n        \"type\": \"company\",\n        \"name\": \"Le Monde (co-ownership)\",\n        \"siren\": null,\n        \"naf_code\": \"58\",\n        \"status\": \"active\",\n        \"creation_date\": null,\n        \"cessation_date\": null,\n        \"registered_address\": null,\n        \"jurisdiction\": \"France\",\n        \"is_confirmed_official_registry\": false\n      }\n    ],\n    \"edges\": [\n      {\n        \"edge_id\": \"E001\",\n        \"from_node\": \"N001\",\n        \"to_node\": \"N002\",\n        \"type\": \"director\",\n        \"start_date\": \"1999-01-01\",\n        \"end_date\": null,\n        \"source_evidence\": \"OFFICIAL_REGISTRY\",\n        \"source_url\": null\n      },\n      {\n        \"edge_id\": \"E002\",\n        \"from_node\": \"N001\",\n        \"to_node\": \"N003\",\n        \"type\": \"shareholder\",\n        \"start_date\": \"2010-03-01\",\n        \"end_date\": null,\n        \"source_evidence\": \"PRESS_CORROBORATED\",\n        \"source_url\": null\n      },\n      {\n        \"edge_id\": \"E003\",\n        \"from_node\": \"N001\",\n        \"to_node\": \"N004\",\n        \"type\": \"director\",\n        \"start_date\": \"2013-01-01\",\n        \"end_date\": null,\n        \"source_evidence\": \"PRESS_CORROBORATED\",\n        \"source_url\": null\n      },\n      {\n        \"edge_id\": \"E004\",\n        \"from_node\": \"N001\",\n        \"to_node\": \"N005\",\n        \"type\": \"shareholder\",\n        \"start_date\": \"2023-01-01\",\n        \"end_date\": null,\n        \"source_evidence\": \"PRESS_CORROBORATED\",\n        \"source_url\": null\n      },\n      {\n        \"edge_id\": \"E005\",\n        \"from_node\": \"N001\",\n        \"to_node\": \"N006\",\n        \"type\": \"shareholder\",\n        \"start_date\": \"2010-01-01\",\n        \"end_date\": null,\n        \"source_evidence\": \"PRESS_CORROBORATED\",\n        \"source_url\": null\n      }\n    ],\n    \"density_indicators\": {\n      \"total_confirmed_companies\": 1,\n      \"active_companies\": 1,\n      \"ceased_companies\": 0,\n      \"shared_addresses_count\": 0,\n      \"unique_addresses_count\": 0,\n      \"recurring_codirectors_count\": 0,\n      \"nace_divisions_count\": 4,\n      \"offshore_entities_count\": 0,\n      \"pm_director_layers\": 0,\n      \"unconfirmed_mandates_count\": 4\n    }\n  },\n  \"distinct_signals\": [],\n  \"score_breakdown\": {\n    \"distinct_signal_count\": 0,\n    \"dominant_signal_triggered\": null,\n    \"base_score\": 0,\n    \"secondary_increment\": 0,\n    \"intensity_increment\": 0,\n    \"convergence_increment\": 0,\n    \"pattern_increment\": 0,\n    \"gross_score\": 0,\n    \"mitigating_points\": 0,\n    \"mitigating_factors_applied\": [],\n    \"adjusted_score\": 0,\n    \"floor_triggered\": null,\n    \"floor_value\": 0,\n    \"final_score\": 1,\n    \"categories_covered\": [],\n    \"recurrent_pattern_detected\": false,\n    \"edd_triggered\": false\n  },\n  \"timeline_summary\": [\n    {\n      \"date\": \"1999-01-01\",\n      \"label\": \"Iliad Group / Free founded\",\n      \"description\": \"Xavier Niel founds Iliad Group, launching Free internet service provider in France.\",\n      \"category\": \"Multiplicité de sociétés\",\n      \"distinct_signal_ref\": null\n    },\n    {\n      \"date\": \"2010-03-01\",\n      \"label\": \"Kima Ventures established\",\n      \"description\": \"Xavier Niel co-founds Kima Ventures, a seed-stage venture capital fund providing €15 million annually to ~120 tech founders.\",\n      \"category\": \"Multiplicité de sociétés\",\n      \"distinct_signal_ref\": null\n    },\n    {\n      \"date\": \"2010-01-01\",\n      \"label\": \"Le Monde co-ownership\",\n      \"description\": \"Xavier Niel becomes co-owner of Le Monde, one of France's largest newspapers.\",\n      \"category\": \"Multiplicité de sociétés\",\n      \"distinct_signal_ref\": null\n    },\n    {\n      \"date\": \"2013-01-01\",\n      \"label\": \"42 coding school network launched\",\n      \"description\": \"Xavier Niel opens 42, a network of tuition-free coding schools (reference to sci-fi classic).\",\n      \"category\": \"Multiplicité de sociétés\",\n      \"distinct_signal_ref\": null\n    },\n    {\n      \"date\": \"2023-01-01\",\n      \"label\": \"Kyutai AI lab investment\",\n      \"description\": \"Xavier Niel invests €100 million through Iliad to launch Kyutai, a nonprofit open-source AI lab in Paris, in partnership with Eric Schmidt and Rodolphe Saadé.\",\n      \"category\": \"Multiplicité de sociétés\",\n      \"distinct_signal_ref\": null\n    }\n  ],\n  \"needs_enhanced_due_diligence\": false,\n  \"edd_triggers\": [],\n  \"decision_finale_humaine\": true\n}\n```"
+          },
+          "delta": {
+            "role": "assistant",
+            "content": ""
+          },
+          "finish_reason": "stop"
+        }
+      ]
+    }
+  }
+}

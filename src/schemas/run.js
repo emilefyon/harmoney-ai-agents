@@ -8,8 +8,14 @@ export { Language };
 
 const Scalar = z.union([z.string(), z.number(), z.boolean(), z.null()]);
 
+export const RunMode = z.enum(['triage', 'deep', 'auto']).openapi('RunMode', {
+  description:
+    'Two-tier execution mode. `triage` forces the fast `sonar-pro` model (~30–60s). `deep` forces `sonar-deep-research` (slow, exhaustive). `auto` runs triage first and only escalates to deep when the triage envelope flags risk or low confidence. When `mode` is set, it overrides the prompt-recommended model unless `settings.model` is also explicitly provided.',
+});
+
 export const RunSettings = z
   .object({
+    mode: RunMode.optional(),
     model: z.string().min(1).optional(),
     max_tokens: z.number().int().positive().max(64000).optional(),
     timeout_ms: z.number().int().positive().max(600_000).optional(),
@@ -20,6 +26,25 @@ export const RunSettings = z
   .strict()
   .openapi('RunSettings', {
     description: 'Per-call overrides for the prompt-resolved Perplexity settings.',
+  });
+
+export const EscalationInfo = z
+  .object({
+    mode: RunMode,
+    triggered: z.boolean(),
+    reason: z.string().nullable(),
+    triage: z
+      .object({
+        model: z.string().nullable(),
+        is_at_risk: z.boolean().nullable(),
+        score: z.number().nullable(),
+        confidence: z.string().nullable(),
+        envelope_valid: z.boolean().nullable(),
+      })
+      .nullable(),
+  })
+  .openapi('EscalationInfo', {
+    description: 'Populated when `settings.mode = "auto"`. Reports whether triage escalated to deep.',
   });
 
 export const RunRequest = z
@@ -35,6 +60,39 @@ export const RunRequest = z
   })
   .openapi('RunRequest');
 
+export const RunTiming = z
+  .object({
+    started_at: z.string(),
+    completed_at: z.string(),
+    duration_ms: z.number().int().nonnegative(),
+  })
+  .openapi('RunTiming');
+
+export const CostBreakdown = z
+  .object({
+    input_usd: z.number(),
+    output_usd: z.number(),
+    reasoning_usd: z.number(),
+    search_usd: z.number(),
+    prompt_tokens: z.number().int(),
+    completion_tokens: z.number().int(),
+    reasoning_tokens: z.number().int(),
+    search_count: z.number().int(),
+  })
+  .openapi('CostBreakdown');
+
+export const EstimatedCost = z
+  .object({
+    currency: z.literal('USD'),
+    amount_usd: z.number(),
+    breakdown: CostBreakdown,
+    is_estimate: z.boolean(),
+  })
+  .openapi('EstimatedCost', {
+    description:
+      'Server-side cost estimate based on the upstream usage payload and a published-rate snapshot. Always flagged as an estimate — use upstream invoices for billing reconciliation.',
+  });
+
 export const PerplexityResult = z
   .object({
     model: z.string().nullable(),
@@ -43,6 +101,8 @@ export const PerplexityResult = z
     content: z.string().nullable(),
     json: z.any().nullable(),
     raw: z.any(),
+    timing: RunTiming.optional(),
+    estimated_cost: EstimatedCost.nullable().optional(),
   })
   .openapi('PerplexityResult');
 
@@ -73,6 +133,7 @@ export const RunResponse = z
     user_message: z.string(),
     result: PerplexityResult,
     validation: EnvelopeValidation,
+    escalation: EscalationInfo.optional(),
   })
   .openapi('RunResponse');
 
@@ -86,8 +147,48 @@ export const AgentRunResponse = z
     user_message: z.string(),
     result: PerplexityResult,
     validation: EnvelopeValidation,
+    escalation: EscalationInfo.optional(),
   })
   .openapi('AgentRunResponse');
+
+export const JobStatus = z.enum(['queued', 'running', 'completed', 'failed']).openapi('JobStatus');
+
+export const JobError = z
+  .object({
+    code: z.string(),
+    status: z.number().int().nullable(),
+    message: z.string(),
+  })
+  .openapi('JobError');
+
+export const Job = z
+  .object({
+    job_id: z.string(),
+    status: JobStatus,
+    agent: z.string().nullable(),
+    prompt: z.string().nullable(),
+    language: z.string().nullable(),
+    input: z.any().nullable(),
+    settings: z.any().nullable(),
+    created_at: z.string(),
+    started_at: z.string().nullable(),
+    completed_at: z.string().nullable(),
+    result: AgentRunResponse.nullable(),
+    error: JobError.nullable(),
+  })
+  .openapi('Job', {
+    description:
+      'Asynchronous agent job. Created via `POST /v1/agents/{slug}/jobs`, polled via `GET /v1/jobs/{job_id}`. In-memory only — jobs are evicted ~1h after completion and do not survive a process restart.',
+  });
+
+export const JobAccepted = z
+  .object({
+    job_id: z.string(),
+    status: JobStatus,
+    created_at: z.string(),
+    poll_url: z.string(),
+  })
+  .openapi('JobAccepted');
 
 export const AgentListResponse = z
   .object({

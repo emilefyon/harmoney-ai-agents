@@ -1,0 +1,181 @@
+{
+  "prompt": "effective_control_satellites",
+  "missing_variables": [
+    "known_mandataires",
+    "known_clients"
+  ],
+  "settings": {
+    "model": "sonar-pro",
+    "temperature": 0,
+    "return_citations": true
+  },
+  "user_message": "Run an Effective-Control Satellites contradictory KYB assessment for the following PM cible.\n\nPM CIBLE:\n- Legal name: LVMH Moët Hennessy Louis Vuitton SE\n- Country (ISO 3166-1 alpha-2): France\n- Registry identifier (SIREN / LEI / equivalent): 775670417\n- Declared activity / NAF: Holding produits de luxe\n- Known parent / group context: Groupe LVMH\n\nPARAMETERS:\n- Jurisdiction scope: EU      # ISO 3166-1 alpha-2 (default FR)\n- Monitoring mode: INITIAL            # true | false\n- Run id (optional): example-001\n- Analysis date: 2026-04-27\n\nOPTIONAL CONTEXT:\n- Already-known mandataires sociaux (to exclude): N/A\n- Already-known UBO declarations (to exclude): Famille Arnault\n- Known clients (always excluded as satellites): N/A\n- Additional context: Wrapper smoke test\n\nApply the methodology defined in your system instructions and return JSON only.",
+  "result": {
+    "model": "sonar-pro",
+    "usage": {
+      "prompt_tokens": 4262,
+      "completion_tokens": 778,
+      "total_tokens": 5040,
+      "search_context_size": "low",
+      "cost": {
+        "input_tokens_cost": 0.01279,
+        "output_tokens_cost": 0.01167,
+        "request_cost": 0.006,
+        "total_cost": 0.03046
+      }
+    },
+    "citations": [
+      "https://assets.worldbenchmarkingalliance.org/app/uploads/2021/06/LVMH-Moet-Hennessy-Louis-Vuitton-GB-2021-Detailed-Assessment.pdf",
+      "https://www.business-humanrights.org/documents/40955/2022_KTC-AF-Scorecard-LVMH-1.pdf",
+      "https://www.graduatesfirst.com/lvmh-assessment-test-guide",
+      "https://www.docsity.com/en/docs/inside-lvmh-retake-actual-assessment-quiz-exam-2025-questions-and-answers-verified/15211420/",
+      "https://www.lvmh.com/en/ethics-and-compliance",
+      "https://www.docsity.com/en/docs/inside-lvmh-final-exam-quiz-2026-questions-with-verified-solutions/14766508/",
+      "https://hbsp.harvard.edu/product/INS905-PDF-ENG"
+    ],
+    "content": "{\n  \"meta\": {\n    \"agent_name\": \"AGENT_OSINT_SATELLITES_CONTRADICTOIRE\",\n    \"schema_version\": \"product_v1\",\n    \"analysis_timestamp\": \"2026-04-27T21:00:00Z\",\n    \"jurisdiction_scope\": \"EU\",\n    \"monitoring_mode\": false,\n    \"run_id\": \"example-001\"\n  },\n  \"target\": {\n    \"input_name\": \"LVMH Moët Hennessy Louis Vuitton SE\",\n    \"resolved_name\": \"LVMH Moët Hennessy Louis Vuitton SE\",\n    \"registry_id\": \"775670417\",\n    \"country\": \"FR\",\n    \"activity\": \"Holding produits de luxe\",\n    \"identity_confidence\": \"HIGH\",\n    \"identity_resolution_note\": \"SIREN 775670417 confirmé comme entité holding du groupe LVMH en France.\"\n  },\n  \"assessment\": {\n    \"has_new_information\": false,\n    \"confidence\": \"INSUFFICIENT\",\n    \"recommended_action\": \"NO_ADDITIONAL_ENTITIES_TO_REVIEW\",\n    \"recommended_action_detail\": null,\n    \"degraded_mode\": {\n      \"active\": true,\n      \"type\": \"REGISTRY_PERIMETER_UNCONFIRMABLE\",\n      \"reason\": \"Résultats de recherche absents de sources LEVEL_1 (site corporate LVMH, registres officiels INPI/RNE/BODACC, rapports annuels, URD, filings AMF) et LEVEL_2 corroborés pour identification de satellites de contrôle effectif autres que mandataires/UBO déclarés.\"\n    },\n    \"registry_discrepancy_detected\": false,\n    \"satellites_high_confidence_count\": 0,\n    \"satellites_suspect_signals_count\": 0,\n    \"summary\": \"Analyse contradictoire sur PM cible LVMH Moët Hennessy Louis Vuitton SE (SIREN 775670417). Aucune entité physique ou morale n'est identifiée comme exerçant un rôle de contrôle effectif significatif (autre que >25% ownership ou mandataires déclarés) en l'absence de sources LEVEL_1 ou 2 concordantes. Périmètre registre non confirmable via résultats fournis ; famille Arnault exclue comme UBO connu. Pas de signaux de satellites de type COUNTRY_DIRECTOR, HOLDING_CONTROL ou SHADOW_DIRECTOR.\"\n  },\n  \"satellites\": [],\n  \"traceability\": {\n    \"registry_perimeter\": {\n      \"declared_mandataires_count\": null,\n      \"declared_ubo_count\": null,\n      \"known_group_entities_count\": null,\n      \"perimeter_confidence\": \"UNCONFIRMABLE\",\n      \"exclusion_note\": \"Exclusion systématique : mandataires sociaux déclarés (N/A fournis), UBO déclarés (Famille Arnault), actionnaires >25%, clients (N/A).\",\n      \"sources_used\": []\n    },\n    \"limits\": [\n      \"Absence de sources LEVEL_1 : site corporate LVMH (gouvernance/leadership), rapports annuels/URD, BODACC, INPI RBE, filings AMF.\",\n      \"Absence de sources LEVEL_2 corroborées : presse économique (Les Echos, Reuters) sur nominations DG-pays/holdings/JV.\",\n      \"Résultats fournis limités à benchmarks ESG et guides RH sans mention de rôles de contrôle effectif.\"\n    ]\n  },\n  \"decision_finale_humaine\": true\n}",
+    "json": {
+      "meta": {
+        "agent_name": "AGENT_OSINT_SATELLITES_CONTRADICTOIRE",
+        "schema_version": "product_v1",
+        "analysis_timestamp": "2026-04-27T21:00:00Z",
+        "jurisdiction_scope": "EU",
+        "monitoring_mode": false,
+        "run_id": "example-001"
+      },
+      "target": {
+        "input_name": "LVMH Moët Hennessy Louis Vuitton SE",
+        "resolved_name": "LVMH Moët Hennessy Louis Vuitton SE",
+        "registry_id": "775670417",
+        "country": "FR",
+        "activity": "Holding produits de luxe",
+        "identity_confidence": "HIGH",
+        "identity_resolution_note": "SIREN 775670417 confirmé comme entité holding du groupe LVMH en France."
+      },
+      "assessment": {
+        "has_new_information": false,
+        "confidence": "INSUFFICIENT",
+        "recommended_action": "NO_ADDITIONAL_ENTITIES_TO_REVIEW",
+        "recommended_action_detail": null,
+        "degraded_mode": {
+          "active": true,
+          "type": "REGISTRY_PERIMETER_UNCONFIRMABLE",
+          "reason": "Résultats de recherche absents de sources LEVEL_1 (site corporate LVMH, registres officiels INPI/RNE/BODACC, rapports annuels, URD, filings AMF) et LEVEL_2 corroborés pour identification de satellites de contrôle effectif autres que mandataires/UBO déclarés."
+        },
+        "registry_discrepancy_detected": false,
+        "satellites_high_confidence_count": 0,
+        "satellites_suspect_signals_count": 0,
+        "summary": "Analyse contradictoire sur PM cible LVMH Moët Hennessy Louis Vuitton SE (SIREN 775670417). Aucune entité physique ou morale n'est identifiée comme exerçant un rôle de contrôle effectif significatif (autre que >25% ownership ou mandataires déclarés) en l'absence de sources LEVEL_1 ou 2 concordantes. Périmètre registre non confirmable via résultats fournis ; famille Arnault exclue comme UBO connu. Pas de signaux de satellites de type COUNTRY_DIRECTOR, HOLDING_CONTROL ou SHADOW_DIRECTOR."
+      },
+      "satellites": [],
+      "traceability": {
+        "registry_perimeter": {
+          "declared_mandataires_count": null,
+          "declared_ubo_count": null,
+          "known_group_entities_count": null,
+          "perimeter_confidence": "UNCONFIRMABLE",
+          "exclusion_note": "Exclusion systématique : mandataires sociaux déclarés (N/A fournis), UBO déclarés (Famille Arnault), actionnaires >25%, clients (N/A).",
+          "sources_used": []
+        },
+        "limits": [
+          "Absence de sources LEVEL_1 : site corporate LVMH (gouvernance/leadership), rapports annuels/URD, BODACC, INPI RBE, filings AMF.",
+          "Absence de sources LEVEL_2 corroborées : presse économique (Les Echos, Reuters) sur nominations DG-pays/holdings/JV.",
+          "Résultats fournis limités à benchmarks ESG et guides RH sans mention de rôles de contrôle effectif."
+        ]
+      },
+      "decision_finale_humaine": true
+    },
+    "raw": {
+      "id": "df2567c4-fe85-4de5-b826-50594df68102",
+      "model": "sonar-pro",
+      "created": 1777324404,
+      "usage": {
+        "prompt_tokens": 4262,
+        "completion_tokens": 778,
+        "total_tokens": 5040,
+        "search_context_size": "low",
+        "cost": {
+          "input_tokens_cost": 0.01279,
+          "output_tokens_cost": 0.01167,
+          "request_cost": 0.006,
+          "total_cost": 0.03046
+        }
+      },
+      "citations": [
+        "https://assets.worldbenchmarkingalliance.org/app/uploads/2021/06/LVMH-Moet-Hennessy-Louis-Vuitton-GB-2021-Detailed-Assessment.pdf",
+        "https://www.business-humanrights.org/documents/40955/2022_KTC-AF-Scorecard-LVMH-1.pdf",
+        "https://www.graduatesfirst.com/lvmh-assessment-test-guide",
+        "https://www.docsity.com/en/docs/inside-lvmh-retake-actual-assessment-quiz-exam-2025-questions-and-answers-verified/15211420/",
+        "https://www.lvmh.com/en/ethics-and-compliance",
+        "https://www.docsity.com/en/docs/inside-lvmh-final-exam-quiz-2026-questions-with-verified-solutions/14766508/",
+        "https://hbsp.harvard.edu/product/INS905-PDF-ENG"
+      ],
+      "search_results": [
+        {
+          "title": "[PDF] LVMH Moët Hennessy Louis Vuitton Total weighted score",
+          "url": "https://assets.worldbenchmarkingalliance.org/app/uploads/2021/06/LVMH-Moet-Hennessy-Louis-Vuitton-GB-2021-Detailed-Assessment.pdf",
+          "last_updated": "2026-03-17",
+          "snippet": "The scores in this detailed assessment are unweighted (out of 2) and, therefore, change when weights are applied per the Gender Benchmark Methodology 2020.",
+          "source": "web"
+        },
+        {
+          "title": "[PDF] LVMH Moet Hennessy Louis Vuitton SE (LVMH)",
+          "url": "https://www.business-humanrights.org/documents/40955/2022_KTC-AF-Scorecard-LVMH-1.pdf",
+          "last_updated": "2025-08-14",
+          "snippet": "Risk Assessment, and Worker Voice. The company is encouraged to improve its performance and disclosure on the themes of Commitment &. Governance ...",
+          "source": "web"
+        },
+        {
+          "title": "LVMH Assessment Tests 2026 | Practice Guide - Graduates First",
+          "url": "https://www.graduatesfirst.com/lvmh-assessment-test-guide",
+          "date": "2025-06-10",
+          "last_updated": "2026-04-05",
+          "snippet": "A complete guide to the LVMH recruitment process 2026. Discover the best practice tips for the LVMH tests, interviews and behavioural tests.",
+          "source": "web"
+        },
+        {
+          "title": "INSIDE LVMH RETAKE ACTUAL ASSESSMENT QUIZ EXAM 2025 ...",
+          "url": "https://www.docsity.com/en/docs/inside-lvmh-retake-actual-assessment-quiz-exam-2025-questions-and-answers-verified/15211420/",
+          "snippet": "INSIDE LVMH RETAKE ACTUAL ASSESSMENT QUIZ EXAM 2025 QUESTIONS AND ANSWERS (VERIFIED), Exams of Nursing. Johns Hopkins University (JHU)Nursing. More info.",
+          "source": "web"
+        },
+        {
+          "title": "Ethics and compliance - LVMH",
+          "url": "https://www.lvmh.com/en/ethics-and-compliance",
+          "date": "2026-04-24",
+          "last_updated": "2026-04-24",
+          "snippet": "ETHICS & COMPLIANCE. Every action taken by the Group and its employees reflects LVMH's commitment to ethics and social and environmental responsibility.",
+          "source": "web"
+        },
+        {
+          "title": "INSIDE LVMH FINAL EXAM QUIZ 2026 QUESTIONS WITH ... - Docsity",
+          "url": "https://www.docsity.com/en/docs/inside-lvmh-final-exam-quiz-2026-questions-with-verified-solutions/14766508/",
+          "snippet": "bg1. INSIDE LVMH FINAL EXAM QUIZ 2026. QUESTIONS WITH VERIFIED SOLUTIONS ; bg2. ◉ Which business sector at LVMH generated the highest share of. revenues in 2023?",
+          "source": "web"
+        },
+        {
+          "title": "LVMH Moët Hennessy - Louis Vuitton: The Rise of Talentism",
+          "url": "https://hbsp.harvard.edu/product/INS905-PDF-ENG",
+          "date": "2014-02-24",
+          "snippet": "This case shows 1) the strategic importance of talent management 2) the best practice of LVMH in this regard. It illustrates how LVMH extracts synergies across ...",
+          "source": "web"
+        }
+      ],
+      "object": "chat.completion",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "{\n  \"meta\": {\n    \"agent_name\": \"AGENT_OSINT_SATELLITES_CONTRADICTOIRE\",\n    \"schema_version\": \"product_v1\",\n    \"analysis_timestamp\": \"2026-04-27T21:00:00Z\",\n    \"jurisdiction_scope\": \"EU\",\n    \"monitoring_mode\": false,\n    \"run_id\": \"example-001\"\n  },\n  \"target\": {\n    \"input_name\": \"LVMH Moët Hennessy Louis Vuitton SE\",\n    \"resolved_name\": \"LVMH Moët Hennessy Louis Vuitton SE\",\n    \"registry_id\": \"775670417\",\n    \"country\": \"FR\",\n    \"activity\": \"Holding produits de luxe\",\n    \"identity_confidence\": \"HIGH\",\n    \"identity_resolution_note\": \"SIREN 775670417 confirmé comme entité holding du groupe LVMH en France.\"\n  },\n  \"assessment\": {\n    \"has_new_information\": false,\n    \"confidence\": \"INSUFFICIENT\",\n    \"recommended_action\": \"NO_ADDITIONAL_ENTITIES_TO_REVIEW\",\n    \"recommended_action_detail\": null,\n    \"degraded_mode\": {\n      \"active\": true,\n      \"type\": \"REGISTRY_PERIMETER_UNCONFIRMABLE\",\n      \"reason\": \"Résultats de recherche absents de sources LEVEL_1 (site corporate LVMH, registres officiels INPI/RNE/BODACC, rapports annuels, URD, filings AMF) et LEVEL_2 corroborés pour identification de satellites de contrôle effectif autres que mandataires/UBO déclarés.\"\n    },\n    \"registry_discrepancy_detected\": false,\n    \"satellites_high_confidence_count\": 0,\n    \"satellites_suspect_signals_count\": 0,\n    \"summary\": \"Analyse contradictoire sur PM cible LVMH Moët Hennessy Louis Vuitton SE (SIREN 775670417). Aucune entité physique ou morale n'est identifiée comme exerçant un rôle de contrôle effectif significatif (autre que >25% ownership ou mandataires déclarés) en l'absence de sources LEVEL_1 ou 2 concordantes. Périmètre registre non confirmable via résultats fournis ; famille Arnault exclue comme UBO connu. Pas de signaux de satellites de type COUNTRY_DIRECTOR, HOLDING_CONTROL ou SHADOW_DIRECTOR.\"\n  },\n  \"satellites\": [],\n  \"traceability\": {\n    \"registry_perimeter\": {\n      \"declared_mandataires_count\": null,\n      \"declared_ubo_count\": null,\n      \"known_group_entities_count\": null,\n      \"perimeter_confidence\": \"UNCONFIRMABLE\",\n      \"exclusion_note\": \"Exclusion systématique : mandataires sociaux déclarés (N/A fournis), UBO déclarés (Famille Arnault), actionnaires >25%, clients (N/A).\",\n      \"sources_used\": []\n    },\n    \"limits\": [\n      \"Absence de sources LEVEL_1 : site corporate LVMH (gouvernance/leadership), rapports annuels/URD, BODACC, INPI RBE, filings AMF.\",\n      \"Absence de sources LEVEL_2 corroborées : presse économique (Les Echos, Reuters) sur nominations DG-pays/holdings/JV.\",\n      \"Résultats fournis limités à benchmarks ESG et guides RH sans mention de rôles de contrôle effectif.\"\n    ]\n  },\n  \"decision_finale_humaine\": true\n}"
+          },
+          "delta": {
+            "role": "assistant",
+            "content": ""
+          },
+          "finish_reason": "stop"
+        }
+      ]
+    }
+  }
+}

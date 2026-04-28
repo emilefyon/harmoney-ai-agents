@@ -1,0 +1,151 @@
+{
+  "schema_version": "1.0",
+  "risk_assessment": {
+    "has_new_information": false,
+    "is_at_risk": true,
+    "level": "High",
+    "score": 9,
+    "confidence": "HIGH",
+    "recommended_action": "Decline onboarding",
+    "recommended_action_detail": "Final criminal conviction for large-scale financial fraud places the subject in the highest risk category. Onboarding should be declined unless a formal exemption is signed off by senior compliance.",
+    "summary": "Bernard L. Madoff was convicted in 2009 of operating the largest Ponzi scheme in history. He pleaded guilty to 11 felony counts including securities fraud, investment adviser fraud, mail fraud, wire fraud, and money laundering, and was sentenced to 150 years in prison.",
+    "main_category": "Financial fraud",
+    "human_final_decision": true,
+    "degraded_mode": { "active": false, "type": "none", "reason": "" },
+    "score_breakdown": null,
+    "traceability_limits": { "known_limits": [] }
+  },
+  "distinct_signals": [
+    {
+      "distinct_signal_id": "DSIG-FRAUD-001",
+      "tag": "Final criminal conviction — securities fraud",
+      "category": "Financial fraud",
+      "qualification": "ESTABLISHED_FACT",
+      "intensity": "critical",
+      "confidence_level": "high",
+      "temporal_weight": "full",
+      "score_assigned": 9,
+      "explanation": "On 2009-03-12 Madoff pleaded guilty to all eleven felony counts in the Criminal Information without a plea agreement, admitting his role in a decades-long, multi-billion dollar Ponzi scheme. On 2009-06-29 Judge Denny Chin sentenced him to 150 years in prison.",
+      "evidence_sources": [
+        {
+          "source_name": "U.S. Department of Justice",
+          "source_url": "https://www.justice.gov/usao-sdny/programs/victim-witness-services/united-states-v-bernard-l-madoff-and-related-cases",
+          "source_date": "2009-03-12",
+          "evidence_level": "official"
+        }
+      ]
+    },
+    {
+      "distinct_signal_id": "DSIG-FRAUD-002",
+      "tag": "SEC civil enforcement action — partial judgment",
+      "category": "Regulatory enforcement",
+      "qualification": "ESTABLISHED_FACT",
+      "intensity": "strong",
+      "confidence_level": "high",
+      "temporal_weight": "full",
+      "score_assigned": 7,
+      "explanation": "The U.S. Securities and Exchange Commission filed a civil enforcement action and obtained an emergency asset freeze. On 2009-02-09 Madoff consented to a partial judgment imposing a permanent injunction.",
+      "evidence_sources": [
+        {
+          "source_name": "U.S. Securities and Exchange Commission",
+          "source_url": "https://www.sec.gov/enforcement-litigation/litigation-releases/lr-20889",
+          "source_date": "2009-02-09",
+          "evidence_level": "official"
+        }
+      ]
+    }
+  ],
+  "timeline_summary": [
+    {
+      "date": "2008-12-11",
+      "label": "Federal arrest",
+      "description": "Bernard L. Madoff was arrested in New York on a federal criminal complaint alleging securities fraud.",
+      "category": "Financial fraud",
+      "qualification": "ESTABLISHED_FACT",
+      "confidence": "HIGH",
+      "distinct_signal_ref": "DSIG-FRAUD-001"
+    },
+    {
+      "date": "2009-03-12",
+      "label": "Guilty plea",
+      "description": "Madoff pleaded guilty to all eleven felony counts in the Criminal Information.",
+      "category": "Financial fraud",
+      "qualification": "ESTABLISHED_FACT",
+      "confidence": "HIGH",
+      "distinct_signal_ref": "DSIG-FRAUD-001"
+    },
+    {
+      "date": "2009-06-29",
+      "label": "Sentencing",
+      "description": "U.S. District Judge Denny Chin sentenced Madoff to 150 years in prison.",
+      "category": "Financial fraud",
+      "qualification": "ESTABLISHED_FACT",
+      "confidence": "HIGH",
+      "distinct_signal_ref": "DSIG-FRAUD-001"
+    }
+  ],
+  "entities": {
+    "individuals": [
+      {
+        "name": "Bernard L. Madoff",
+        "extract": "Founder of Bernard L. Madoff Investment Securities LLC. Convicted in 2009 of operating the largest Ponzi scheme in history.",
+        "source_url": "https://www.justice.gov/usao-sdny/programs/victim-witness-services/united-states-v-bernard-l-madoff-and-related-cases"
+      }
+    ],
+    "organizations": [
+      {
+        "name": "Bernard L. Madoff Investment Securities LLC",
+        "extract": "Investment advisory firm at the heart of the Ponzi scheme. Subject to SEC asset freeze and SIPA liquidation.",
+        "source_url": "https://www.sec.gov/enforcement-litigation/litigation-releases/lr-20889"
+      },
+      {
+        "name": "U.S. Securities and Exchange Commission (SEC)",
+        "extract": "Filed civil enforcement action; obtained partial judgment with permanent injunction.",
+        "source_url": "https://www.sec.gov/enforcement-litigation/litigation-releases/lr-20889"
+      }
+    ],
+    "locations": [
+      { "name": "New York, USA" }
+    ]
+  },
+  "key_topics": [
+    {
+      "topic": "Ponzi scheme",
+      "summary": "Decades-long, multi-billion-dollar fraudulent investment scheme using earlier investors' funds to pay later investors."
+    },
+    {
+      "topic": "Securities fraud",
+      "summary": "Material misrepresentations and omissions in connection with the purchase or sale of securities."
+    },
+    {
+      "topic": "Money laundering",
+      "summary": "Three counts of money laundering charged in the criminal information."
+    }
+  ],
+  "needs_enhanced_due_diligence": true,
+  "edd_triggers": [
+    "Final criminal conviction for large-scale financial fraud",
+    "SEC enforcement action with permanent injunction"
+  ],
+  "human_final_decision": true,
+  "sources_reviewed": [
+    {
+      "source_name": "U.S. Department of Justice",
+      "source_url": "https://www.justice.gov/usao-sdny/programs/victim-witness-services/united-states-v-bernard-l-madoff-and-related-cases",
+      "source_date": "2009-03-12",
+      "category": "Official",
+      "evidence_level": "official",
+      "summary": "DOJ case page documenting the criminal information, plea, sentencing and victim compensation.",
+      "distinct_signal_ref": "DSIG-FRAUD-001"
+    },
+    {
+      "source_name": "U.S. Securities and Exchange Commission",
+      "source_url": "https://www.sec.gov/enforcement-litigation/litigation-releases/lr-20889",
+      "source_date": "2009-02-09",
+      "category": "Regulator",
+      "evidence_level": "official",
+      "summary": "SEC litigation release announcing the partial judgment imposing a permanent injunction.",
+      "distinct_signal_ref": "DSIG-FRAUD-002"
+    }
+  ]
+}

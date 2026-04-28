@@ -7,10 +7,19 @@ import {
   PromptDetail,
   ProblemDetails,
   RunSettings,
+  RunMode,
+  RunTiming,
+  CostBreakdown,
+  EstimatedCost,
   PerplexityResult,
   EnvelopeValidation,
+  EscalationInfo,
   AgentRunResponse,
   AgentListResponse,
+  Job,
+  JobStatus,
+  JobError,
+  JobAccepted,
 } from './schemas/run.js';
 import { allAgents } from './agents/registry.js';
 
@@ -19,11 +28,20 @@ export function buildOpenApiSpec() {
 
   registry.register('RunRequest', RunRequest);
   registry.register('RunSettings', RunSettings);
+  registry.register('RunMode', RunMode);
+  registry.register('EscalationInfo', EscalationInfo);
+  registry.register('RunTiming', RunTiming);
+  registry.register('CostBreakdown', CostBreakdown);
+  registry.register('EstimatedCost', EstimatedCost);
   registry.register('RunResponse', RunResponse);
   registry.register('PerplexityResult', PerplexityResult);
   registry.register('PromptListResponse', PromptListResponse);
   registry.register('PromptDetail', PromptDetail);
   registry.register('ProblemDetails', ProblemDetails);
+  registry.register('JobStatus', JobStatus);
+  registry.register('JobError', JobError);
+  registry.register('Job', Job);
+  registry.register('JobAccepted', JobAccepted);
 
   registry.registerComponent('securitySchemes', 'bearerAuth', {
     type: 'http',
@@ -82,7 +100,7 @@ export function buildOpenApiSpec() {
       method: 'post',
       path: `/v1/agents/${agent.slug}/run`,
       summary: `Run the ${agent.title} agent`,
-      description: `${agent.description}\n\nBacked by prompt \`${agent.promptName}\`.`,
+      description: `${agent.description}\n\nBacked by prompt \`${agent.promptName}\`. Pass \`settings.mode\` ∈ {\`triage\`, \`deep\`, \`auto\`} to choose the two-tier execution path. Synchronous — long runs may exceed client timeouts; for those use the \`/jobs\` variant.`,
       tags: ['agents'],
       security: [{ bearerAuth: [] }],
       request: {
@@ -98,7 +116,99 @@ export function buildOpenApiSpec() {
         504: { description: 'Gateway Timeout', content: problemRef },
       },
     });
+
+    registry.registerPath({
+      method: 'post',
+      path: `/v1/agents/${agent.slug}/report/pdf`,
+      summary: `Render a branded PDF report for the ${agent.title} agent`,
+      description: `Renders a branded A4 PDF from a previously obtained envelope (canonical schema 1.0). Body must include the original \`input\` (used to populate the cover-page subject block) and the \`envelope\` returned by the agent run.`,
+      tags: ['reports'],
+      security: [{ bearerAuth: [] }],
+      request: {
+        body: {
+          content: {
+            'application/json': {
+              schema: z.object({
+                input: agent.inputSchema,
+                envelope: z.any().openapi({ description: 'Canonical envelope (schema_version "1.0") as returned by the agent run.' }),
+                language: z.string().optional().openapi({ description: 'Section heading language: en | fr | nl. Defaults to en.' }),
+              }),
+            },
+          },
+          required: true,
+        },
+      },
+      responses: {
+        200: {
+          description: 'OK — application/pdf',
+          content: { 'application/pdf': { schema: { type: 'string', format: 'binary' } } },
+        },
+        400: { description: 'Bad Request — schema validation failed', content: problemRef },
+        401: { description: 'Unauthorized', content: problemRef },
+        404: { description: 'Unknown agent slug', content: problemRef },
+        415: { description: 'Agent does not support PDF reports', content: problemRef },
+        429: { description: 'Too Many Requests', content: problemRef },
+      },
+    });
+
+    registry.registerPath({
+      method: 'post',
+      path: `/v1/agents/${agent.slug}/jobs`,
+      summary: `Asynchronously run the ${agent.title} agent`,
+      description: `Same body as \`/run\`, but returns immediately with a \`job_id\`. Poll \`GET /v1/jobs/{job_id}\` for status and final result. Recommended for the negative-news agent in \`mode=deep\`, which can take several minutes.`,
+      tags: ['agents'],
+      security: [{ bearerAuth: [] }],
+      request: {
+        body: { content: { 'application/json': { schema: agent.bodySchema } }, required: true },
+      },
+      responses: {
+        202: { description: 'Accepted', content: { 'application/json': { schema: JobAccepted } } },
+        400: { description: 'Bad Request — schema validation failed', content: problemRef },
+        401: { description: 'Unauthorized', content: problemRef },
+        404: { description: 'Unknown agent slug', content: problemRef },
+        429: { description: 'Too Many Requests', content: problemRef },
+        503: { description: 'Job store unavailable', content: problemRef },
+      },
+    });
   }
+
+  registry.registerPath({
+    method: 'get',
+    path: '/v1/jobs/{job_id}',
+    summary: 'Get the status and result of an asynchronous agent job',
+    description:
+      'Returns the current state of a job created via `POST /v1/agents/{slug}/jobs`. The `result` field is populated when `status` is `completed`; the `error` field is populated when `status` is `failed`. Jobs are stored in-memory and evicted ~1h after completion.',
+    tags: ['jobs'],
+    security: [{ bearerAuth: [] }],
+    request: { params: z.object({ job_id: z.string() }) },
+    responses: {
+      200: { description: 'OK', content: { 'application/json': { schema: Job } } },
+      401: { description: 'Unauthorized', content: problemRef },
+      404: { description: 'Job not found or expired', content: problemRef },
+    },
+  });
+
+  registry.registerPath({
+    method: 'get',
+    path: '/v1/jobs/{job_id}/report/pdf',
+    summary: 'Render a branded PDF report for a completed agent job',
+    description:
+      'Best-effort while the job is still cached (~1h after completion). Returns 404 if the job has been evicted, 409 if it is not yet completed, 422 if the job has no envelope, 415 if the job\'s agent does not support PDF reports.',
+    tags: ['reports'],
+    security: [{ bearerAuth: [] }],
+    request: { params: z.object({ job_id: z.string() }) },
+    responses: {
+      200: {
+        description: 'OK — application/pdf',
+        content: { 'application/pdf': { schema: { type: 'string', format: 'binary' } } },
+      },
+      401: { description: 'Unauthorized', content: problemRef },
+      404: { description: 'Job not found or expired', content: problemRef },
+      409: { description: 'Job not yet completed', content: problemRef },
+      415: { description: 'Agent does not support PDF reports', content: problemRef },
+      422: { description: 'Job has no envelope to render', content: problemRef },
+    },
+  });
 
   registry.registerPath({
     method: 'post',

@@ -49,6 +49,18 @@ export function toVariables(input) {
   };
 }
 
+export function toReportSubject(input) {
+  const fields = [{ label: 'Country', value: input.declared_country }];
+  if (input.date_of_birth) fields.push({ label: 'Date of birth', value: input.date_of_birth });
+  if (input.nationality) fields.push({ label: 'Nationality', value: input.nationality });
+  if (input.declared_address) fields.push({ label: 'Declared address', value: input.declared_address });
+  if (input.professional_role) fields.push({ label: 'Role', value: input.professional_role });
+  if (Array.isArray(input.linked_pm_entities) && input.linked_pm_entities.length > 0) {
+    fields.push({ label: 'Linked entities', value: input.linked_pm_entities.join(', ') });
+  }
+  return { label: 'Individual', name: input.full_name, fields };
+}
+
 export const domiciliationRiskPpAgent = {
   slug: 'domiciliation-risk-pp',
   promptName: 'domiciliation_risk_pp',
@@ -58,4 +70,5 @@ export const domiciliationRiskPpAgent = {
   inputSchema: DomiciliationRiskPpInput,
   bodySchema: DomiciliationRiskPpRunRequest,
   toVariables,
+  toReportSubject,
 };

@@ -64,6 +64,14 @@ export function toVariables(input) {
   };
 }
 
+export function toReportSubject(input) {
+  const fields = [{ label: 'Country', value: input.country }];
+  if (input.registry_id) fields.push({ label: 'Registry ID', value: input.registry_id });
+  if (input.activity) fields.push({ label: 'Activity', value: input.activity });
+  if (input.group_context) fields.push({ label: 'Group context', value: input.group_context });
+  return { label: 'Organisation', name: input.pm_name, fields };
+}
+
 export const effectiveControlSatellitesAgent = {
   slug: 'effective-control-satellites',
   promptName: 'effective_control_satellites',
@@ -73,4 +81,5 @@ export const effectiveControlSatellitesAgent = {
   inputSchema: EffectiveControlSatellitesInput,
   bodySchema: EffectiveControlSatellitesRunRequest,
   toVariables,
+  toReportSubject,
 };

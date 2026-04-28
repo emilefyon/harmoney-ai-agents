@@ -37,6 +37,15 @@ export function toVariables(input) {
   };
 }
 
+export function toReportSubject(input) {
+  const fields = [{ label: 'Country', value: input.country }];
+  if (input.registry_id) fields.push({ label: 'Registry ID', value: input.registry_id });
+  if (input.legal_form) fields.push({ label: 'Legal form', value: input.legal_form });
+  if (input.activity) fields.push({ label: 'Activity', value: input.activity });
+  if (input.incorporation_date) fields.push({ label: 'Incorporation', value: input.incorporation_date });
+  return { label: 'Organisation', name: input.entity_name, fields };
+}
+
 export const pmActivityEconomicSubstanceAgent = {
   slug: 'pm-activity-economic-substance',
   promptName: 'pm_activity_economic_substance',
@@ -46,4 +55,5 @@ export const pmActivityEconomicSubstanceAgent = {
   inputSchema: PmActivityEconomicSubstanceInput,
   bodySchema: PmActivityEconomicSubstanceRunRequest,
   toVariables,
+  toReportSubject,
 };

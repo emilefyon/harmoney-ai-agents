@@ -16,7 +16,7 @@ const DEFAULT_SETTINGS = {
 };
 
 const MODEL_DEFAULTS = {
-  'sonar-deep-research': { max_tokens: 16000, timeout_ms: 300000 },
+  'sonar-deep-research': { max_tokens: 32000, timeout_ms: 300000 },
 };
 
 function extractBetween(content, startHeader, endHeader) {

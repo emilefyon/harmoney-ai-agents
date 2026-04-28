@@ -1,0 +1,266 @@
+{
+  "prompt": "business_relationships_vigilance",
+  "missing_variables": [],
+  "settings": {
+    "model": "sonar-pro",
+    "temperature": 0,
+    "return_citations": true
+  },
+  "user_message": "Run a Business Relationships & Value Chain Vigilance assessment for the following legal entity.\n\nENTITY:\n- Legal name: Carrefour SA\n- Country / jurisdiction: France\n- Registry identifier (SIREN / Companies House / etc.): 652014051\n- Official website (if known): https://www.carrefour.com\n- Declared activity / NAF / NACE: Grande distribution alimentaire et non-alimentaire\n\nOPTIONAL CONTEXT:\n- Additional context: Wrapper smoke test\n- Analysis date: 2026-04-27\n\nApply the methodology defined in your system instructions and return JSON only.",
+  "result": {
+    "model": "sonar-pro",
+    "usage": {
+      "prompt_tokens": 2692,
+      "completion_tokens": 1144,
+      "total_tokens": 3836,
+      "search_context_size": "low",
+      "cost": {
+        "input_tokens_cost": 0.00808,
+        "output_tokens_cost": 0.01716,
+        "request_cost": 0.006,
+        "total_cost": 0.03124
+      }
+    },
+    "citations": [
+      "https://pitchgrade.com/companies/carrefour",
+      "https://ivypanda.com/essays/carrefour-supermarkets-supply-chain-management/",
+      "https://www.assignmentmakers.com/assignment/value-chain-analysis-carrefour",
+      "https://www.carrefour.com/sites/default/files/2020-08/Managing%20our%20supply%20chain.pdf",
+      "https://www.carrefour.com/sites/default/files/2025-07/Business%20ethics%20Carrefour%20Group%202024.pdf",
+      "https://drpress.org/ojs/index.php/HBEM/article/view/7223",
+      "https://www.scribd.com/document/327503528/Carrefour",
+      "https://www.marketresearch.com/Quaintel-Research-v4272/Carrefour-SA-CA-PAR-Strategic-38800281/",
+      "https://www.carrefour.com/sites/default/files/2023-04/Carrefour%20DPEF_English%20Version.pdf"
+    ],
+    "content": "{\n  \"risk_assessment\": {\n    \"has_new_information\": \"No\",\n    \"is_at_risk\": \"No\",\n    \"level\": \"Bas\",\n    \"summary\": \"Carrefour SA est confirmée comme entité légale en France via SIREN 652014051, active dans la grande distribution. Les relations d'affaires identifiées concernent principalement des fournisseurs et partenaires stratégiques dans sa chaîne d'approvisionnement mondiale, sans signaux de vigilance observables dans les sources publiques. Aucune exposition à des secteurs sensibles, juridictions à haut risque ou mentions adverses n'est documentée. La transparence est assurée via les disclosures officielles du groupe.\",\n    \"main_category\": \"Official Partner Identification & Relationship Qualification\",\n    \"decision_finale_humaine\": true,\n    \"recommended_controls\": [\n      {\"action\": \"STANDARD_REVIEW\", \"detail\": \"Vérification périodique des disclosures fournisseurs via rapports CSR officiels.\"}\n    ],\n    \"traceability_limits\": {\n      \"known_limits\": [\"Absence de noms spécifiques de partenaires financiers, fournisseurs ou distributeurs dans les sources publiques consultées.\", \"Sources limitées à analyses générales et documents CSR sans détails nominatifs.\", \"Aucune information sur partenaires technologiques ou infrastructures digitales spécifiques.\", \"Information non disponible dans les sources publiques consultées à la date de l'analyse.\"]\n    }\n  },\n  \"entity_resolution\": {\n    \"status\": \"CONFIRMED\",\n    \"legal_name\": \"Carrefour SA\",\n    \"registry_id\": \"652014051\",\n    \"country\": \"France\",\n    \"legal_form\": \"SA\",\n    \"activity\": \"Grande distribution alimentaire et non-alimentaire\"\n  },\n  \"business_relationship_map\": [\n    {\n      \"partner_name\": \"Fournisseurs (non nommés)\",\n      \"relationship_type\": \"SUPPLIER\",\n      \"role_in_value_chain\": \"Approvisionnement en matières premières, produits semi-finis et finis\",\n      \"country\": \"\",\n      \"relationship_status\": \"CONFIRMED_RELATIONSHIP\",\n      \"source_basis\": [\n        {\"source_name\": \"Carrefour Group - Managing our supply chain\", \"source_url\": \"https://www.carrefour.com/sites/default/files/2020-08/Managing%20our%20supply%20chain.pdf\", \"source_date\": \"2020-08\", \"evidence_level\": \"PRIMARY_OFFICIAL\"},\n        {\"source_name\": \"Pitchgrade - Carrefour SA Business Model\", \"source_url\": \"https://pitchgrade.com/companies/carrefour\", \"source_date\": \"2026\", \"evidence_level\": \"SECONDARY_CORROBORATED\"}\n      ]\n    },\n    {\n      \"partner_name\": \"Distributeurs et alliances stratégiques (non nommés)\",\n      \"relationship_type\": \"DISTRIBUTOR\",\n      \"role_in_value_chain\": \"Distribution et réseaux de vente indirects\",\n      \"country\": \"\",\n      \"relationship_status\": \"PROBABLE_RELATIONSHIP\",\n      \"source_basis\": [\n        {\"source_name\": \"Pitchgrade - Carrefour SA Business Model\", \"source_url\": \"https://pitchgrade.com/companies/carrefour\", \"source_date\": \"2026\", \"evidence_level\": \"SECONDARY_CORROBORATED\"}\n      ]\n    },\n    {\n      \"partner_name\": \"Fournisseurs de technologie (non nommés)\",\n      \"relationship_type\": \"TECH_INFRA\",\n      \"role_in_value_chain\": \"Support aux opérations supply chain et IT\",\n      \"country\": \"\",\n      \"relationship_status\": \"PROBABLE_RELATIONSHIP\",\n      \"source_basis\": [\n        {\"source_name\": \"Pitchgrade - Carrefour SA Business Model\", \"source_url\": \"https://pitchgrade.com/companies/carrefour\", \"source_date\": \"2026\", \"evidence_level\": \"SECONDARY_CORROBORATED\"}\n      ]\n    }\n  ],\n  \"risk_entities_table\": [],\n  \"distinct_signals\": [],\n  \"complicity_signals\": [],\n  \"timeline_summary\": [\n    {\"date\": \"2026\", \"event\": \"Analyse SWOT et modèle économique confirmant partenaires clés (fournisseurs, distributeurs, tech providers)\", \"category\": \"Official Partner Identification & Relationship Qualification\", \"distinct_signal_ref\": null},\n    {\"date\": \"2024\", \"event\": \"Document éthique des affaires détaillant engagements avec stakeholders\", \"category\": \"Opacity, Traceability Gaps & Unverifiable Relationships\", \"distinct_signal_ref\": null},\n    {\"date\": \"2023-04\", \"event\": \"DPEF mentionnant relations avec plus de 240 fournisseurs en Espagne\", \"category\": \"Suppliers, Subcontractors & Service Providers\", \"distinct_signal_ref\": null},\n    {\"date\": \"2020-08\", \"event\": \"Engagement CSR sur évaluation risques supply chain et audits fournisseurs\", \"category\": \"Suppliers, Subcontractors & Service Providers\", \"distinct_signal_ref\": null}\n  ],\n  \"needs_enhanced_due_diligence\": false,\n  \"edd_triggers\": [],\n  \"decision_finale_humaine\": true\n}",
+    "json": {
+      "risk_assessment": {
+        "has_new_information": "No",
+        "is_at_risk": "No",
+        "level": "Bas",
+        "summary": "Carrefour SA est confirmée comme entité légale en France via SIREN 652014051, active dans la grande distribution. Les relations d'affaires identifiées concernent principalement des fournisseurs et partenaires stratégiques dans sa chaîne d'approvisionnement mondiale, sans signaux de vigilance observables dans les sources publiques. Aucune exposition à des secteurs sensibles, juridictions à haut risque ou mentions adverses n'est documentée. La transparence est assurée via les disclosures officielles du groupe.",
+        "main_category": "Official Partner Identification & Relationship Qualification",
+        "decision_finale_humaine": true,
+        "recommended_controls": [
+          {
+            "action": "STANDARD_REVIEW",
+            "detail": "Vérification périodique des disclosures fournisseurs via rapports CSR officiels."
+          }
+        ],
+        "traceability_limits": {
+          "known_limits": [
+            "Absence de noms spécifiques de partenaires financiers, fournisseurs ou distributeurs dans les sources publiques consultées.",
+            "Sources limitées à analyses générales et documents CSR sans détails nominatifs.",
+            "Aucune information sur partenaires technologiques ou infrastructures digitales spécifiques.",
+            "Information non disponible dans les sources publiques consultées à la date de l'analyse."
+          ]
+        }
+      },
+      "entity_resolution": {
+        "status": "CONFIRMED",
+        "legal_name": "Carrefour SA",
+        "registry_id": "652014051",
+        "country": "France",
+        "legal_form": "SA",
+        "activity": "Grande distribution alimentaire et non-alimentaire"
+      },
+      "business_relationship_map": [
+        {
+          "partner_name": "Fournisseurs (non nommés)",
+          "relationship_type": "SUPPLIER",
+          "role_in_value_chain": "Approvisionnement en matières premières, produits semi-finis et finis",
+          "country": "",
+          "relationship_status": "CONFIRMED_RELATIONSHIP",
+          "source_basis": [
+            {
+              "source_name": "Carrefour Group - Managing our supply chain",
+              "source_url": "https://www.carrefour.com/sites/default/files/2020-08/Managing%20our%20supply%20chain.pdf",
+              "source_date": "2020-08",
+              "evidence_level": "PRIMARY_OFFICIAL"
+            },
+            {
+              "source_name": "Pitchgrade - Carrefour SA Business Model",
+              "source_url": "https://pitchgrade.com/companies/carrefour",
+              "source_date": "2026",
+              "evidence_level": "SECONDARY_CORROBORATED"
+            }
+          ]
+        },
+        {
+          "partner_name": "Distributeurs et alliances stratégiques (non nommés)",
+          "relationship_type": "DISTRIBUTOR",
+          "role_in_value_chain": "Distribution et réseaux de vente indirects",
+          "country": "",
+          "relationship_status": "PROBABLE_RELATIONSHIP",
+          "source_basis": [
+            {
+              "source_name": "Pitchgrade - Carrefour SA Business Model",
+              "source_url": "https://pitchgrade.com/companies/carrefour",
+              "source_date": "2026",
+              "evidence_level": "SECONDARY_CORROBORATED"
+            }
+          ]
+        },
+        {
+          "partner_name": "Fournisseurs de technologie (non nommés)",
+          "relationship_type": "TECH_INFRA",
+          "role_in_value_chain": "Support aux opérations supply chain et IT",
+          "country": "",
+          "relationship_status": "PROBABLE_RELATIONSHIP",
+          "source_basis": [
+            {
+              "source_name": "Pitchgrade - Carrefour SA Business Model",
+              "source_url": "https://pitchgrade.com/companies/carrefour",
+              "source_date": "2026",
+              "evidence_level": "SECONDARY_CORROBORATED"
+            }
+          ]
+        }
+      ],
+      "risk_entities_table": [],
+      "distinct_signals": [],
+      "complicity_signals": [],
+      "timeline_summary": [
+        {
+          "date": "2026",
+          "event": "Analyse SWOT et modèle économique confirmant partenaires clés (fournisseurs, distributeurs, tech providers)",
+          "category": "Official Partner Identification & Relationship Qualification",
+          "distinct_signal_ref": null
+        },
+        {
+          "date": "2024",
+          "event": "Document éthique des affaires détaillant engagements avec stakeholders",
+          "category": "Opacity, Traceability Gaps & Unverifiable Relationships",
+          "distinct_signal_ref": null
+        },
+        {
+          "date": "2023-04",
+          "event": "DPEF mentionnant relations avec plus de 240 fournisseurs en Espagne",
+          "category": "Suppliers, Subcontractors & Service Providers",
+          "distinct_signal_ref": null
+        },
+        {
+          "date": "2020-08",
+          "event": "Engagement CSR sur évaluation risques supply chain et audits fournisseurs",
+          "category": "Suppliers, Subcontractors & Service Providers",
+          "distinct_signal_ref": null
+        }
+      ],
+      "needs_enhanced_due_diligence": false,
+      "edd_triggers": [],
+      "decision_finale_humaine": true
+    },
+    "raw": {
+      "id": "d929c53a-a0bf-41fb-b894-fc4c31986518",
+      "model": "sonar-pro",
+      "created": 1777324375,
+      "usage": {
+        "prompt_tokens": 2692,
+        "completion_tokens": 1144,
+        "total_tokens": 3836,
+        "search_context_size": "low",
+        "cost": {
+          "input_tokens_cost": 0.00808,
+          "output_tokens_cost": 0.01716,
+          "request_cost": 0.006,
+          "total_cost": 0.03124
+        }
+      },
+      "citations": [
+        "https://pitchgrade.com/companies/carrefour",
+        "https://ivypanda.com/essays/carrefour-supermarkets-supply-chain-management/",
+        "https://www.assignmentmakers.com/assignment/value-chain-analysis-carrefour",
+        "https://www.carrefour.com/sites/default/files/2020-08/Managing%20our%20supply%20chain.pdf",
+        "https://www.carrefour.com/sites/default/files/2025-07/Business%20ethics%20Carrefour%20Group%202024.pdf",
+        "https://drpress.org/ojs/index.php/HBEM/article/view/7223",
+        "https://www.scribd.com/document/327503528/Carrefour",
+        "https://www.marketresearch.com/Quaintel-Research-v4272/Carrefour-SA-CA-PAR-Strategic-38800281/",
+        "https://www.carrefour.com/sites/default/files/2023-04/Carrefour%20DPEF_English%20Version.pdf"
+      ],
+      "search_results": [
+        {
+          "title": "Carrefour SA: Business Model, SWOT Analysis, and Competitors 2026",
+          "url": "https://pitchgrade.com/companies/carrefour",
+          "date": "2026-01-31",
+          "last_updated": "2026-04-14",
+          "snippet": "Carrefour SWOT analysis 2026: Europe's largest retailer with $83.8B revenue competing against Tesco, Lidl, and Aldi across 30+ countries.",
+          "source": "web"
+        },
+        {
+          "title": "Carrefour Supermarket's Supply Chain Management Research Paper",
+          "url": "https://ivypanda.com/essays/carrefour-supermarkets-supply-chain-management/",
+          "date": "2024-05-10",
+          "last_updated": "2026-03-09",
+          "snippet": "This paper seeks to review the operations of the French-based multinational and the role that supply chain management plays in making its operations successful.",
+          "source": "web"
+        },
+        {
+          "title": "Report on Value Chain Analysis of Carrefour - Essay Writing Service",
+          "url": "https://www.assignmentmakers.com/assignment/value-chain-analysis-carrefour",
+          "date": "2025-01-29",
+          "last_updated": "2025-01-29",
+          "snippet": "In this paper an attempt has been made to analyze the value chain of one of the leading retail chains store of Carrefour. The objective of the paper is to ...",
+          "source": "web"
+        },
+        {
+          "title": "[PDF] Managing our supply chain - Carrefour Group",
+          "url": "https://www.carrefour.com/sites/default/files/2020-08/Managing%20our%20supply%20chain.pdf",
+          "last_updated": "2026-02-18",
+          "snippet": "The Carrefour group, which works with thousands of suppliers around the world, is thus committed to assessing the risks present in its supply chains, evaluating ...",
+          "source": "web"
+        },
+        {
+          "title": "[PDF] Business ethics Carrefour Group 2024.pdf",
+          "url": "https://www.carrefour.com/sites/default/files/2025-07/Business%20ethics%20Carrefour%20Group%202024.pdf",
+          "last_updated": "2026-04-19",
+          "snippet": "This document details the Carrefour Group's ethical commitments – in terms of the business relationships it has with all its stakeholders and in terms of the.",
+          "source": "web"
+        },
+        {
+          "title": "Financial Analysis and Valuation on Carrefour SA - Darcy & Roy Press",
+          "url": "https://drpress.org/ojs/index.php/HBEM/article/view/7223",
+          "date": "2023-11-04",
+          "snippet": "Based on previous data and recent news, the paper forecasts the revenue, costs, interest and tax charges and the balance sheet.",
+          "source": "web"
+        },
+        {
+          "title": "Carrefour's Global Supply Chain Management | PDF - Scribd",
+          "url": "https://www.scribd.com/document/327503528/Carrefour",
+          "last_updated": "2024-07-11",
+          "snippet": "Carrefour is a large French multinational retailer and hypermarket chain operating stores across Europe, Asia, Africa, and South America.",
+          "source": "web"
+        },
+        {
+          "title": "Carrefour SA (CA:PAR) Strategic SWOT Analysis and Financial ...",
+          "url": "https://www.marketresearch.com/Quaintel-Research-v4272/Carrefour-SA-CA-PAR-Strategic-38800281/",
+          "date": "2024-11-22",
+          "last_updated": "2025-10-07",
+          "snippet": "Valuable insights from the report enable investors and partners to make informed decisions regarding potential Collaborations, Investments, or ...",
+          "source": "web"
+        },
+        {
+          "title": "[PDF] CORPORATE SOCIAL RESPONSIBILITY AND PERFORMANCE",
+          "url": "https://www.carrefour.com/sites/default/files/2023-04/Carrefour%20DPEF_English%20Version.pdf",
+          "last_updated": "2026-03-31",
+          "snippet": "Carrefour's impacts must be assessed at the value chain level, and cover all ... Spain, Carrefour has business relationships with more than 240.",
+          "source": "web"
+        }
+      ],
+      "object": "chat.completion",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "{\n  \"risk_assessment\": {\n    \"has_new_information\": \"No\",\n    \"is_at_risk\": \"No\",\n    \"level\": \"Bas\",\n    \"summary\": \"Carrefour SA est confirmée comme entité légale en France via SIREN 652014051, active dans la grande distribution. Les relations d'affaires identifiées concernent principalement des fournisseurs et partenaires stratégiques dans sa chaîne d'approvisionnement mondiale, sans signaux de vigilance observables dans les sources publiques. Aucune exposition à des secteurs sensibles, juridictions à haut risque ou mentions adverses n'est documentée. La transparence est assurée via les disclosures officielles du groupe.\",\n    \"main_category\": \"Official Partner Identification & Relationship Qualification\",\n    \"decision_finale_humaine\": true,\n    \"recommended_controls\": [\n      {\"action\": \"STANDARD_REVIEW\", \"detail\": \"Vérification périodique des disclosures fournisseurs via rapports CSR officiels.\"}\n    ],\n    \"traceability_limits\": {\n      \"known_limits\": [\"Absence de noms spécifiques de partenaires financiers, fournisseurs ou distributeurs dans les sources publiques consultées.\", \"Sources limitées à analyses générales et documents CSR sans détails nominatifs.\", \"Aucune information sur partenaires technologiques ou infrastructures digitales spécifiques.\", \"Information non disponible dans les sources publiques consultées à la date de l'analyse.\"]\n    }\n  },\n  \"entity_resolution\": {\n    \"status\": \"CONFIRMED\",\n    \"legal_name\": \"Carrefour SA\",\n    \"registry_id\": \"652014051\",\n    \"country\": \"France\",\n    \"legal_form\": \"SA\",\n    \"activity\": \"Grande distribution alimentaire et non-alimentaire\"\n  },\n  \"business_relationship_map\": [\n    {\n      \"partner_name\": \"Fournisseurs (non nommés)\",\n      \"relationship_type\": \"SUPPLIER\",\n      \"role_in_value_chain\": \"Approvisionnement en matières premières, produits semi-finis et finis\",\n      \"country\": \"\",\n      \"relationship_status\": \"CONFIRMED_RELATIONSHIP\",\n      \"source_basis\": [\n        {\"source_name\": \"Carrefour Group - Managing our supply chain\", \"source_url\": \"https://www.carrefour.com/sites/default/files/2020-08/Managing%20our%20supply%20chain.pdf\", \"source_date\": \"2020-08\", \"evidence_level\": \"PRIMARY_OFFICIAL\"},\n        {\"source_name\": \"Pitchgrade - Carrefour SA Business Model\", \"source_url\": \"https://pitchgrade.com/companies/carrefour\", \"source_date\": \"2026\", \"evidence_level\": \"SECONDARY_CORROBORATED\"}\n      ]\n    },\n    {\n      \"partner_name\": \"Distributeurs et alliances stratégiques (non nommés)\",\n      \"relationship_type\": \"DISTRIBUTOR\",\n      \"role_in_value_chain\": \"Distribution et réseaux de vente indirects\",\n      \"country\": \"\",\n      \"relationship_status\": \"PROBABLE_RELATIONSHIP\",\n      \"source_basis\": [\n        {\"source_name\": \"Pitchgrade - Carrefour SA Business Model\", \"source_url\": \"https://pitchgrade.com/companies/carrefour\", \"source_date\": \"2026\", \"evidence_level\": \"SECONDARY_CORROBORATED\"}\n      ]\n    },\n    {\n      \"partner_name\": \"Fournisseurs de technologie (non nommés)\",\n      \"relationship_type\": \"TECH_INFRA\",\n      \"role_in_value_chain\": \"Support aux opérations supply chain et IT\",\n      \"country\": \"\",\n      \"relationship_status\": \"PROBABLE_RELATIONSHIP\",\n      \"source_basis\": [\n        {\"source_name\": \"Pitchgrade - Carrefour SA Business Model\", \"source_url\": \"https://pitchgrade.com/companies/carrefour\", \"source_date\": \"2026\", \"evidence_level\": \"SECONDARY_CORROBORATED\"}\n      ]\n    }\n  ],\n  \"risk_entities_table\": [],\n  \"distinct_signals\": [],\n  \"complicity_signals\": [],\n  \"timeline_summary\": [\n    {\"date\": \"2026\", \"event\": \"Analyse SWOT et modèle économique confirmant partenaires clés (fournisseurs, distributeurs, tech providers)\", \"category\": \"Official Partner Identification & Relationship Qualification\", \"distinct_signal_ref\": null},\n    {\"date\": \"2024\", \"event\": \"Document éthique des affaires détaillant engagements avec stakeholders\", \"category\": \"Opacity, Traceability Gaps & Unverifiable Relationships\", \"distinct_signal_ref\": null},\n    {\"date\": \"2023-04\", \"event\": \"DPEF mentionnant relations avec plus de 240 fournisseurs en Espagne\", \"category\": \"Suppliers, Subcontractors & Service Providers\", \"distinct_signal_ref\": null},\n    {\"date\": \"2020-08\", \"event\": \"Engagement CSR sur évaluation risques supply chain et audits fournisseurs\", \"category\": \"Suppliers, Subcontractors & Service Providers\", \"distinct_signal_ref\": null}\n  ],\n  \"needs_enhanced_due_diligence\": false,\n  \"edd_triggers\": [],\n  \"decision_finale_humaine\": true\n}"
+          },
+          "delta": {
+            "role": "assistant",
+            "content": ""
+          },
+          "finish_reason": "stop"
+        }
+      ]
+    }
+  }
+}

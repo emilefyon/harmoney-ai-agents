@@ -1,0 +1,142 @@
+{
+  "nav": {
+    "home": "Home",
+    "agents": "Agents",
+    "playground": "Playground",
+    "docs": "API docs"
+  },
+  "common": {
+    "tryItCta": "Try this agent",
+    "viewAllAgents": "View all 9 agents",
+    "openPlayground": "Open the playground",
+    "loading": "Loading…",
+    "error": "Something went wrong",
+    "errorRequestId": "Request ID: {id}",
+    "draftBanner": "Vertaling in voorbereiding — Engelstalige inhoud weergegeven."
+  },
+  "home": {
+    "heroEyebrow": "Harmoney AI Vigilance Agents",
+    "heroTitle": "A library of 9 specialised AML/CFT agents — auditable, primary-sourced, reviewer-ready.",
+    "heroSubtitle": "Compress hours of manual KYC/KYB work into structured evidence a compliance officer can sign off on.",
+    "heroCtaPrimary": "Explore the agents",
+    "heroCtaSecondary": "Open the playground",
+    "valuePropsTitle": "Why these agents",
+    "valueProps": {
+      "sources": {
+        "title": "Primary sources only",
+        "body": "Official registries, regulator communications, sanctions lists, judicial publications, and tier-1 press citing official sources. Never social media, blogs or forums."
+      },
+      "scoring": {
+        "title": "Consistent scoring",
+        "body": "Quantitative thresholds, dominant-signal logic, mitigants applied before floors, floors before caps. Two analysts on the same review get the same risk grade."
+      },
+      "trail": {
+        "title": "Full citation trail",
+        "body": "Every material statement is cited — source name, direct page link, and the date the source was published. Reproducible line by line."
+      },
+      "human": {
+        "title": "Human-in-the-loop",
+        "body": "Decision support for a compliance reviewer, never an automated compliance verdict. The reviewer always signs off."
+      }
+    },
+    "agentsPreviewTitle": "Meet the 9 agents",
+    "agentsPreviewSubtitle": "Run any agent on demand for a single counterparty, or chain several together for a high-risk file.",
+    "methodologyTitle": "Shared methodology",
+    "methodologyBody": "Every agent applies the same admissible-source rules. Official registries and regulator or judicial communications are treated as authoritative. Press is admissible only when it corroborates an official source. Aggregators are admissible only when cross-referenced with a primary source. Findings from different agents combine into a single risk file on the same entity, scored on the same scale."
+  },
+  "agents": {
+    "galleryTitle": "The 9 vigilance agents",
+    "gallerySubtitle": "Each agent applies the same source discipline and qualification scale, but covers a different risk surface.",
+    "filterAll": "All",
+    "filterOnboarding": "Onboarding",
+    "filterPeriodic": "Periodic review",
+    "filterEdd": "EDD",
+    "filterSanctions": "Sanctions",
+    "bestUsedFor": "Best used for"
+  },
+  "agentPage": {
+    "whatItCovers": "What it covers",
+    "methodology": "Methodology",
+    "sampleOutput": "Sample output",
+    "sampleOutputBody": "A real envelope from a previous run, rendered through the same viewer used in the playground.",
+    "sampleOutputMissing": "Sample output coming soon for this agent.",
+    "tryCta": "Run this agent in the playground"
+  },
+  "playground": {
+    "title": "Playground",
+    "subtitle": "Pick an agent, fill the form, run a real query against the local API.",
+    "pickAgent": "Pick an agent",
+    "settings": "Advanced settings",
+    "language": "Output language",
+    "model": "Model",
+    "temperature": "Temperature",
+    "run": "Run agent",
+    "running": "Running…",
+    "runningHint": "Diepgaand onderzoek kan 30 s tot 2 min duren.",
+    "runningElapsed": "Verstreken: {duration}",
+    "noResultYet": "Run the agent to see results here.",
+    "saveRun": "Save run",
+    "exportJson": "Export JSON",
+    "copyLink": "Copy link",
+    "promptTitle": "Prompt bekijken",
+    "promptOpen": "Tonen",
+    "promptSystem": "Systeemprompt",
+    "promptUserTemplate": "Gebruikersbericht-template",
+    "promptNotFound": "Prompt-bron niet beschikbaar.",
+    "rawOnlyTitle": "Model gaf tekst terug, geen JSON",
+    "rawOnlyDetail": "Het model produceerde uitvoer die niet als canonieke envelope kon worden geparseerd. De ruwe tekst staat hieronder — probeer opnieuw of verfijn de prompt als dit vaker gebeurt.",
+    "rawOnlyEmpty": "(geen inhoud)"
+  },
+  "form": {
+    "subjectType": "Subject type",
+    "fullName": "Full name",
+    "fullNamePlaceholder": "Jane Doe / ACME SA",
+    "country": "Country",
+    "countryPlaceholder": "FR, BE, LU…",
+    "dateOfBirth": "Date of birth",
+    "nationality": "Nationality",
+    "registryId": "Registry ID",
+    "registryIdPlaceholder": "SIREN, LEI, KvK number…",
+    "functionOrRole": "Function or role",
+    "activity": "Activity",
+    "aliases": "Aliases (comma-separated)",
+    "jurisdictionScope": "Jurisdiction scope",
+    "monitoringMode": "Monitoring mode",
+    "additionalContext": "Additional context",
+    "additionalContextPlaceholder": "Anything else the agent should know…",
+    "required": "Required"
+  },
+  "result": {
+    "metaCompletedIn": "Voltooid in {duration}",
+    "metaCost": "Geschatte kostprijs {amount}",
+    "metaCostHint": "Gebaseerd op gerapporteerd tokenverbruik en gepubliceerde tarieven — uitsluitend ter informatie.",
+    "tabSummary": "Summary",
+    "tabRaw": "Raw JSON",
+    "riskLevel": "Risk level",
+    "riskScore": "Score",
+    "confidence": "Confidence",
+    "recommendedAction": "Recommended action",
+    "summary": "Summary",
+    "eddBanner": "Enhanced Due Diligence recommended",
+    "signalsTitle": "Distinct signals",
+    "signalsEmpty": "No distinct signals.",
+    "qualification": "Qualification",
+    "intensity": "Intensity",
+    "evidence": "Evidence",
+    "sourcesTitle": "Sources reviewed",
+    "sourcesEmpty": "No sources listed.",
+    "sourceDate": "Date",
+    "sourceCategory": "Category",
+    "topicsTitle": "Key topics",
+    "copy": "Copy",
+    "copied": "Copied",
+    "download": "Download .json",
+    "downloadPdf": "PDF downloaden",
+    "downloadPdfPending": "PDF wordt gemaakt…",
+    "downloadPdfError": "Kon de PDF niet genereren."
+  },
+  "footer": {
+    "tagline": "Smarter workflows. Better decisions.",
+    "rights": "© Harmoney"
+  }
+}

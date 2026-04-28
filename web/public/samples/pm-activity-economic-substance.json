@@ -1,0 +1,386 @@
+{
+  "prompt": "pm_activity_economic_substance",
+  "missing_variables": [],
+  "settings": {
+    "model": "sonar-pro",
+    "temperature": 0,
+    "return_citations": true
+  },
+  "user_message": "Run a PM Activity & Economic Substance vigilance assessment for the following entity.\n\nENTITY:\n- Legal name: Société Générale SA\n- Country / jurisdiction: France\n- Registry identifier (SIREN / Companies House / etc.): 552120222\n- Declared legal form: SA cotée\n- Declared activity / NAF / NACE: Banque universelle\n- Incorporation date (if known): 1864-05-04\n\nPARAMETERS:\n- Monitoring mode: INITIAL        # true | false\n- Analysis date: 2026-04-27\n\nOPTIONAL CONTEXT:\n- Additional context: Wrapper smoke test\n\nApply the methodology defined in your system instructions and return JSON only.",
+  "result": {
+    "model": "sonar-pro",
+    "usage": {
+      "prompt_tokens": 5932,
+      "completion_tokens": 2528,
+      "total_tokens": 8460,
+      "search_context_size": "low",
+      "cost": {
+        "input_tokens_cost": 0.0178,
+        "output_tokens_cost": 0.03792,
+        "request_cost": 0.006,
+        "total_cost": 0.06172
+      }
+    },
+    "citations": [
+      "https://en.wikipedia.org/wiki/Soci%C3%A9t%C3%A9_G%C3%A9n%C3%A9rale",
+      "https://global.morningstar.com/fr/actions/rsultats-de-la-socit-gnrale-meilleurs-que-prvu-mais-la-rglementation-franaise-limite-la-poursuite-de-la-hausse",
+      "https://fr.wikipedia.org/wiki/Soci%C3%A9t%C3%A9_g%C3%A9n%C3%A9rale",
+      "https://usprogram.socgen.com/files/297.pdf",
+      "https://www.societegenerale.com/en",
+      "https://www.societegenerale.com/fr",
+      "https://particuliers.sg.fr/rse/finance-durable",
+      "https://www.sgs.com/en/news/2023/10/safeguards-14223-france-lists-two-hazardous-substances-for-reporting-in-products"
+    ],
+    "content": "```json\n{\n  \"risk_assessment\": {\n    \"has_new_information\": \"No\",\n    \"is_at_risk\": \"No\",\n    \"level\": \"Bas\",\n    \"score\": 1,\n    \"confidence\": \"HIGH\",\n    \"recommended_action\": \"NO_ACTION\",\n    \"recommended_action_detail\": \"\",\n    \"decision_finale_humaine\": true,\n    \"summary\": \"Société Générale SA (SIREN 552120222) est une banque universelle française cotée, fondée en 1864, troisième banque française par actifs totaux et sixième européenne[1][3]. Elle présente une activité économique substantielle démontrée par des revenus en hausse de 3% au T3 2025, un résultat net en augmentation de 19%, et des performances commerciales solides dans ses métiers[2][4]. Site web actif et présence opérationnelle confirmée en France et à l'international[5][6]. Aucun signal d'absence de substance ou d'activité dormante[2].\",\n    \"main_category\": \"Business Activity and Economic Substance\",\n    \"monitoring_mode_active\": false,\n    \"degraded_mode\": {\n      \"active\": false,\n      \"type\": \"NONE\",\n      \"reason\": \"\"\n    },\n    \"score_breakdown\": {\n      \"base_score\": 0,\n      \"dominant_signal_triggered\": null,\n      \"secondary_increment\": 0,\n      \"intensity_increment\": 0,\n      \"convergence_increment\": 0,\n      \"pattern_increment\": 0,\n      \"positive_substance_reduction\": -2,\n      \"gross_score\": 0,\n      \"mitigating_points\": 0,\n      \"mitigating_factors_applied\": [],\n      \"adjusted_score\": 0,\n      \"floor_triggered\": null,\n      \"floor_value\": 0,\n      \"final_score\": 1,\n      \"signal_comptabilisable_count\": 0\n    },\n    \"traceability_limits\": {\"known_limits\": []}\n  },\n  \"lifecycle_analysis\": {\n    \"company_status\": \"ACTIVE\",\n    \"company_age_months\": 19344,\n    \"creation_date\": \"04/05/1864\",\n    \"dissolution_date\": null,\n    \"liquidation_date\": null,\n    \"radiation_date\": null,\n    \"days_creation_to_dissolution\": 0,\n    \"event_density\": \"NORMAL\",\n    \"abrupt_sequence_detected\": false,\n    \"abrupt_sequence_description\": null\n  },\n  \"filing_analysis\": {\n    \"expected_filings\": 0,\n    \"published_filings\": 0,\n    \"filing_gap\": 0,\n    \"filing_continuity\": \"COHERENT\",\n    \"confidential_accounts_only\": false,\n    \"latest_filed_fiscal_year\": null,\n    \"financial_signals\": {\n      \"negative_equity\": false,\n      \"half_capital_loss\": false,\n      \"zero_revenue_consecutive_years\": 0\n    }\n  },\n  \"substance_analysis\": {\n    \"positive_indicators_found\": 3,\n    \"absence_indicators_found\": 0,\n    \"no_active_establishment\": false,\n    \"zero_employees_documented\": false,\n    \"no_verifiable_commercial_trace\": false,\n    \"structural_case_applied\": \"NONE\"\n  },\n  \"distinct_signals\": [\n    {\n      \"distinct_signal_id\": \"DSIG-SUB-001\",\n      \"tag\": \"POSITIVE_SUBSTANCE\",\n      \"fact_classification\": \"[2]\",\n      \"category\": \"Business Activity and Economic Substance\",\n      \"qualification\": \"ESTABLISHED_FACT\",\n      \"intensity\": \"strong\",\n      \"confidence_level\": \"high\",\n      \"temporal_weight\": \"recent\",\n      \"score_assigned\": 0,\n      \"dominant_signal\": false,\n      \"explanation\": \"Revenus en hausse de 3% T3 2025 et résultat net +19%, indiquant activité économique réelle et soutenue[2].\",\n      \"evidence_sources\": [\n        {\"source_name\": \"Morningstar\", \"source_url\": \"https://global.morningstar.com/fr/actions/rsultats-de-la-socit-gnrale-meilleurs-que-prvu-mais-la-rglementation-franaise-limite-la-poursuite-de-la-hausse\", \"source_date\": \"30/10/2025\", \"source_type\": \"SECONDARY_PRESS_COMPLEMENT\", \"evidence_level\": \"SECONDARY_CORROBORATED\"}\n      ]\n    },\n    {\n      \"distinct_signal_id\": \"DSIG-SUB-002\",\n      \"tag\": \"POSITIVE_SUBSTANCE\",\n      \"fact_classification\": \"[2]\",\n      \"category\": \"Operational Footprint and Market Presence\",\n      \"qualification\": \"ESTABLISHED_FACT\",\n      \"intensity\": \"strong\",\n      \"confidence_level\": \"high\",\n      \"temporal_weight\": \"full\",\n      \"score_assigned\": 0,\n      \"dominant_signal\": false,\n      \"explanation\": \"Troisième banque française par actifs, sixième européenne, supervisée par BCE comme institution significative[1][3].\",\n      \"evidence_sources\": [\n        {\"source_name\": \"Wikipedia EN\", \"source_url\": \"https://en.wikipedia.org/wiki/Soci%C3%A9t%C3%A9_G%C3%A9n%C3%A9rale\", \"source_date\": \"01/01/2026\", \"source_type\": \"SECONDARY_PRESS_COMPLEMENT\", \"evidence_level\": \"SECONDARY_CORROBORATED\"},\n        {\"source_name\": \"Wikipedia FR\", \"source_url\": \"https://fr.wikipedia.org/wiki/Soci%C3%A9t%C3%A9_g%C3%A9n%C3%A9rale\", \"source_date\": \"01/01/2026\", \"source_type\": \"SECONDARY_PRESS_COMPLEMENT\", \"evidence_level\": \"SECONDARY_CORROBORATED\"}\n      ]\n    },\n    {\n      \"distinct_signal_id\": \"DSIG-SUB-003\",\n      \"tag\": \"POSITIVE_SUBSTANCE\",\n      \"fact_classification\": \"[2]\",\n      \"category\": \"Financial Disclosure and Dormancy Indicators\",\n      \"qualification\": \"ESTABLISHED_FACT\",\n      \"intensity\": \"strong\",\n      \"confidence_level\": \"high\",\n      \"temporal_weight\": \"recent\",\n      \"score_assigned\": 0,\n      \"dominant_signal\": false,\n      \"explanation\": \"Document d'enregistrement universel 2025 publié avec performances commerciales solides et gestion des coûts disciplinée[4].\",\n      \"evidence_sources\": [\n        {\"source_name\": \"SocGen Universal Registration Document\", \"source_url\": \"https://usprogram.socgen.com/files/297.pdf\", \"source_date\": \"01/01/2026\", \"source_type\": \"SECONDARY_PRESS_COMPLEMENT\", \"evidence_level\": \"SECONDARY_CORROBORATED\"}\n      ]\n    }\n  ],\n  \"timeline_summary\": [\n    {\n      \"date\": \"30/10/2025\",\n      \"label\": \"Résultats T3 2025\",\n      \"description\": \"Hausse revenus 3%, résultat net +19%[2].\",\n      \"category\": \"Business Activity and Economic Substance\",\n      \"qualification\": \"ESTABLISHED_FACT\",\n      \"confidence\": \"HIGH\",\n      \"distinct_signal_ref\": \"DSIG-SUB-001\"\n    },\n    {\n      \"date\": \"01/01/2026\",\n      \"label\": \"Document d'enregistrement 2025\",\n      \"description\": \"Performances solides publiées[4].\",\n      \"category\": \"Financial Disclosure and Dormancy Indicators\",\n      \"qualification\": \"ESTABLISHED_FACT\",\n      \"confidence\": \"HIGH\",\n      \"distinct_signal_ref\": \"DSIG-SUB-003\"\n    },\n    {\n      \"date\": \"04/05/1864\",\n      \"label\": \"Incorporation\",\n      \"description\": \"Fondation de Société Générale SA[1].\",\n      \"category\": \"Company Lifecycle and Legal Status\",\n      \"qualification\": \"ESTABLISHED_FACT\",\n      \"confidence\": \"HIGH\",\n      \"distinct_signal_ref\": null\n    }\n  ],\n  \"entities\": [\n    {\n      \"entity_name\": \"Société Générale SA\",\n      \"siren\": \"552120222\",\n      \"declared_activity\": \"Banque universelle\",\n      \"naf_code\": null,\n      \"current_address\": \"La Défense, Paris, France\",\n      \"country\": \"France\",\n      \"company_status\": \"ACTIVE\",\n      \"structural_case\": \"NONE\",\n      \"categories\": [\"Business Activity and Economic Substance\", \"Operational Footprint and Market Presence\"]\n    }\n  ],\n  \"key_topics\": [\n    {\"topic\": \"Activité bancaire substantielle\", \"summary\": \"Revenus croissants et position systémique confirmés[1][2].\"},\n    {\"topic\": \"Présence opérationnelle\", \"summary\": \"Supervision BCE, site actif, rapports financiers publiés[4][5].\"}\n  ],\n  \"needs_enhanced_due_diligence\": false,\n  \"edd_triggers\": [],\n  \"decision_finale_humaine\": true,\n  \"articles_analyzed\": [\n    {\n      \"title\": \"Résultats de la Société Générale : meilleurs que prévu\",\n      \"url\": \"https://global.morningstar.com/fr/actions/rsultats-de-la-socit-gnrale-meilleurs-que-prvu-mais-la-rglementation-franaise-limite-la-poursuite-de-la-hausse\",\n      \"date\": \"30/10/2025\",\n      \"category\": \"Business Activity and Economic Substance\",\n      \"summary\": \"Hausse de 3% des revenus et +19% résultat net T3 2025\",\n      \"fact_classification\": \"[2]\",\n      \"lcft_relevance\": \"Démontre substance économique réelle et activité opérationnelle soutenue.\",\n      \"evidence_level\": \"SECONDARY_CORROBORATED\",\n      \"confidence_level\": \"high\",\n      \"distinct_signal_ref\": \"DSIG-SUB-001\"\n    },\n    {\n      \"title\": \"Société Générale - Wikipedia\",\n      \"url\": \"https://en.wikipedia.org/wiki/Soci%C3%A9t%C3%A9_G%C3%A9n%C3%A9rale\",\n      \"date\": \"01/01/2026\",\n      \"category\": \"Operational Footprint and Market Presence\",\n      \"summary\": \"Troisième banque française, sixième européenne, supervisée BCE\",\n      \"fact_classification\": \"[2]\",\n      \"lcft_relevance\": \"Confirme empreinte opérationnelle et supervision réglementaire.\",\n      \"evidence_level\": \"SECONDARY_CORROBORATED\",\n      \"confidence_level\": \"high\",\n      \"distinct_signal_ref\": \"DSIG-SUB-002\"\n    },\n    {\n      \"title\": \"Universal Registration Document 2025\",\n      \"url\": \"https://usprogram.socgen.com/files/297.pdf\",\n      \"date\": \"01/01/2026\",\n      \"category\": \"Financial Disclosure and Dormancy Indicators\",\n      \"summary\": \"Performances commerciales solides et comptes publiés\",\n      \"fact_classification\": \"[2]\",\n      \"lcft_relevance\": \"Preuve de continuité des dépôts de comptes et transparence financière.\",\n      \"evidence_level\": \"SECONDARY_CORROBORATED\",\n      \"confidence_level\": \"high\",\n      \"distinct_signal_ref\": \"DSIG-SUB-003\"\n    }\n  ]\n}\n```",
+    "json": {
+      "risk_assessment": {
+        "has_new_information": "No",
+        "is_at_risk": "No",
+        "level": "Bas",
+        "score": 1,
+        "confidence": "HIGH",
+        "recommended_action": "NO_ACTION",
+        "recommended_action_detail": "",
+        "decision_finale_humaine": true,
+        "summary": "Société Générale SA (SIREN 552120222) est une banque universelle française cotée, fondée en 1864, troisième banque française par actifs totaux et sixième européenne[1][3]. Elle présente une activité économique substantielle démontrée par des revenus en hausse de 3% au T3 2025, un résultat net en augmentation de 19%, et des performances commerciales solides dans ses métiers[2][4]. Site web actif et présence opérationnelle confirmée en France et à l'international[5][6]. Aucun signal d'absence de substance ou d'activité dormante[2].",
+        "main_category": "Business Activity and Economic Substance",
+        "monitoring_mode_active": false,
+        "degraded_mode": {
+          "active": false,
+          "type": "NONE",
+          "reason": ""
+        },
+        "score_breakdown": {
+          "base_score": 0,
+          "dominant_signal_triggered": null,
+          "secondary_increment": 0,
+          "intensity_increment": 0,
+          "convergence_increment": 0,
+          "pattern_increment": 0,
+          "positive_substance_reduction": -2,
+          "gross_score": 0,
+          "mitigating_points": 0,
+          "mitigating_factors_applied": [],
+          "adjusted_score": 0,
+          "floor_triggered": null,
+          "floor_value": 0,
+          "final_score": 1,
+          "signal_comptabilisable_count": 0
+        },
+        "traceability_limits": {
+          "known_limits": []
+        }
+      },
+      "lifecycle_analysis": {
+        "company_status": "ACTIVE",
+        "company_age_months": 19344,
+        "creation_date": "04/05/1864",
+        "dissolution_date": null,
+        "liquidation_date": null,
+        "radiation_date": null,
+        "days_creation_to_dissolution": 0,
+        "event_density": "NORMAL",
+        "abrupt_sequence_detected": false,
+        "abrupt_sequence_description": null
+      },
+      "filing_analysis": {
+        "expected_filings": 0,
+        "published_filings": 0,
+        "filing_gap": 0,
+        "filing_continuity": "COHERENT",
+        "confidential_accounts_only": false,
+        "latest_filed_fiscal_year": null,
+        "financial_signals": {
+          "negative_equity": false,
+          "half_capital_loss": false,
+          "zero_revenue_consecutive_years": 0
+        }
+      },
+      "substance_analysis": {
+        "positive_indicators_found": 3,
+        "absence_indicators_found": 0,
+        "no_active_establishment": false,
+        "zero_employees_documented": false,
+        "no_verifiable_commercial_trace": false,
+        "structural_case_applied": "NONE"
+      },
+      "distinct_signals": [
+        {
+          "distinct_signal_id": "DSIG-SUB-001",
+          "tag": "POSITIVE_SUBSTANCE",
+          "fact_classification": "[2]",
+          "category": "Business Activity and Economic Substance",
+          "qualification": "ESTABLISHED_FACT",
+          "intensity": "strong",
+          "confidence_level": "high",
+          "temporal_weight": "recent",
+          "score_assigned": 0,
+          "dominant_signal": false,
+          "explanation": "Revenus en hausse de 3% T3 2025 et résultat net +19%, indiquant activité économique réelle et soutenue[2].",
+          "evidence_sources": [
+            {
+              "source_name": "Morningstar",
+              "source_url": "https://global.morningstar.com/fr/actions/rsultats-de-la-socit-gnrale-meilleurs-que-prvu-mais-la-rglementation-franaise-limite-la-poursuite-de-la-hausse",
+              "source_date": "30/10/2025",
+              "source_type": "SECONDARY_PRESS_COMPLEMENT",
+              "evidence_level": "SECONDARY_CORROBORATED"
+            }
+          ]
+        },
+        {
+          "distinct_signal_id": "DSIG-SUB-002",
+          "tag": "POSITIVE_SUBSTANCE",
+          "fact_classification": "[2]",
+          "category": "Operational Footprint and Market Presence",
+          "qualification": "ESTABLISHED_FACT",
+          "intensity": "strong",
+          "confidence_level": "high",
+          "temporal_weight": "full",
+          "score_assigned": 0,
+          "dominant_signal": false,
+          "explanation": "Troisième banque française par actifs, sixième européenne, supervisée par BCE comme institution significative[1][3].",
+          "evidence_sources": [
+            {
+              "source_name": "Wikipedia EN",
+              "source_url": "https://en.wikipedia.org/wiki/Soci%C3%A9t%C3%A9_G%C3%A9n%C3%A9rale",
+              "source_date": "01/01/2026",
+              "source_type": "SECONDARY_PRESS_COMPLEMENT",
+              "evidence_level": "SECONDARY_CORROBORATED"
+            },
+            {
+              "source_name": "Wikipedia FR",
+              "source_url": "https://fr.wikipedia.org/wiki/Soci%C3%A9t%C3%A9_g%C3%A9n%C3%A9rale",
+              "source_date": "01/01/2026",
+              "source_type": "SECONDARY_PRESS_COMPLEMENT",
+              "evidence_level": "SECONDARY_CORROBORATED"
+            }
+          ]
+        },
+        {
+          "distinct_signal_id": "DSIG-SUB-003",
+          "tag": "POSITIVE_SUBSTANCE",
+          "fact_classification": "[2]",
+          "category": "Financial Disclosure and Dormancy Indicators",
+          "qualification": "ESTABLISHED_FACT",
+          "intensity": "strong",
+          "confidence_level": "high",
+          "temporal_weight": "recent",
+          "score_assigned": 0,
+          "dominant_signal": false,
+          "explanation": "Document d'enregistrement universel 2025 publié avec performances commerciales solides et gestion des coûts disciplinée[4].",
+          "evidence_sources": [
+            {
+              "source_name": "SocGen Universal Registration Document",
+              "source_url": "https://usprogram.socgen.com/files/297.pdf",
+              "source_date": "01/01/2026",
+              "source_type": "SECONDARY_PRESS_COMPLEMENT",
+              "evidence_level": "SECONDARY_CORROBORATED"
+            }
+          ]
+        }
+      ],
+      "timeline_summary": [
+        {
+          "date": "30/10/2025",
+          "label": "Résultats T3 2025",
+          "description": "Hausse revenus 3%, résultat net +19%[2].",
+          "category": "Business Activity and Economic Substance",
+          "qualification": "ESTABLISHED_FACT",
+          "confidence": "HIGH",
+          "distinct_signal_ref": "DSIG-SUB-001"
+        },
+        {
+          "date": "01/01/2026",
+          "label": "Document d'enregistrement 2025",
+          "description": "Performances solides publiées[4].",
+          "category": "Financial Disclosure and Dormancy Indicators",
+          "qualification": "ESTABLISHED_FACT",
+          "confidence": "HIGH",
+          "distinct_signal_ref": "DSIG-SUB-003"
+        },
+        {
+          "date": "04/05/1864",
+          "label": "Incorporation",
+          "description": "Fondation de Société Générale SA[1].",
+          "category": "Company Lifecycle and Legal Status",
+          "qualification": "ESTABLISHED_FACT",
+          "confidence": "HIGH",
+          "distinct_signal_ref": null
+        }
+      ],
+      "entities": [
+        {
+          "entity_name": "Société Générale SA",
+          "siren": "552120222",
+          "declared_activity": "Banque universelle",
+          "naf_code": null,
+          "current_address": "La Défense, Paris, France",
+          "country": "France",
+          "company_status": "ACTIVE",
+          "structural_case": "NONE",
+          "categories": [
+            "Business Activity and Economic Substance",
+            "Operational Footprint and Market Presence"
+          ]
+        }
+      ],
+      "key_topics": [
+        {
+          "topic": "Activité bancaire substantielle",
+          "summary": "Revenus croissants et position systémique confirmés[1][2]."
+        },
+        {
+          "topic": "Présence opérationnelle",
+          "summary": "Supervision BCE, site actif, rapports financiers publiés[4][5]."
+        }
+      ],
+      "needs_enhanced_due_diligence": false,
+      "edd_triggers": [],
+      "decision_finale_humaine": true,
+      "articles_analyzed": [
+        {
+          "title": "Résultats de la Société Générale : meilleurs que prévu",
+          "url": "https://global.morningstar.com/fr/actions/rsultats-de-la-socit-gnrale-meilleurs-que-prvu-mais-la-rglementation-franaise-limite-la-poursuite-de-la-hausse",
+          "date": "30/10/2025",
+          "category": "Business Activity and Economic Substance",
+          "summary": "Hausse de 3% des revenus et +19% résultat net T3 2025",
+          "fact_classification": "[2]",
+          "lcft_relevance": "Démontre substance économique réelle et activité opérationnelle soutenue.",
+          "evidence_level": "SECONDARY_CORROBORATED",
+          "confidence_level": "high",
+          "distinct_signal_ref": "DSIG-SUB-001"
+        },
+        {
+          "title": "Société Générale - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Soci%C3%A9t%C3%A9_G%C3%A9n%C3%A9rale",
+          "date": "01/01/2026",
+          "category": "Operational Footprint and Market Presence",
+          "summary": "Troisième banque française, sixième européenne, supervisée BCE",
+          "fact_classification": "[2]",
+          "lcft_relevance": "Confirme empreinte opérationnelle et supervision réglementaire.",
+          "evidence_level": "SECONDARY_CORROBORATED",
+          "confidence_level": "high",
+          "distinct_signal_ref": "DSIG-SUB-002"
+        },
+        {
+          "title": "Universal Registration Document 2025",
+          "url": "https://usprogram.socgen.com/files/297.pdf",
+          "date": "01/01/2026",
+          "category": "Financial Disclosure and Dormancy Indicators",
+          "summary": "Performances commerciales solides et comptes publiés",
+          "fact_classification": "[2]",
+          "lcft_relevance": "Preuve de continuité des dépôts de comptes et transparence financière.",
+          "evidence_level": "SECONDARY_CORROBORATED",
+          "confidence_level": "high",
+          "distinct_signal_ref": "DSIG-SUB-003"
+        }
+      ]
+    },
+    "raw": {
+      "id": "0031000f-d7b9-4c1f-9b15-a0455cda094b",
+      "model": "sonar-pro",
+      "created": 1777324642,
+      "usage": {
+        "prompt_tokens": 5932,
+        "completion_tokens": 2528,
+        "total_tokens": 8460,
+        "search_context_size": "low",
+        "cost": {
+          "input_tokens_cost": 0.0178,
+          "output_tokens_cost": 0.03792,
+          "request_cost": 0.006,
+          "total_cost": 0.06172
+        }
+      },
+      "citations": [
+        "https://en.wikipedia.org/wiki/Soci%C3%A9t%C3%A9_G%C3%A9n%C3%A9rale",
+        "https://global.morningstar.com/fr/actions/rsultats-de-la-socit-gnrale-meilleurs-que-prvu-mais-la-rglementation-franaise-limite-la-poursuite-de-la-hausse",
+        "https://fr.wikipedia.org/wiki/Soci%C3%A9t%C3%A9_g%C3%A9n%C3%A9rale",
+        "https://usprogram.socgen.com/files/297.pdf",
+        "https://www.societegenerale.com/en",
+        "https://www.societegenerale.com/fr",
+        "https://particuliers.sg.fr/rse/finance-durable",
+        "https://www.sgs.com/en/news/2023/10/safeguards-14223-france-lists-two-hazardous-substances-for-reporting-in-products"
+      ],
+      "search_results": [
+        {
+          "title": "Société Générale - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Soci%C3%A9t%C3%A9_G%C3%A9n%C3%A9rale",
+          "date": "2004-03-30",
+          "last_updated": "2026-04-16",
+          "snippet": "Société Générale is France's third largest bank by total assets after BNP Paribas and Crédit Agricole. ... It is also the sixth largest bank in Europe and the ...",
+          "source": "web"
+        },
+        {
+          "title": "Résultats de la Société Générale : meilleurs que prévu, mais la ...",
+          "url": "https://global.morningstar.com/fr/actions/rsultats-de-la-socit-gnrale-meilleurs-que-prvu-mais-la-rglementation-franaise-limite-la-poursuite-de-la-hausse",
+          "date": "2025-11-04",
+          "last_updated": "2026-03-24",
+          "snippet": "Société Générale GLE a enregistré une hausse de 3% de ses revenus au troisième trimestre, compte tenu des cessions réalisées tout au long de ...",
+          "source": "web"
+        },
+        {
+          "title": "Société générale - Wikipédia",
+          "url": "https://fr.wikipedia.org/wiki/Soci%C3%A9t%C3%A9_g%C3%A9n%C3%A9rale",
+          "date": "2005-06-18",
+          "last_updated": "2026-04-27",
+          "snippet": "Elle est la troisième banque française en matière d'actifs totaux après BNP Paribas et le Crédit agricole. Elle est aussi la sixième plus grande banque d'Europe ...",
+          "source": "web"
+        },
+        {
+          "title": "[PDF] Universal Registration Document 2025",
+          "url": "https://usprogram.socgen.com/files/297.pdf",
+          "last_updated": "2025-03-17",
+          "snippet": "... France”. Since its beginnings, Societe Generale has sought to modernise the economy based on the model of a diversified bank at the cutting ...",
+          "source": "web"
+        },
+        {
+          "title": "Home - Societe Generale Group",
+          "url": "https://www.societegenerale.com/en",
+          "date": "2020-05-05",
+          "last_updated": "2026-04-27",
+          "snippet": "A European leader in financial services forover 150 years, Societe Generale is built onthree complementary businesses: French Retail Banking ...",
+          "source": "web"
+        },
+        {
+          "title": "Accueil - Groupe Société Générale",
+          "url": "https://www.societegenerale.com/fr",
+          "date": "2020-05-05",
+          "last_updated": "2026-04-27",
+          "snippet": "Explorez nos actualités, communiqués de presse et études économiques pour mieux comprendre notre engagement et nos actions. Actualités.",
+          "source": "web"
+        },
+        {
+          "title": "Finance durable et investissement responsable - SG",
+          "url": "https://particuliers.sg.fr/rse/finance-durable",
+          "last_updated": "2026-03-30",
+          "snippet": "SG s'engage à être pionnier en finance durable : découvrez nos initiatives pour intégrer responsabilité environnementale et sociale dans nos solutions de ...",
+          "source": "web"
+        },
+        {
+          "title": "France Lists Two Hazardous Substances for Reporting in Products",
+          "url": "https://www.sgs.com/en/news/2023/10/safeguards-14223-france-lists-two-hazardous-substances-for-reporting-in-products",
+          "date": "2023-10-30",
+          "last_updated": "2026-03-19",
+          "snippet": "France has issued an initial list of two substances giving rise to an equivalent level of concern as SVHC for reporting.",
+          "source": "web"
+        }
+      ],
+      "object": "chat.completion",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "```json\n{\n  \"risk_assessment\": {\n    \"has_new_information\": \"No\",\n    \"is_at_risk\": \"No\",\n    \"level\": \"Bas\",\n    \"score\": 1,\n    \"confidence\": \"HIGH\",\n    \"recommended_action\": \"NO_ACTION\",\n    \"recommended_action_detail\": \"\",\n    \"decision_finale_humaine\": true,\n    \"summary\": \"Société Générale SA (SIREN 552120222) est une banque universelle française cotée, fondée en 1864, troisième banque française par actifs totaux et sixième européenne[1][3]. Elle présente une activité économique substantielle démontrée par des revenus en hausse de 3% au T3 2025, un résultat net en augmentation de 19%, et des performances commerciales solides dans ses métiers[2][4]. Site web actif et présence opérationnelle confirmée en France et à l'international[5][6]. Aucun signal d'absence de substance ou d'activité dormante[2].\",\n    \"main_category\": \"Business Activity and Economic Substance\",\n    \"monitoring_mode_active\": false,\n    \"degraded_mode\": {\n      \"active\": false,\n      \"type\": \"NONE\",\n      \"reason\": \"\"\n    },\n    \"score_breakdown\": {\n      \"base_score\": 0,\n      \"dominant_signal_triggered\": null,\n      \"secondary_increment\": 0,\n      \"intensity_increment\": 0,\n      \"convergence_increment\": 0,\n      \"pattern_increment\": 0,\n      \"positive_substance_reduction\": -2,\n      \"gross_score\": 0,\n      \"mitigating_points\": 0,\n      \"mitigating_factors_applied\": [],\n      \"adjusted_score\": 0,\n      \"floor_triggered\": null,\n      \"floor_value\": 0,\n      \"final_score\": 1,\n      \"signal_comptabilisable_count\": 0\n    },\n    \"traceability_limits\": {\"known_limits\": []}\n  },\n  \"lifecycle_analysis\": {\n    \"company_status\": \"ACTIVE\",\n    \"company_age_months\": 19344,\n    \"creation_date\": \"04/05/1864\",\n    \"dissolution_date\": null,\n    \"liquidation_date\": null,\n    \"radiation_date\": null,\n    \"days_creation_to_dissolution\": 0,\n    \"event_density\": \"NORMAL\",\n    \"abrupt_sequence_detected\": false,\n    \"abrupt_sequence_description\": null\n  },\n  \"filing_analysis\": {\n    \"expected_filings\": 0,\n    \"published_filings\": 0,\n    \"filing_gap\": 0,\n    \"filing_continuity\": \"COHERENT\",\n    \"confidential_accounts_only\": false,\n    \"latest_filed_fiscal_year\": null,\n    \"financial_signals\": {\n      \"negative_equity\": false,\n      \"half_capital_loss\": false,\n      \"zero_revenue_consecutive_years\": 0\n    }\n  },\n  \"substance_analysis\": {\n    \"positive_indicators_found\": 3,\n    \"absence_indicators_found\": 0,\n    \"no_active_establishment\": false,\n    \"zero_employees_documented\": false,\n    \"no_verifiable_commercial_trace\": false,\n    \"structural_case_applied\": \"NONE\"\n  },\n  \"distinct_signals\": [\n    {\n      \"distinct_signal_id\": \"DSIG-SUB-001\",\n      \"tag\": \"POSITIVE_SUBSTANCE\",\n      \"fact_classification\": \"[2]\",\n      \"category\": \"Business Activity and Economic Substance\",\n      \"qualification\": \"ESTABLISHED_FACT\",\n      \"intensity\": \"strong\",\n      \"confidence_level\": \"high\",\n      \"temporal_weight\": \"recent\",\n      \"score_assigned\": 0,\n      \"dominant_signal\": false,\n      \"explanation\": \"Revenus en hausse de 3% T3 2025 et résultat net +19%, indiquant activité économique réelle et soutenue[2].\",\n      \"evidence_sources\": [\n        {\"source_name\": \"Morningstar\", \"source_url\": \"https://global.morningstar.com/fr/actions/rsultats-de-la-socit-gnrale-meilleurs-que-prvu-mais-la-rglementation-franaise-limite-la-poursuite-de-la-hausse\", \"source_date\": \"30/10/2025\", \"source_type\": \"SECONDARY_PRESS_COMPLEMENT\", \"evidence_level\": \"SECONDARY_CORROBORATED\"}\n      ]\n    },\n    {\n      \"distinct_signal_id\": \"DSIG-SUB-002\",\n      \"tag\": \"POSITIVE_SUBSTANCE\",\n      \"fact_classification\": \"[2]\",\n      \"category\": \"Operational Footprint and Market Presence\",\n      \"qualification\": \"ESTABLISHED_FACT\",\n      \"intensity\": \"strong\",\n      \"confidence_level\": \"high\",\n      \"temporal_weight\": \"full\",\n      \"score_assigned\": 0,\n      \"dominant_signal\": false,\n      \"explanation\": \"Troisième banque française par actifs, sixième européenne, supervisée par BCE comme institution significative[1][3].\",\n      \"evidence_sources\": [\n        {\"source_name\": \"Wikipedia EN\", \"source_url\": \"https://en.wikipedia.org/wiki/Soci%C3%A9t%C3%A9_G%C3%A9n%C3%A9rale\", \"source_date\": \"01/01/2026\", \"source_type\": \"SECONDARY_PRESS_COMPLEMENT\", \"evidence_level\": \"SECONDARY_CORROBORATED\"},\n        {\"source_name\": \"Wikipedia FR\", \"source_url\": \"https://fr.wikipedia.org/wiki/Soci%C3%A9t%C3%A9_g%C3%A9n%C3%A9rale\", \"source_date\": \"01/01/2026\", \"source_type\": \"SECONDARY_PRESS_COMPLEMENT\", \"evidence_level\": \"SECONDARY_CORROBORATED\"}\n      ]\n    },\n    {\n      \"distinct_signal_id\": \"DSIG-SUB-003\",\n      \"tag\": \"POSITIVE_SUBSTANCE\",\n      \"fact_classification\": \"[2]\",\n      \"category\": \"Financial Disclosure and Dormancy Indicators\",\n      \"qualification\": \"ESTABLISHED_FACT\",\n      \"intensity\": \"strong\",\n      \"confidence_level\": \"high\",\n      \"temporal_weight\": \"recent\",\n      \"score_assigned\": 0,\n      \"dominant_signal\": false,\n      \"explanation\": \"Document d'enregistrement universel 2025 publié avec performances commerciales solides et gestion des coûts disciplinée[4].\",\n      \"evidence_sources\": [\n        {\"source_name\": \"SocGen Universal Registration Document\", \"source_url\": \"https://usprogram.socgen.com/files/297.pdf\", \"source_date\": \"01/01/2026\", \"source_type\": \"SECONDARY_PRESS_COMPLEMENT\", \"evidence_level\": \"SECONDARY_CORROBORATED\"}\n      ]\n    }\n  ],\n  \"timeline_summary\": [\n    {\n      \"date\": \"30/10/2025\",\n      \"label\": \"Résultats T3 2025\",\n      \"description\": \"Hausse revenus 3%, résultat net +19%[2].\",\n      \"category\": \"Business Activity and Economic Substance\",\n      \"qualification\": \"ESTABLISHED_FACT\",\n      \"confidence\": \"HIGH\",\n      \"distinct_signal_ref\": \"DSIG-SUB-001\"\n    },\n    {\n      \"date\": \"01/01/2026\",\n      \"label\": \"Document d'enregistrement 2025\",\n      \"description\": \"Performances solides publiées[4].\",\n      \"category\": \"Financial Disclosure and Dormancy Indicators\",\n      \"qualification\": \"ESTABLISHED_FACT\",\n      \"confidence\": \"HIGH\",\n      \"distinct_signal_ref\": \"DSIG-SUB-003\"\n    },\n    {\n      \"date\": \"04/05/1864\",\n      \"label\": \"Incorporation\",\n      \"description\": \"Fondation de Société Générale SA[1].\",\n      \"category\": \"Company Lifecycle and Legal Status\",\n      \"qualification\": \"ESTABLISHED_FACT\",\n      \"confidence\": \"HIGH\",\n      \"distinct_signal_ref\": null\n    }\n  ],\n  \"entities\": [\n    {\n      \"entity_name\": \"Société Générale SA\",\n      \"siren\": \"552120222\",\n      \"declared_activity\": \"Banque universelle\",\n      \"naf_code\": null,\n      \"current_address\": \"La Défense, Paris, France\",\n      \"country\": \"France\",\n      \"company_status\": \"ACTIVE\",\n      \"structural_case\": \"NONE\",\n      \"categories\": [\"Business Activity and Economic Substance\", \"Operational Footprint and Market Presence\"]\n    }\n  ],\n  \"key_topics\": [\n    {\"topic\": \"Activité bancaire substantielle\", \"summary\": \"Revenus croissants et position systémique confirmés[1][2].\"},\n    {\"topic\": \"Présence opérationnelle\", \"summary\": \"Supervision BCE, site actif, rapports financiers publiés[4][5].\"}\n  ],\n  \"needs_enhanced_due_diligence\": false,\n  \"edd_triggers\": [],\n  \"decision_finale_humaine\": true,\n  \"articles_analyzed\": [\n    {\n      \"title\": \"Résultats de la Société Générale : meilleurs que prévu\",\n      \"url\": \"https://global.morningstar.com/fr/actions/rsultats-de-la-socit-gnrale-meilleurs-que-prvu-mais-la-rglementation-franaise-limite-la-poursuite-de-la-hausse\",\n      \"date\": \"30/10/2025\",\n      \"category\": \"Business Activity and Economic Substance\",\n      \"summary\": \"Hausse de 3% des revenus et +19% résultat net T3 2025\",\n      \"fact_classification\": \"[2]\",\n      \"lcft_relevance\": \"Démontre substance économique réelle et activité opérationnelle soutenue.\",\n      \"evidence_level\": \"SECONDARY_CORROBORATED\",\n      \"confidence_level\": \"high\",\n      \"distinct_signal_ref\": \"DSIG-SUB-001\"\n    },\n    {\n      \"title\": \"Société Générale - Wikipedia\",\n      \"url\": \"https://en.wikipedia.org/wiki/Soci%C3%A9t%C3%A9_G%C3%A9n%C3%A9rale\",\n      \"date\": \"01/01/2026\",\n      \"category\": \"Operational Footprint and Market Presence\",\n      \"summary\": \"Troisième banque française, sixième européenne, supervisée BCE\",\n      \"fact_classification\": \"[2]\",\n      \"lcft_relevance\": \"Confirme empreinte opérationnelle et supervision réglementaire.\",\n      \"evidence_level\": \"SECONDARY_CORROBORATED\",\n      \"confidence_level\": \"high\",\n      \"distinct_signal_ref\": \"DSIG-SUB-002\"\n    },\n    {\n      \"title\": \"Universal Registration Document 2025\",\n      \"url\": \"https://usprogram.socgen.com/files/297.pdf\",\n      \"date\": \"01/01/2026\",\n      \"category\": \"Financial Disclosure and Dormancy Indicators\",\n      \"summary\": \"Performances commerciales solides et comptes publiés\",\n      \"fact_classification\": \"[2]\",\n      \"lcft_relevance\": \"Preuve de continuité des dépôts de comptes et transparence financière.\",\n      \"evidence_level\": \"SECONDARY_CORROBORATED\",\n      \"confidence_level\": \"high\",\n      \"distinct_signal_ref\": \"DSIG-SUB-003\"\n    }\n  ]\n}\n```"
+          },
+          "delta": {
+            "role": "assistant",
+            "content": ""
+          },
+          "finish_reason": "stop"
+        }
+      ]
+    }
+  }
+}

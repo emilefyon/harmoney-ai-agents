@@ -34,6 +34,33 @@ Out of scope (handled by dedicated agents): sanctions screening, PEP screening, 
 ## SEARCH STRATEGY
 
 **P1 — Identification & legal status (BLOCKING):**
+
+Country-aware identifier formats (use to validate `{{registry_id}}` against `{{country}}`; strip dots, spaces and hyphens before counting digits):
+- France — SIREN: 9 digits | SIRET: 14 digits | RCS number with city
+- Belgium — BCE/KBO: 10 digits, often written `0841.470.545` (leading `0` or `1` is canonical, never strip it)
+- Luxembourg — RCSL: `B` + up to 6 digits (e.g. `B12345`)
+- Netherlands — KvK: 8 digits
+- Germany — HRB/HRA: register-court prefix + number (e.g. `HRB 12345`)
+- United Kingdom — Companies House number: 8 alphanumeric (often digits, sometimes prefixed `SC`/`NI`/`OC`)
+- Switzerland — UID: `CHE-` + 9 digits + check (e.g. `CHE-123.456.789`)
+- Italy — Codice Fiscale (PI): 11 digits | REA + chamber prefix
+- Spain — CIF/NIF: letter + 7 digits + check char
+
+If the supplied identifier matches the format expected for the declared `{{country}}` (after normalising punctuation), proceed with retrieval against that country's official registry. Do NOT trigger `HOMONYMY_UNRESOLVED` for a format question — that mode is reserved for ≥2 actually-found, plausibly-matching entities. If the identifier does not match the declared country's format, document the mismatch in `traceability_limits` and still attempt name-based retrieval before declaring degraded mode.
+
+Country-specific official-registry domains to target (ALWAYS issue at least one query restricted to the country's primary registry domain — `site:<domain>` or equivalent — before declaring `ZERO_REGISTRY_DATA`):
+- France — `data.inpi.fr`, `annuaire-entreprises.data.gouv.fr`, `bodacc.fr`, `infogreffe.fr`
+- Belgium — `kbopub.economie.fgov.be` (Crossroads Bank for Enterprises / KBO), `consult.cbso.nbb.be` (filed accounts), `ejustice.just.fgov.be` (Moniteur belge / Belgisch Staatsblad)
+- Luxembourg — `lbr.lu` (Luxembourg Business Registers)
+- Netherlands — `kvk.nl`
+- Germany — `unternehmensregister.de`, `handelsregister.de`
+- United Kingdom — `find-and-update.company-information.service.gov.uk` (Companies House)
+- Switzerland — `zefix.ch`, `uid.admin.ch`
+- Italy — `registroimprese.it`
+- Spain — `registradores.org`, `borme.es`
+If the country-restricted query returns zero results AND a name-based query against the official registry also returns zero results, then `ZERO_REGISTRY_DATA` is appropriate. Generic web noise referring to French SIREN/SIRET sources for a non-French entity is NOT evidence — discard it.
+
+Search vocabulary (cross-jurisdictional):
 RCS | RNE | INPI | KBIS | tribunal de commerce | greffe | radiation RCS | SIREN | SIRET | BODACC | publication légale |
 acte de constitution / dissolution / liquidation / radiation | clôture de liquidation | rapport du liquidateur | mise en liquidation |
 INSEE | data.gouv.fr | code NAF | code APE | forme juridique | date de création | date de radiation |
@@ -233,7 +260,7 @@ Action definitions:
 
 ## DEGRADED MODES
 
-- A — `HOMONYMY_UNRESOLVED`: ≥2 plausible matches unresolvable. `level=OFF`, `score=0`, `signals=[]`. Action `STANDARD_REVIEW`. Request SIREN, certified Kbis.
+- A — `HOMONYMY_UNRESOLVED`: ≥2 plausible **actual entity matches** found in admissible registries that cannot be disambiguated with the supplied identifiers. `level=OFF`, `score=0`, `signals=[]`. Action `STANDARD_REVIEW`. Request the country-appropriate certified extract (BCE/KBO for Belgium, Kbis for France, Companies House cert for UK, KvK for NL, etc.). NEVER trigger this mode for a format question or single-identifier ambiguity — exhaust name + jurisdiction lookup first.
 - B — `ZERO_REGISTRY_DATA`: SIREN confirmed, zero acts/filings found in P1 sources. Trigger LIFECYCLE_ACTIVE_NO_ACTS if company >6 months. `level=Medium` minimum, floor 5 if >18 months. Request greffe verification, Kbis, filed accounts or exemption justification.
 - C — `PARTIAL_DATA_GAPS`: significant gaps (missing fiscal years, conflicting data). Document in `traceability_limits`. Score only confirmed signals. `confidence` LOW or MEDIUM. Request full filing history, BODACC cross-check, counterpart confirmation.
 - D — `FOREIGN_REGISTRY_INACCESSIBLE`: foreign official registry not publicly accessible. Trigger `FOREIGN_OPERATOR_UNVERIFIABLE` +1. `confidence` LOW or INSUFFICIENT. Request certified extract from foreign official registry.
@@ -373,7 +400,7 @@ Run a PM Activity & Economic Substance vigilance assessment for the following en
 ENTITY:
 - Legal name: {{entity_name}}
 - Country / jurisdiction: {{country}}
-- Registry identifier (SIREN / Companies House / etc.): {{registry_id}}
+- Registry identifier (SIREN, BCE/KBO, Companies House, KvK, HRB, etc.): {{registry_id}}
 - Declared legal form: {{legal_form}}
 - Declared activity / NAF / NACE: {{activity}}
 - Incorporation date (if known): {{incorporation_date}}

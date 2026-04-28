@@ -2,18 +2,22 @@ const PERPLEXITY_URL = 'https://api.perplexity.ai/chat/completions';
 
 function tryParseJson(content) {
   if (typeof content !== 'string') return null;
-  const fence = content.match(/```(?:json)?\s*\n([\s\S]*?)\n```/i);
-  const candidate = fence ? fence[1] : content;
-  try {
-    return JSON.parse(candidate.trim());
-  } catch {
-    const first = candidate.indexOf('{');
-    const last = candidate.lastIndexOf('}');
+  // sonar-deep-research wraps reasoning in <think>...</think>. Strip it so
+  // stray braces inside the chain-of-thought don't confuse the extractor.
+  const stripped = content.replace(/<think>[\s\S]*?<\/think>/gi, '').trim();
+  const candidates = [stripped];
+  const fence = stripped.match(/```(?:json)?\s*\n([\s\S]*?)\n```/i);
+  if (fence) candidates.unshift(fence[1]);
+  for (const c of candidates) {
+    const trimmed = c.trim();
+    try { return JSON.parse(trimmed); } catch {}
+    const first = trimmed.indexOf('{');
+    const last = trimmed.lastIndexOf('}');
     if (first !== -1 && last > first) {
-      try { return JSON.parse(candidate.slice(first, last + 1)); } catch {}
+      try { return JSON.parse(trimmed.slice(first, last + 1)); } catch {}
     }
-    return null;
   }
+  return null;
 }
 
 export async function callPerplexity({ apiKey, systemPrompt, userMessage, settings }) {
@@ -81,6 +85,7 @@ export async function callPerplexity({ apiKey, systemPrompt, userMessage, settin
   }
 
   const choice = payload?.choices?.[0]?.message?.content;
+  const finishReason = payload?.choices?.[0]?.finish_reason ?? null;
   const parsedJson = tryParseJson(choice);
 
   return {
@@ -88,6 +93,7 @@ export async function callPerplexity({ apiKey, systemPrompt, userMessage, settin
     usage: payload?.usage ?? null,
     citations: payload?.citations ?? null,
     content: choice ?? null,
+    finish_reason: finishReason,
     json: parsedJson,
     raw: payload,
   };

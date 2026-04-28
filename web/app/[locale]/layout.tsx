@@ -1,0 +1,30 @@
+import { NextIntlClientProvider, hasLocale } from 'next-intl';
+import { setRequestLocale } from 'next-intl/server';
+import { notFound } from 'next/navigation';
+import { routing } from '@/lib/i18n/routing';
+import { Nav } from '@/components/brand/Nav';
+import { Footer } from '@/components/brand/Footer';
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export default async function LocaleLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) notFound();
+  setRequestLocale(locale);
+
+  return (
+    <NextIntlClientProvider>
+      <Nav />
+      <main className="min-h-[calc(100vh-4rem)]">{children}</main>
+      <Footer />
+    </NextIntlClientProvider>
+  );
+}
